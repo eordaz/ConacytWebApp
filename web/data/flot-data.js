@@ -7,7 +7,7 @@ $(document).ready(function() {
     function plot() {
         var sin = [],
             cos = [];
-        for (var i = 0; i < 12; i += 0.2) {
+        for (var i = 0; i < 4; i += 1) {
             sin.push([i, Math.sin(i + offset)]);
             cos.push([i, Math.cos(i + offset)]);
         }
@@ -26,24 +26,24 @@ $(document).ready(function() {
             },
             yaxis: {
                 min: -1.2,
-                max: 1.2
+                max: 1
             },
             tooltip: true,
             tooltipOpts: {
-                content: "'%s' of %x.1 is %y.4",
+                content: "'%s' of %x.2 is %y.4",
                 shifts: {
-                    x: -60,
-                    y: 25
+                    x: -10,
+                    y: 20
                 }
             }
         };
 
         var plotObj = $.plot($("#flot-line-chart"), [{
                 data: sin,
-                label: "sin(x)"
+                label: "a&ntilde;o"
             }, {
                 data: cos,
-                label: "cos(x)"
+                label: "proyectos"
             }],
             options);
     }

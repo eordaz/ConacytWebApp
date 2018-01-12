@@ -1,6 +1,6 @@
 $(function() {
 
-   /* Morris.Area({
+    Morris.Area({
         element: 'morris-area-chart',
         data: [{
             period: '2016 Q1',
@@ -51,7 +51,7 @@ $(function() {
         resize: true
     });
 
-    Morris.Donut({
+    /*Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
             label: "Download Sales",

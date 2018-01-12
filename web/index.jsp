@@ -57,9 +57,9 @@
                         <h3 class="panel-title">&nbsp;</h3>
                         <h3 align="center" class="panel-title">Modulo de Administración de Recursos CONACYT </h3>
                         <p align="center" class="panel-title">&nbsp;</p>
-                  </div>
+                    </div>
                     <div class="panel-body">
-                       <FORM  method="POST">
+                        <FORM  method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Usuario" name="usuario" type="password" id="usuario">
@@ -72,10 +72,10 @@
                                         <input name="remember" type="checkbox" value="Recordar">Recordar
                                     </label>
                                 </div>
-                            	</fieldset>    
-                                </form>
+                            </fieldset>    
+                        </form>
                                 <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                                 <a href="inicio.jsp" class="btn btn-lg btn-success btn-block">Login</a>  
+                            <a href="inicio.jsp" class="btn btn-lg btn-success btn-block">Login</a>  
                             
                         
                       <!--   <FORM ACTION="parametros.jsp" method="POST">  

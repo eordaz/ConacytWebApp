@@ -132,25 +132,25 @@
                                     <tr class="odd gradeX">
                                         <td>1</td>
                                         <td>RESPUESTA DEL SOCIO-ECOSISTEMA DEL BOSQUE TROPICAL SECO DE LA REGIÓN DE CHAMELA AL HURACÁN JOVA: UN EVENTO CATASTRÓFICO INFRECUENTA</td>
-                                        <td>1609275.00</td>
+                                        <td>$1,609,275.00</td>
                                         <td>2017-12-20 10:50:27.050</td>
                                     </tr>
                                     <tr class="even gradeC">
                                     	<td>2</td>
                                         <td>BIOSEGURIDAD Y MONITOREO PARA LOS PACIENTES, ANIMALES Y USUARIOS DEL LABORATORIO  \r\n NACIONAL DE IMAGENOLOGÍA POR RESONANCIA MAGNETICA DEL INB. \r\n</td>
-                                        <td>1500000.00</td>
+                                        <td>$1,500,000.00</td>
                                         <td>2017-12-20 10:50:27.150</td>
                                     </tr>
                                     <tr class="odd gradeX">
                                         <td>3</td>
                                         <td>Carcajes y Especies con Potenciales, Álgebras de Superficies y Teoría de Teichmüller: Teoría, Algoritmos y Visualización.</td>
-                                        <td>897000.00</td>
+                                        <td>$897,000.00</td>
                                         <td>2017-12-20 10:50:27.167</td>
                                     </tr>
                                     <tr class="even gradeC">
                                     	<td>4</td>
                                         <td>Transiciones de fase en sistemas lejos de equilibrio (continuación).</td>
-                                        <td>1479706.00</td>
+                                        <td>$1,479,706.00</td>
                                         <td>2017-12-20 10:50:27.173</td>
                                     </tr>
                                 </tbody>
@@ -162,6 +162,34 @@
                 </div>
                 </div>
              </div>
+                
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    Resumen Proyectos Conacyt
+                            </div>       
+                                <div class="panel-body">
+                                    <div id="morris-area-chart">
+                        
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                    Ingresos trimestrales Conacyt
+                            </div>       
+                                <div class="panel-body">
+                                    <div class="flot-chart">
+                                        <div class="flot-chart-content" id="flot-bar-chart"></div>
+                                    </div>                                    
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                    
 			                
             </div>
             <!-- /.row -->
