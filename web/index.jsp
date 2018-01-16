@@ -74,7 +74,7 @@
                             	</fieldset>    
                                 </form>
                                 <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                                 <a href="auditoria.jsp" type="submit" class="btn btn-lg btn-success btn-block">Login</a>  
+                                 <a href="inicio.jsp" type="submit" class="btn btn-lg btn-success btn-block">Login</a>  
                             
                         
                       <!--   <FORM ACTION="parametros.jsp" method="POST">  
