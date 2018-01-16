@@ -1,18 +1,3 @@
-<jsp:useBean id = "ProyectoBean" scope = "page"
-   class = "com.unam.pu.conacyt.beans.BeanProyecto" />
-<jsp:useBean id = "Proyecto" scope = "page"
-   class = "com.unam.pu.conacyt.beans.BeanDatosProyecto" />    
-<%
-    //String direccion = request.getSession().getServletContext().getRealPath("WEB-INF/img/Upload/");
-
-	ServletContext servletContext = request.getSession().getServletContext();
-	String relativeWebPath = "img/";
-	//String relativeWebPath = "WEB-INF/img/";
-	String absoluteDiskPath = servletContext.getRealPath(relativeWebPath);
-	
-	System.out.println(absoluteDiskPath);
-%>
-
 <%@page language="java" import="java.util.*" %>
 <%@page errorPage="error.jsp" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

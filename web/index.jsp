@@ -3,7 +3,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,10 +31,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
      <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+     <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src=vendor/bootstrap/js/bootstrap.min.js></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
@@ -57,9 +56,9 @@
                         <h3 class="panel-title">&nbsp;</h3>
                         <h3 align="center" class="panel-title">Modulo de Administración de Recursos CONACYT </h3>
                         <p align="center" class="panel-title">&nbsp;</p>
-                    </div>
+                  </div>
                     <div class="panel-body">
-                        <FORM  method="POST">
+                       <FORM ACTION="inicio.jsp"  method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Usuario" name="usuario" type="password" id="usuario">
@@ -72,10 +71,10 @@
                                         <input name="remember" type="checkbox" value="Recordar">Recordar
                                     </label>
                                 </div>
-                            </fieldset>    
-                        </form>
+                            	</fieldset>    
+                                </form>
                                 <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                            <a href="inicio.jsp" class="btn btn-lg btn-success btn-block">Login</a>  
+                                 <a href="auditoria.jsp" type="submit" class="btn btn-lg btn-success btn-block">Login</a>  
                             
                         
                       <!--   <FORM ACTION="parametros.jsp" method="POST">  
