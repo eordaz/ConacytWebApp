@@ -61,10 +61,10 @@
                        <FORM ACTION="inicio.jsp"  method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Usuario" name="usuario" type="password" id="usuario">
+                                    <input class="form-control" placeholder="usuario" name="usuario" id="usuario">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="password" name="password" type="password" id="password">
+                                    <input class="form-control" placeholder="contrase&ntilde;a" name="password" id="password">
                                 </div>
                                 <div class="checkbox">
                                     <label>
