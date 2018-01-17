@@ -58,13 +58,13 @@
                         <p align="center" class="panel-title">&nbsp;</p>
                   </div>
                     <div class="panel-body">
-                       <FORM ACTION="inicio.jsp"  method="POST">
+                       <FORM name="registro" method="POST" ACTION="inicio.jsp">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="usuario" name="usuario" id="usuario">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="contrase&ntilde;a" name="password" id="password">
+                                    <input class="form-control" type="password" placeholder="contrase&ntilde;a" name="password" id="password">
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -72,10 +72,11 @@
                                     </label>
                                 </div>
                             	</fieldset>    
-                                </form>
+                           <input type="submit" class="btn btn-lg btn-success btn-block">
+                       </form>
                                 <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                                 <a href="inicio.jsp" type="submit" class="btn btn-lg btn-success btn-block">Login</a>  
-                            
+                                 
+                        
                         
                       <!--   <FORM ACTION="parametros.jsp" method="POST">  
 						Usuario:<BR>  
