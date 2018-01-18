@@ -475,9 +475,8 @@
 														</div>
 									
                                     <div class="row">
-                                      <div class="col-lg-10" align="right">
+                                      <div class="col-lg-8" align="right">
                                         <div class="form-group">
-                                          <button type="submit" class="btn btn-primary">Guardar</button>
                                           <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                       </div>
@@ -488,9 +487,10 @@
 
 			                            </div> <!--/ panel  (finish etapa) -->
 			
-			                            <div class="col-lg-2" align="left">
+			                            <div class="col-lg-4" align="left">
 			                          		<div class="form-group">
 			                                <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>
 			                                								<script>
 			                                								function addStage() 
                                                                                                                             {
