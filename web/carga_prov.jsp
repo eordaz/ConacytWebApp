@@ -64,12 +64,7 @@
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#inicio" data-toggle="tab">Datos Generales</a>
                         </li>
-                        <li><a href="#profile" data-toggle="tab">Datos Presupuestales</a>
-                        </li>
-                        <li><a href="#messages" data-toggle="tab">Responsables</a>
-                        </li>
-                        <li><a href="#settings" data-toggle="tab">Anexos</a>
-                        </li>
+                        
                     </ul>
 
                             <!-- Tab panes -->
