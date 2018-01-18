@@ -42,6 +42,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
     
+    <!-- JavaScript -->
+    <script src=js/Login.js></script>
+    
 
 </head>
 
@@ -58,7 +61,7 @@
                         <p align="center" class="panel-title">&nbsp;</p>
                   </div>
                     <div class="panel-body">
-                       <FORM name="registro" method="POST" ACTION="inicio.jsp">
+                       <FORM name="registro" method="POST" action="Login.js">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="usuario" name="usuario" id="usuario">
@@ -72,10 +75,13 @@
                                     </label>
                                 </div>
                             	</fieldset>    
-                           <input type="submit" class="btn btn-lg btn-success btn-block">
+                                
+                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Accesar" onclick="Login()">
+                                
+                          <!-- <input type="submit" class="btn btn-lg btn-success btn-block">-->
                        </form>
                                 <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                                 
+                                
                         
                         
                       <!--   <FORM ACTION="parametros.jsp" method="POST">  

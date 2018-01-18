@@ -57,36 +57,36 @@
 
                         }  >  --->
                         <li>
-                            <a href="carga_prov.jsp"><i class="fa fa-file-text-o fa-fw"></i> Carga de Proyectos</a>
+                            <a href="carga_prov.jsp"><i class="fa fa-file-text-o fa-fw" id="carga_proy" style="display:none"></i> Carga de Proyectos</a>
                         </li>    
                         <li>
-                            <a href="inicio.jsp"><i class="fa fa-file-text-o fa-fw"></i> Registro de Proyectos</a>
+                            <a href="inicio.jsp"><i class="fa fa-file-text-o fa-fw" id="inicio" style="display:none"></i> Registro de Proyectos</a>
                         </li>
 			<li>
-                            <a href="auditoria.jsp"><i class="fa fa-table fa-fw"></i> Consulta de Proyectos</a>
+                            <a href="auditoria.jsp"><i class="fa fa-table fa-fw" id="auditoria" style="display:none"></i> Consulta de Proyectos</a>
                         </li>
                         <li>
                             <a href="depositosConcentradora.jsp"><i class="fa fa-credit-card"></i> Dep&oacute;sitos Concentradora<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="depositosConcentradora.jsp">B&uacute;squeda</a>
+                                    <a href="depositosConcentradora.jsp" id="depositos" style="display:none">B&uacute;squeda</a>
                                 </li>
                                 <li>
-                                    <a href="asignarImporte.jsp">Asignaci&oacute;n Importe</a>
+                                    <a href="asignarImporte.jsp" id="asignar" style="display:none">Asignaci&oacute;n Importe</a>
                                 </li>
                              </ul>
                         </li>
                         <li>
-                            <a href="ministraciones.jsp"><i class="fa fa-list-alt"></i> Ministraciones</a>
+                            <a href="ministraciones.jsp"><i class="fa fa-list-alt" id="ministracion" style="display:none"></i> Ministraciones</a>
                         </li>
                         <li>
-                            <a href="solicitudBancaria.jsp"><i class="fa fa-building-o fa-fw"></i> Apertura Cuenta Bancaria<span class="fa arrow"></span></a>
+                            <a href="solicitudBancaria.jsp"><i class="fa fa-building-o fa-fw" id="solicitud" style="display:none"></i> Apertura Cuenta Bancaria<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="solicitudBancaria.jsp">Solicitud</a>
+                                    <a href="solicitudBancaria.jsp" id="solicitudBan" style="display:none">Solicitud</a>
                                 </li>
                                 <li>
-                                    <a href="registroBancario.jsp">Registro</a>
+                                    <a href="registroBancario.jsp" id="registro" style="display:none">Registro</a>
                                 </li>
                                 <!-- -
 								<li>
@@ -96,35 +96,154 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="cfdi.jsp"><i class="fa fa-edit fa-fw"></i> CFDI <span class="fa arrow"></span></a>
+                            <a href="cfdi.jsp"><i class="fa fa-edit fa-fw" id="cfdi" style="display:none"></i> CFDI <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="cfdi.jsp">Generar</a>
+                                    <a href="cfdi.jsp" id="generar" style="display:none">Generar</a>
                                 </li>
                                 <li>
-                                    <a href="cfdiConsulta.jsp">Consulta</a>
+                                    <a href="cfdiConsulta.jsp" id="cfdiconsulta" style="display:none">Consulta</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="comprobacion.jsp"><i class="fa fa-usd fa-fw"></i> Comprobacion de Gastos <span class="fa arrow"></span></a>
+                            <a href="comprobacion.jsp"><i class="fa fa-usd fa-fw" id="comprobacion" style="display:none"></i> Comprobacion de Gastos <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="comprobacion.jsp">Registro</a>
+                                    <a href="comprobacion.jsp" id="registrocomprob" style="display:none">Registro</a>
                                 </li>
                                 <li>
-                                    <a href="comprobacionConsulta.jsp">Consultas</a>
+                                    <a href="comprobacionConsulta.jsp" id="consultacomprob" style="display:none">Consultas</a>
                                 </li>
                             </ul>    
                         </li>
                         <li>
-                            <a href="tablero.jsp"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                            <a href="tablero.jsp"><i class="fa fa-dashboard fa-fw" id="tablero" style="display:none"></i>Dashboard</a>
                            
                     
                         </li>
 					<!-- <li>
                                     <a href="login.jsp">Login</a>
                            </li>--->
+                  <!--  <script>   
+                            $(document).ready(function(){ 
+                        $('#jsonDato').on('click',function(){
+                            dato = $('#jsonDato').val();
+                            if (dato==2){
+                                    //$('#inicio').toggle();
+                                     $('#inicio').show();
+                                    //$('#auditoria').toggle();
+                                     $('#auditoria').show();
+                                    //$('#solicitud').toggle();
+                                     $('#solicitud').show();
+                                    //$('#solicitudban').toggle();
+                                     $('#solicitudban').show();
+                                    //$('#registro').toggle();
+                                     $('#registro').show();
+                                    //$('#cfdi').toggle();
+                                     $('#cfdi').show();
+                                     //$('#generar').toggle();
+                                     $('#generar').show();
+                                     //$('#cfdiconsulta').toggle();
+                                     $('#cfdiconsulta').show();
+                                     //$('#comprobacion').toggle();
+                                     $('#comprobacion').show();
+                                     //$('#registrocomprob').toggle();
+                                     $('#registrocomprob').show();
+                                     //$('#consultacomprob').toggle();
+                                     $('#consultacomprob').show();
+
+                            }
+                            else if (dato==3){
+                                    //$('#inicio').toggle();
+                                     $('#inicio').show();
+                                    //$('#auditoria').toggle();
+                                     $('#auditoria').show();
+                                    //$('#solicitud').toggle();
+                                     $('#solicitud').show();
+                                    //$('#solicitudban').toggle();
+                                     $('#solicitudban').show();
+                                     //$('#cfdi').toggle();
+                                     $('#cfdi').show();
+                                     //$('#generar').toggle();
+                                     $('#generar').show();
+                                     //$('#cfdiconsulta').toggle();
+                                     $('#cfdiconsulta').show();
+                                     //$('#comprobacion').toggle();
+                                     $('#comprobacion').show();
+                                     //$('#registrocomprob').toggle();
+                                     $('#registrocomprob').show();
+                                     //$('#consultacomprob').toggle();
+                                     $('#consultacomprob').show();
+
+                            }
+                            else if (dato==4){
+                                    //$('#auditoria').toggle();
+                                     $('#auditoria').show();
+
+                            }
+                            else if (dato==5){
+                                    //$('#auditoria').toggle();
+                                     $('#auditoria').show();
+                                    //$('#cfdi').toggle();
+                                     $('#cfdi').show();
+                                    //$('#cfdiconsulta').toggle();
+                                     $('#cfdiconsulta').show();
+                                    //$('#comprobacion').toggle();
+                                     $('#comprobacion').show();
+                                    //$('#consultacomprob').toggle();
+                                     $('#consultacomprob').show();
+                                    //$('#carga_proy').toggle();
+                                     $('#carga_proy').show();
+                            }
+                            else if (dato==6){
+                                    //$('#auditoria').toggle();
+                                    $('#auditoria').show();
+                                    //$('#solicitud').toggle();
+                                    $('#solicitud').show();
+                                    //$('#registro').toggle();
+                                    $('#registro').show();
+                                    //$('#cfdi').toggle();
+                                     $('#cfdi').show();
+                                    //$('#cfdiconsulta').toggle();
+                                     $('#cfdiconsulta').show();
+
+                            }
+                            else if (dato==7){
+                                    //$('#divSicop').toggle();
+                                     $('#divSicop').show();
+                                    //$('#comprobacion').toggle();
+                                     $('#comprobacion').show();
+                                    //$('#consultacomprob').toggle();
+                                     $('#consultacomprob').show();
+
+                            }
+                            else if (dato==8){
+                                    //$('#inicio').toggle();
+                                     $('#inicio').show();
+                                    //$('#auditoria').toggle();
+                                     $('#auditoria').show();
+                                    //$('#cfdi').toggle();
+                                     $('#cfdi').show();
+                                    //$('#cfdiconsulta').toggle();
+                                     $('#cfdiconsulta').show();
+                                    //$('#comprobacion').toggle();
+                                     $('#comprobacion').show();
+                                     //$('#registrocomprob').toggle();
+                                     $('#registrocomprob').show();
+                                     //$('#consultacomprob').toggle();
+                                     $('#consultacomprob').show();
+
+                            }
+                            else{
+                                    //document.getByElementID('divSicop').style="display:none"; 
+                                    //$('#divSicop').hide();
+                                    alert("Sin rol asignado");
+                            }
+
+                     });
+
+                    });</script>   -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
