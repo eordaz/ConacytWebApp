@@ -16,4 +16,4 @@ lib/
 hs_err_pid*
 /dist/
 nbproject/private
-build/
+build
