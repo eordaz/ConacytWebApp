@@ -1,11 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--meta charset="utf-8"-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--meta http-equiv="X-UA-Compatible" content="IE=edge"-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -29,10 +28,13 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!--[endif]-->
      <!-- jQuery -->
-     <script src="vendor/jquery/jquery.min.js"></script>
-
+     <!--script src="vendor/jquery/jquery.min.js"></script-->
+ <script
+			  src="https://code.jquery.com/jquery-1.11.3.min.js"
+			  integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="
+			  crossorigin="anonymous"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src=vendor/bootstrap/js/bootstrap.min.js></script>
 
@@ -43,8 +45,8 @@
     <script src="dist/js/sb-admin-2.js"></script>
     
     <!-- JavaScript -->
-    <script src=js/Login.js></script>
-    
+    <script src="js/login/login.js"></script>
+   
 
 </head>
 
@@ -61,10 +63,10 @@
                         <p align="center" class="panel-title">&nbsp;</p>
                   </div>
                     <div class="panel-body">
-                       <FORM name="registro" method="POST" action="Login.js">
+                        <form name="submit_login" id="submit_login" action="" method="POST">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="usuario" name="usuario" id="usuario">
+                                    <input class="form-control" type="text" placeholder="usuario" name="usuario" id="usuario">
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" type="password" placeholder="contrase&ntilde;a" name="password" id="password">
@@ -76,28 +78,13 @@
                                 </div>
                             	</fieldset>    
                                 
-                                <input type="submit" class="btn btn-lg btn-success btn-block" value="Accesar" onclick="Login()">
-                                
-                          <!-- <input type="submit" class="btn btn-lg btn-success btn-block">-->
-                       </form>
-                                <!--<input type="button" class="btn btn-lg btn-success btn-block">Login</input> -->
-                                
-                        
-                        
-                      <!--   <FORM ACTION="parametros.jsp" method="POST">  
-						Usuario:<BR>  
-						<INPUT name=usuario_id ><BR>  
-						Fecha:<BR>  
-						<INPUT name=fecha_registro><BR>  
-						<INPUT type="submit">  
-						</FORM>       --->  
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Accesar">
+                       </form> 
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-   
+    </div>   
 </body>
 
 </html>
