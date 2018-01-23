@@ -47,11 +47,11 @@ $(function () {
                          alert(content['id_usuario']);
                          alert(content['id_usuario_rol']);
                          alert(content['nombre_completo']);
+                    //$("usuario").val(content['nombre_completo']);
 
+                    document.location.href = 'inicio.jsp';
 
-                    document.location.href = 'navmenu.html';
-
-                    document.getElementById("id_usuario").value = "Sair Esparza";
+                    document.getElementById("usuario").value = "Sair Esparza";
                 }
             },
                     })/*.done(function (data) {

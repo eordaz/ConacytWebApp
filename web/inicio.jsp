@@ -32,8 +32,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"
+	integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="
+	crossorigin="anonymous"></script>
+    <script src="js/cat_fondos.js"></script>
 </head>
 
 <body>
@@ -48,8 +50,7 @@
        
             <!-- /.row -->
             <!-- /.row -->
-<!------------------------------------------------------------------------------------------------------------------->
-	<form name="formCaptura" method="post" action="usuario.jsp">   
+<!-------------------------------------------------------------------------------------------------------------------> 
 
 	<div id="page-wrapper">
             <div class="row">
@@ -62,7 +63,7 @@
                 <div class="panel-body">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#inicio" data-toggle="tab">Datos Generales</a>
+                        <li class="active"><a href="#datos_gral" data-toggle="tab">Datos Generales</a>
                         </li>
                         <li><a href="#profile" data-toggle="tab">Datos Presupuestales</a>
                         </li>
@@ -74,7 +75,7 @@
 
                             <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="inicio">
+                        <div class="tab-pane fade in active" id="datos_gral">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-3">
@@ -97,7 +98,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-		                                <select class="form-control" name="id_fondo">
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos" method="post" action="">
                                                     <option>Seleccionar</option>
 		                                    <option value="3">FOINS</option>
 		                                    <option value="1">FONDO SECTORIAL</option>
@@ -752,12 +753,11 @@
                         <!-- /.panel-body -->
                 
                     <!-- /.panel -->
-                
-		</form>		
+                	
 				<!------------------------------------------------------------------------------------------->	
-			
-	 
-         
+                    </div>	
+                </div>
+        </div>
 
     </div>
     <!-- /#wrapper -->
