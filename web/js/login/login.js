@@ -8,40 +8,58 @@
 $(function () {
     $("#submit_login").click(function () { // if submit button is clicked
         var username = $("input#usuario").val(); // define username variable     
-        if (username == "") { // if username variable is empty        
+        if (username === "") { // if username variable is empty        
             alert('Please Insert Your Username'); // printing error message
             return false; // stop the script
         }
         var password = $("input#password").val(); // define password variable
-        if (password == "") { // if password variable is empty
+        if (password === "") { // if password variable is empty
             alert('Please Insert Your Password'); // printing error message
             return false; // stop the script
         }
-        
-        var json_param = JSON.stringify({"usuario": username ,"pass": password});
-      
-      
-          
+
+        var json_param = JSON.stringify({"usuario": username, "pass": password});
+
+
+
 
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
             url: 'http://localhost:8080/conacyt-war/resources/conacyt/login/getLogin',
-            data: 'json='+json_param,//'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
+            data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
-                if (data == 0) { // if the returned data equal 0
+                if (data === 0) { // if the returned data equal 0
                     alert('Wrong Login Data'); // print error message
                 } else { // if the reurned data not equal 0
                     //console.log("sin valor" + data);
-                    //alert('<b style="color: green;">you are logged. wait for redirection</b>');// print success message   
-                    document.location.href = 'inicio.jsp'; // redirect to the private area  
+                    //alert('<b style="color: green;">you are logged. wait for redirection</b>');// print success message  
+                    //var obj = JSON.parse(data);
+                    var json = JSON.stringify(data);
+
+                    /*JSON.parse(json, function (k, v) {
+                        return alert(k[1] + v);          // log the current property name, the last is "".
+                        //return v;                  // return the unchanged property value.
+                    });*/
+
+                    var content = JSON.parse(json);
+                         console.log(content['id_usuario_rol']);
+                         alert(content['id_usuario']);
+                         alert(content['id_usuario_rol']);
+                         alert(content['nombre_completo']);
+
+
+                    document.location.href = 'navmenu.html';
+
+                    document.getElementById("id_usuario").value = "Sair Esparza";
                 }
             },
-       }).done ( function( data ) {
+                    })/*.done(function (data) {
+                 var content = JSON.parse(data);
+                 console.log(content)
+                 alert(content[0].nombre)
+                });*/
 
-         //console.log("DAstossssss" + data);
-
-        });
         return false;
     });
 });

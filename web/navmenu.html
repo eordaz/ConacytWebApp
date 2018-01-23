@@ -1,3 +1,4 @@
+        
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +21,7 @@
                         <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="usuarios.jsp"><i class="fa fa-user fa-fw"></i> Usuario</a>
+                        <li><i class="fa fa-user fa-fw"></i> <label id="id_usuario"/>
                         </li>
                         <li class="divider"></li>
                         <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
@@ -35,27 +36,6 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                            <!-- /input-group -->
-                        
-                            
-                        <!---    acceso de roles
-                        <c:if test="${sessionScope.user.role == '3'}">
-                        </c:if>
-                        --->
-                        
-                       <!---<$ Usuario usuario = (Usuario) session.getAttribute("usuario");
-
-                        if(null == usuario) {
-                            //El usuario no esta logeado, haces lo que corresponda...
-
-                            return;
-                        }
-
-                        if(usuario.getid_cat_cat_catalogos == 3) {
-                            //El usuario tiene nivel acceso 1, haces lo que corresponda a este nivel...
-
-
-                        }  >  --->
                         <li>
                             <a href="carga_prov.jsp"><i class="fa fa-file-text-o fa-fw" id="carga_proy" style="display:none"></i> Carga de Proyectos</a>
                         </li>    
@@ -125,11 +105,20 @@
 					<!-- <li>
                                     <a href="login.jsp">Login</a>
                            </li>--->
-                    <script>   
+                    <!--script>
+                        $.getJSON('http://www.vimeo.com/api/v2/video/31894179.json?callback=?', {format: "json"}, function(data) { 
+                        $("h1").html(data[0].id_usuario_rol); 
+                        $("p").html(data[0].description); 
+                        });
+                            
+                        result = recordManager.queryGetLogin(query_usuario_rol);
+                        console.log(Level.FINEST, methodStr + ">mi resultado para navmenu " + result);
+                        function (data){
+                        var obj = JSON.parse();
+                        var dato = obj['id_usuario_rol'];
                             $(document).ready(function(){ 
-                        $('#jsonDato').on('click',function(){
-                            dato = $('#jsonDato').val();
-                            if (dato==2){
+                            dato = $('id_usuario_rol').val();
+                            if (dato===2){
                                     
                                      $('#inicio').show();
                                      $('#auditoria').show();
@@ -144,7 +133,7 @@
                                      $('#consultacomprob').show();
 
                             }
-                            else if (dato==3){
+                            else if (dato===3){
                                     
                                      $('#inicio').show();
                                      $('#auditoria').show();
@@ -158,12 +147,12 @@
                                      $('#consultacomprob').show();
 
                             }
-                            else if (dato==4){
+                            else if (dato===)4){
                                     
                                      $('#auditoria').show();
 
                             }
-                            else if (dato==5){
+                            else if (dato===5){
                                     
                                      $('#auditoria').show();
                                      $('#cfdi').show();
@@ -172,7 +161,7 @@
                                      $('#consultacomprob').show();
                                      $('#carga_proy').show();
                             }
-                            else if (dato==6){
+                            else if (dato===6){
                                     
                                     $('#auditoria').show();
                                     $('#solicitud').show();
@@ -181,14 +170,14 @@
                                     $('#cfdiconsulta').show();
 
                             }
-                            else if (dato==7){
+                            else if (dato===7){
                                     
                                      $('#divSicop').show();
                                      $('#comprobacion').show();
                                      $('#consultacomprob').show();
 
                             }
-                            else if (dato==8){
+                            else if (dato===8){
                                     
                                      $('#inicio').show();
                                      $('#auditoria').show();
@@ -207,7 +196,7 @@
 
                      });
 
-                    });</script>   
+                    };</script-->   
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
