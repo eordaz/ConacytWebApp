@@ -32,6 +32,7 @@
     <![endif]-->
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/catalogos/catalogos.js"></script>
 </head>
 
 <body>
@@ -43,28 +44,28 @@
      
         <div id="page-wrapper">
         	<div class="row">  
-								<br/>    
-								<br/>               
-								<div class="col-lg-3">
-									<div class="form-group">
-										<label>No. de Proyecto </label>
-										<input class="form-control"  disabled="disabled" value="CY201449">
-									</div>
-								</div>	
-								<div class="col-lg-6">
-									<div class="form-group">
-										<label>Nombre de Proyecto</label>
-										<input name="Input" class="disable form-control"  disabled="disabled" value="TECNICAS DE DIAGNOSTICO DE BACTERIAS">
-									</div>
-								</div>	
-			</div>
+                    <br/>    
+                    <br/>               
+                    <div class="col-lg-3">
+                            <div class="form-group">
+                                    <label>No. de Proyecto </label>
+                                    <input class="form-control"  disabled="disabled" value="CY201449">
+                            </div>
+                    </div>	
+                    <div class="col-lg-6">
+                            <div class="form-group">
+                                    <label>Nombre de Proyecto</label>
+                                    <input name="Input" class="disable form-control"  disabled="disabled" value="TECNICAS DE DIAGNOSTICO DE BACTERIAS">
+                            </div>
+                    </div>	
+                </div>
         
             <div class="row" >
-						<div class="col-lg-12">
-							<h1 class="page-header">Comprobaciones</h1>
-						</div>
+                <div class="col-lg-12">
+                        <h1 class="page-header">Comprobaciones</h1>
+                </div>
 						<!-- /.col-lg-12 -->
-			</div>
+            </div>
 			
 						<div class="panel-body">
 						<!-- Nav tabs -->
@@ -85,54 +86,49 @@
 										<div class="panel-heading">
             		              	 	 <i class="fa fa-fw"></i> Datos de Comprobación
                     			    	</div>
-										<div class="panel-body">
-											<div class="row">
-													<div class="col-lg-3">
-																<div class="form-group">
-																			<label>Comprobación</label>
-																			<select class="form-control" id="cmbComprobacion"  name="cmbComprobacion"> 
-																						<option selected>Seleccionar</option> 
-																			 			<option value="1" id="GastoCorriente">Gasto Corriente</option>
-																			 			<option value="2" id="alternar-respuesta-ej1">Gasto de Inversión</option>
-																			 			<option value="3" id="Gasto">Honorarios</option>
-																						
-																			 </select>
-																	</div>
-													</div>
-													<div class="col-lg-3" id="divSicop" style="display:none">
-																<div class="form-group">
-																			<label>Folio SICOP</label>
-																			<input class="form-control" id="sicop"   type="text" name="sicop"  >
-																			
-																	</div>
-													</div>
-													
-											</div>
-											<div class="row">
-												<div class="col-lg-3">
-																		<div class="form-group">
-																				<label>Importe a Comprobar</label>
-																				<input class="form-control" id="importe"  name="importe"  value="$1,600.58">
-																			<script>   
-																				$(document).ready(function(){ 
-																			    $('#cmbComprobacion').on('click',function(){
-																			    	dato = $('#cmbComprobacion').val();
-																			    	if (dato==2){
-																			    		//$('#divSicop').toggle();
-																			    		 $('#divSicop').show();
-																			    		 
-																			    	}
-																			    	else{
-																			    		//document.getByElementID('divSicop').style="display:none"; 
-																			    		$('#divSicop').hide();
-																			    	}
-																			   
-																		  	 });
-																			    
-																			});</script>
-																		</div>
-												</div>
-											</div>	
+                                                    <div class="panel-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-3">
+                                                                <div class="form-group">
+                                                                    <label>Comprobación</label>
+                                                                        <select class="form-control" id="tipoGasto"  name="tipoGasto"> 
+                                                                         </select>
+                                                                </div>
+                                                            </div>
+                                                                            <div class="col-lg-3" id="divSicop" style="display:none">
+                                                                                                    <div class="form-group">
+                                                                                                                            <label>Folio SICOP</label>
+                                                                                                                            <input class="form-control" id="sicop"   type="text" name="sicop"  >
+
+                                                                                                            </div>
+                                                                            </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                    <div class="col-lg-3">
+                                                                        <div class="form-group">
+                                                                                        <label>Importe a Comprobar</label>
+                                                                                        <input class="form-control" id="importe"  name="importe"  value="$1,600.58">
+                                                                                <script>   
+                                                                                        $(document).ready(function(){ 
+                                                                                    $('#tipoGasto').on('click',function(){
+                                                                                        dato = $('#tipoGasto').val();
+                                                                                        if (dato==2){
+                                                                                                //$('#divSicop').toggle();
+                                                                                                 $('#divSicop').show();
+
+                                                                                        }
+                                                                                        else{
+                                                                                                //document.getByElementID('divSicop').style="display:none"; 
+                                                                                                $('#divSicop').hide();
+                                                                                        }
+
+                                                                                 });
+
+                                                                                });</script>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>	
 											
 													
 											
@@ -143,60 +139,52 @@
 										<div class="panel-heading">
             		              	 	 <i class="fa fa-fw"></i> Anexos
                     			    	</div>
-										<div class="panel-body">
-										<div class="row">                               
-											<div class="col-lg-3">
-											  <div class="form-group">
-												<label>Tipo de documento</label>
-												 <select class="form-control" id="cmbTipodoc"  name="cmbTipodoc">  
-												 			<option selected>Seleccionar</option>
-												 			<option value="1">Tickets</option>
-															<option value="2">CFDI</option>
-															<option value="3">FORMA MULTIPLE</option>
-															<option value="4">CONTRATO BECARIO CONACYT</option>
-															<option value="5">CARTA DE  INVITACION</option>
-															<option value="6">LISTA DE INVITADOS</option>
-															<option value="7">OTROS</option>
-																 </select>
-											  </div>	
-											</div>
-																<div class="col-lg-3" id="divOtros" style="display:none">
-																			<div class="form-group">
-																			<label>Descripci&oacute;n</label>
-																			<input class="form-control" id="otros"   type="text" name="otros"  >
-																			
-																			</div>
-																</div>
-																<script>   
-																				$(document).ready(function(){ 
-																			    $('#cmbTipodoc').on('click',function(){
-																			    	dato = $('#cmbTipodoc').val();
-																			    	if (dato==7){
-																			    		//$('#divSicop').toggle();
-																			    		 $('#divOtros').show();
-																			    		 
-																			    	}
-																			    	else{
-																			    		//document.getByElementID('divSicop').style="display:none"; 
-																			    		$('#divOtros').hide();
-																			    	}
-																			   
-																		  	 });
-																			    
-																			});</script>
-											</div>
-											<div class="row">             
-                             	 <div class="col-lg-6">
-                                 	<div class="form-group">
-                                            <label>Documento Comprobatorio</label>                                           
-                                            <input type="file">
-                                    </div>
-								 </div>
-                             </div>
-							 <div class="row">   
-								 <br/>          
-	 							 <br/>          
-                             	 <div class="col-lg-3" align="right">
+                                                <div class="panel-body">
+                                                    <div class="row">                               
+                                                        <div class="col-lg-3">
+                                                          <div class="form-group">
+                                                                <label>Tipo de documento</label>
+                                                                    <select class="form-control" id="cat_documentos"  name="cmbTipodoc">  
+                                                                    </select>
+                                                          </div>	
+                                                        </div>
+                                                        <!--div class="col-lg-3" id="divOtros" style="display:none">
+                                                                                <div class="form-group">
+                                                                                <label>Descripci&oacute;n</label>
+                                                                                <input class="form-control" id="otros"   type="text" name="otros"  >
+
+                                                                                </div>
+                                                        </div>
+                                                        <script>   
+                                                                                        $(document).ready(function(){ 
+                                                                                    $('#cat_documentos').on('click',function(){
+                                                                                        dato = $('#cat_documentos').val();
+                                                                                        if (dato==7){
+                                                                                                //$('#divSicop').toggle();
+                                                                                                 $('#divOtros').show();
+
+                                                                                        }
+                                                                                        else{
+                                                                                                //document.getByElementID('divSicop').style="display:none"; 
+                                                                                                $('#divOtros').hide();
+                                                                                        }
+
+                                                                                 });
+
+                                                                                });</script-->
+                                                    </div>
+                                                    <div class="row">             
+                                                        <div class="col-lg-6">
+                                                            <div class="form-group">
+                                                                <label>Documento Comprobatorio</label>                                           
+                                                                    <input type="file">
+                                                            </div>
+							</div>
+                                                    </div>
+                                                    <div class="row">   
+                                                        <br/>          
+                                                            <br/>          
+                                                                <div class="col-lg-3" align="right">
                                  	<div class="form-group">
                                         <button type="submit" class="btn btn-primary">Guardar</button>
 			                            <button type="reset" class="btn btn-default">Limpiar</button>
