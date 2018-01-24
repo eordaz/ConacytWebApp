@@ -98,14 +98,14 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-                                                <select class="form-control" name="cat_fondos" id="cat_fondos" method="post" action="">
-                                                    <option>Seleccionar</option>
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos" >
+                                                    <!--option>Seleccionar</option>
 		                                    <option value="3">FOINS</option>
 		                                    <option value="1">FONDO SECTORIAL</option>
 		                                    <option value="2">FONDO MIXTO</option>
 		                                    <option value="4">FORDECYT</option>
 		                                    <option value="5">FONCICYT</option>
-		                                    <option value="6">CIBIOGEM</option>
+		                                    <option value="6">CIBIOGEM</option-->
 		                                </select>
 	                                    </div>
                                         </div>

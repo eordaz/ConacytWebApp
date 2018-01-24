@@ -9,12 +9,12 @@ $(function () {
     $("#submit_login").click(function () { // if submit button is clicked
         var username = $("input#usuario").val(); // define username variable     
         if (username === "") { // if username variable is empty        
-            alert('Please Insert Your Username'); // printing error message
+            //alert('Please Insert Your Username'); // printing error message
             return false; // stop the script
         }
         var password = $("input#password").val(); // define password variable
         if (password === "") { // if password variable is empty
-            alert('Please Insert Your Password'); // printing error message
+           // alert('Please Insert Your Password'); // printing error message
             return false; // stop the script
         }
 
