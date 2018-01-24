@@ -30,8 +30,9 @@ $(function () {
                    
                          fondoLen= content.length;
                          //limpiacombos();
-                         $("#cat_fondos").empty();
-                         $("#cat_fondos").append(new Option ("Seleccione","-1"));
+                        $("#cat_fondos").empty(); 
+                        $("#cat_fondos").append(new Option ("Seleccione","-1"));
+                         
                          for(i=0;  i<=fondoLen -1; i++)
                          {
                             $("#cat_fondos").append(new Option(content[i].valor, content[i].id_cat_tabla));

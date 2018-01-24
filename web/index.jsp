@@ -31,9 +31,8 @@
     <!--[endif]-->
      <!-- jQuery -->
      <!--script src="vendor/jquery/jquery.min.js"></script-->
- <script src="https://code.jquery.com/jquery-1.11.3.min.js"
-	integrity="sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g="
-	crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src=vendor/bootstrap/js/bootstrap.min.js></script>
 

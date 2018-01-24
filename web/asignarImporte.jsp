@@ -33,6 +33,7 @@
     <![endif]-->
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/catalogos/catalogos.js"></script>
 
 </head>
 
@@ -57,154 +58,121 @@
                 <!-- /.col-lg-12 -->
             </div>
                                                     
-                             <div class="tab-content">
-                                <div class="tab-pane fade in active" id="inicio">
-                                    <div class="panel-body">
-                    						    <div class="row">
-                            							<div class="col-lg-3">
-                            							<div class="form-group">
-                                                                        <label>Fecha:</label>
-                                                                        <input class="form-control" type="text" name="fecha_inicio" disabled></input>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="inicio">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group">
+                                        <label>Fecha:</label>
+                                            <input class="form-control" type="text" name="fecha_inicio" disabled></input>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <div class="form-group">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thread>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Concepto</th>
+                                                    <th>Importe</th>
+                                                    <th>Seleccionar</th>
+                                                    <th>Dependencia</th>
+                                                </tr>
+                                            </thread>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>CONACYT_SAE</td>
+                                                    <td>100000</td>
+                                                    <td><input type="checkbox" name="ValorCheck"id="ValorCheck"></td>
+                                                    <td><div id="catalogo" style="display:none;">
+                                                        <select class="form-control" name="cat_dependencias" id="cat_dependencias">
+                                                        </select>
+                                                             <script>
+                                                             $(document).ready(function(){ 
+                                                                $('#ValorCheck').on('click',function(){
+                                                                $('#catalogo').toggle();
+                                                                     });
+                                                                    });
+                                                             </script>
                                                         </div>
-                            							</div>
-                            							
-                        						</div>
-                        						
-												<div class="row">
-                            							<div class="col-lg-9">
-                            							<div class="form-group">
-            			            					<table class="table table-bordered table-hover table-striped">
-							                                 			<thread>
-							                                 				<tr>
-							                                 					<th>#</th>
-							                                 					<th>Concepto</th>
-							                                 					<th>Importe</th>
-							                                 					<th>Seleccionar</th>
-							                                 					<th>Dependencia</th>
-							                                 				</tr>
-							                                 			</thread>
-																<tbody>
-																<tr>
-																<td>1</td>
-																<td>CONACYT_SAE</td>
-																<td>100000</td>
-																<td><input type="checkbox" name="ValorCheck"id="ValorCheck"></td>
-																<td><div id="catalogo" style="display:none;">
-																	<select class="form-control" name="id_cat_dependencia">
-                                                                        <option value="0">311.01 CONSEJO TECNICO Y COORDINACION DE LA INVERSTIGACION CIENTIFICA</option>
-                                                                        <option value="1">311.02 CENTRO DE CIENCIAS DE LA ATMOSFERA</option>
-                                                                        <option>331.01 INSTITUTO DE NEUROBIOLOGIA EN QUERETARO, QRO</option>
-                                                                        <option>333.01 INSTITUTO DE ENERGIAS RENOVABLES EN TEMIXCO, MOR.</option>	                                                                    
-	                                                                    <option>443.01 FACULTAD DE ESTUDIOS SUPERIORES IZTACALA</option>
-	                                                                    <option>613.01 CENTRO DE ENSEÑANZA PARA EXTRANJEROS</option>
-                                                                    </select>
-                                                                   			 <script>
-                                                                   			 $(document).ready(function(){ 
-																			    $('#ValorCheck').on('click',function(){
-																			      $('#catalogo').toggle();
-																			  	 });
-																				});
-                                                                   			 </script>
-                                                                    </div></td>
-                                                                 </tr>
-                                                                 <tr>
-																	<td>2</td>
-																	<td>QUÍMICA</td>
-																	<td>20000</td>
-																	<td><input type="checkbox" name="ValorCheck2"id="ValorCheck2"></td>
-																	<td><div id="catalogo2" style="display:none;">
-																		<select class="form-control" name="id_cat_dependencia">
-	                                                                        <option value="0">311.01 CONSEJO TECNICO Y COORDINACION DE LA INVERSTIGACION CIENTIFICA</option>
-                                                                        <option value="1">311.02 CENTRO DE CIENCIAS DE LA ATMOSFERA</option>
-                                                                        <option>331.01 INSTITUTO DE NEUROBIOLOGIA EN QUERETARO, QRO</option>
-                                                                        <option>333.01 INSTITUTO DE ENERGIAS RENOVABLES EN TEMIXCO, MOR.</option>	                                                                    
-	                                                                    <option>443.01 FACULTAD DE ESTUDIOS SUPERIORES IZTACALA</option>
-	                                                                    <option>613.01 CENTRO DE ENSEÑANZA PARA EXTRANJEROS</option>
-	                                                                    </select>
-	                                                                    	<script>   $(document).ready(function(){ 
-																			    $('#ValorCheck2').on('click',function(){
-																			      $('#catalogo2').toggle();
-																			  	 });
-																				});
-                                                                   			 </script>
-	                                                                    </div>
-	                                                                </td>
-                                                                 </tr>
-                                                                 <tr>
-																<td>3</td>
-																<td>FCA</td>
-																<td>1500000</td>
-																<td><input type="checkbox" name="ValorCheck3"id="ValorCheck3"></td>
-																<td><div id="catalogo3" style="display:none;">
-																	<select class="form-control" name="id_cat_dependencia">
-                                                                        <option value="0">311.01 CONSEJO TECNICO Y COORDINACION DE LA INVERSTIGACION CIENTIFICA</option>
-                                                                        <option value="1">311.02 CENTRO DE CIENCIAS DE LA ATMOSFERA</option>
-                                                                        <option>331.01 INSTITUTO DE NEUROBIOLOGIA EN QUERETARO, QRO</option>
-                                                                        <option>333.01 INSTITUTO DE ENERGIAS RENOVABLES EN TEMIXCO, MOR.</option>	                                                                    
-	                                                                    <option>443.01 FACULTAD DE ESTUDIOS SUPERIORES IZTACALA</option>
-	                                                                    <option>613.01 CENTRO DE ENSEÑANZA PARA EXTRANJEROS</option>
-                                                                    </select>
-                                                                   			 <script>
-                                                                   			 $(document).ready(function(){ 
-																			    $('#ValorCheck3').on('click',function(){
-																			      $('#catalogo3').toggle();
-																			  	 });
-																				});
-                                                                   			 </script>
-                                                                    </div></td>
-                                                                 </tr>
-                                                                 <tr>
-																<td>4</td>
-																<td>FACULTAD DE INGENIERIA</td>
-																<td>50000</td>
-																<td><input type="checkbox" name="ValorCheck4"id="ValorCheck4"></td>
-																<td><div id="catalogo4" style="display:none;">
-																	<select class="form-control" name="id_cat_dependencia">
-                                                                        <option value="0">311.01 CONSEJO TECNICO Y COORDINACION DE LA INVERSTIGACION CIENTIFICA</option>
-                                                                        <option value="1">311.02 CENTRO DE CIENCIAS DE LA ATMOSFERA</option>
-                                                                        <option>331.01 INSTITUTO DE NEUROBIOLOGIA EN QUERETARO, QRO</option>
-                                                                        <option>333.01 INSTITUTO DE ENERGIAS RENOVABLES EN TEMIXCO, MOR.</option>	                                                                    
-	                                                                    <option>443.01 FACULTAD DE ESTUDIOS SUPERIORES IZTACALA</option>
-	                                                                    <option>613.01 CENTRO DE ENSEÑANZA PARA EXTRANJEROS</option>
-                                                                    </select>
-                                                                   			 <script>
-                                                                   			 $(document).ready(function(){ 
-																			    $('#ValorCheck4').on('click',function(){
-																			      $('#catalogo4').toggle();
-																			  	 });
-																				});
-                                                                   			 </script>
-                                                                    </div></td>
-                                                                 </tr>
-																 </tbody>
-														</table>
-														</div>
-														</div>
-												</div>
-												
-												<!------------------------------------------------------------------->
-																<div class="row">
-																<div class="col-lg-9" align="right">
-																<div class="form-group">
-																<a href="ministraciones.jsp" type="button" class="btn btn-primary">Siguiente</a>
-							            			            <a href="depositosConcentradora.jsp" type="button" class="btn btn-default">Regresar</a>
-						
-																</div>
-																</div>
-																</div>
-														
-														
-														
-														
-														<!------------------------------->
-														
-						                  <!-- /.panel -->
-						     </div>
-						                
-									
-									
-									</div>
-								</div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>QUÍMICA</td>
+                                                    <td>20000</td>
+                                                    <td><input type="checkbox" name="ValorCheck2"id="ValorCheck2"></td>
+                                                    <td><div id="catalogo2" style="display:none;">
+                                                            <select class="form-control" name="cat_dependencias2" id="cat_dependencias">
+                                                            </select>
+                                                            <script>   $(document).ready(function(){ 
+                                                                $('#ValorCheck2').on('click',function(){
+                                                                $('#catalogo2').toggle();
+                                                                });
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>FCA</td>
+                                                    <td>1500000</td>
+                                                    <td><input type="checkbox" name="ValorCheck3"id="ValorCheck3"></td>
+                                                    <td><div id="catalogo3" style="display:none;">
+                                                            <select class="form-control" name="cat_dependencias3" id="cat_dependencias">
+                                                            </select>
+                                                                <script>
+                                                                    $(document).ready(function(){ 
+                                                                    $('#ValorCheck3').on('click',function(){
+                                                                    $('#catalogo3').toggle();
+                                                                    });
+                                                                    });
+                                                                </script>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4</td>
+                                                    <td>FACULTAD DE INGENIERIA</td>
+                                                    <td>50000</td>
+                                                    <td><input type="checkbox" name="ValorCheck4"id="ValorCheck4"></td>
+                                                    <td><div id="catalogo4" style="display:none;">
+                                                        <select class="form-control" name="cat_dependencias4" id="cat_dependencias">
+                                                        </select>
+                                                            <script>
+                                                                $(document).ready(function(){ 
+                                                                $('#ValorCheck4').on('click',function(){
+                                                                $('#catalogo4').toggle();
+                                                                });
+                                                                });
+                                                            </script>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <!------------------------------------------------------------------->
+                            <div class="row">
+                                <div class="col-lg-9" align="right">
+                                    <div class="form-group">
+                                        <a href="ministraciones.jsp" type="button" class="btn btn-primary">Siguiente</a>
+                                        <a href="depositosConcentradora.jsp" type="button" class="btn btn-default">Regresar</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 							
                             
  <!-- jQuery -->
