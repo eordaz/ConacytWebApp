@@ -220,15 +220,15 @@ $(function () {
                      //return v;                  // return the unchanged property value.
                      });*/
                     var content = JSON.parse(json);
-
                     fondoLen = content.length;
                     //limpiacombos();
                     //$("#cat_dependencias").empty();
                     $("#cat_dependencias").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#cat_dependencias").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#cat_dependencias").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
                     }
+                    
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);
                     // alert(content['valor']);
@@ -251,19 +251,24 @@ $(function () {
 
 
 //SUBDEPENDENCIAS
-$("#cat_dependencias").change(function () {
+/*$("#cat_dependencias").change(function () {
     $("#cat_subdependencias").empty();
-    $.getJSON('http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getSubdependencias=' + $("#cat_dependencias").val(), function (data) {
+    $.getJSON('http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getSubdependencias=' + (document.getElementById('cat_fondos').value=x;), function (data) {
         console.log(JSON.stringify(data));
         $.each(data, function (k, v) {
-            $("#cat_subdependencias").append("<option value=\"" + k + "\">" + v + "</option>");
+            $("#cat_subdependencias").append("<option value=\"" + v + "\">" + k + "</option>");
         }).removeAttr("disabled");
     });
 });
-
-/**$(function () {
-   // $("#cat_subdependencias").click(function () { // if submit button is clicked
-        var json_param = JSON.stringify({"id_cat_catalogo": 'valorDependencia'});
+*/
+var mostrarDependencia = function(x){
+    document.getElementById('cat_fondos').value=x;
+     console.log(x);
+     $("#cat_fondos").append("Seleccione", x);
+     
+$(function () {
+   // $("#cat_dependencias").click(function () { // if submit button is clicked
+        var json_param = JSON.stringify({"id_cat_catalogo": x});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
             url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getSubdependencias',
@@ -283,16 +288,16 @@ $("#cat_dependencias").change(function () {
                      return alert(k[1] + v);          // log the current property name, the last is "".
                      //return v;                  // return the unchanged property value.
                      });*/
-               /**     var content = JSON.parse(json);
-
+                    var content = JSON.parse(json);
                     fondoLen = content.length;
                     //limpiacombos();
                     $("#cat_subdependencias").empty();
                     $("#cat_subdependencias").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#cat_subdependencias").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#cat_subdependencias").append(new Option(content[i].descripcion, content[i].id_cat_subdependencia));
                     }
+                    
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);
                     // alert(content['valor']);
@@ -300,7 +305,7 @@ $("#cat_dependencias").change(function () {
 
                     /*document.location.href = 'inicio.jsp';
                      
-                     document.getElementById("usuario").value = "Sair Esparza";
+                     document.getElementById("usuario").value = "Sair Esparza";*/
                 }
             },
         })/*.done(function (data) {
@@ -309,12 +314,11 @@ $("#cat_dependencias").change(function () {
          alert(content[0].nombre)
          });*/
 
-/*        return false;
+        return false;
     });
-//});
-*/
+    };
 
-
+//onchange
 //FUNCION CAT_FONDOS COMPLEMENTO
 var mostrarValor = function(x){
     document.getElementById('cat_fondos').value=x;
@@ -322,25 +326,10 @@ var mostrarValor = function(x){
      $("#cat_fondos").append("Seleccione", x);
      
 };
-
-/*$(document).ready(function(){
-        $("#cat_fondos").change(function(){
-                var op = $("#cat_fondos option:selected").val();
-                $('#cat_fondos').html(op);
-                alert (cat_fondos);
-        });
-});*/
-/*function ShowSelected()
-{
-
-var cod = document.getElementById("cat_fondos").value;
-alert(cod);
- 
-
-var combo = document.getElementById("cat_fondos");
-var selected = combo.options[combo.selectedIndex].text;
-alert(selected);
-}  
-    */
-   
-   
+//FUNCION CAT_FONDOS COMPLEMENTO
+/*var mostrarDependencia = function(x){
+    document.getElementById('cat_fondos').value=x;
+     console.log(x);
+     $("#cat_fondos").append("Seleccione", x);
+     
+};*/

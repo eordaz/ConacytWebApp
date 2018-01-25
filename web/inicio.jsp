@@ -141,7 +141,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                             <label>Dependencia</label>
-                                            <select class="form-control" name="cat_dependencias" id="cat_dependencias">
+                                            <select class="form-control" name="cat_dependencias" id="cat_dependencias" onchange="mostrarDependencia(this.value)">
                                             </select>
                                             </div>
                                         </div>
@@ -151,7 +151,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>SubDependencia</label>
-                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias" disabled="disabled">
+                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias">
                                             </select>
                                         </div>
                                     </div>
