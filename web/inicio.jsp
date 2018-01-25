@@ -97,7 +97,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-                                                <select class="form-control" name="cat_fondos" id="cat_fondos" onchange="mostrarValor(this.value);">
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos" onchange="mostrarValor(this.value)">
                                                     <!--input type="text" name="valoreninput" id="valoreninput" value="" /-->
 		                                </select>
 	                                    </div>
@@ -151,7 +151,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>SubDependencia</label>
-                                            <select class="form-control" name="id_cat_subdependencia" id="cat_subdependencias">
+                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias" disabled="disabled">
                                             </select>
                                         </div>
                                     </div>

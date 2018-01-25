@@ -37,7 +37,7 @@ $(function () {
                     //var obj = JSON.parse(data);
                     var json = JSON.stringify(data);
 
-                    /*JSON.parse(json, function (k, v) {
+                     /*JSON.parse(json, function (k, v) {
                         return alert(k[1] + v);          // log the current property name, the last is "".
                         //return v;                  // return the unchanged property value.
                     });*/
@@ -51,7 +51,7 @@ $(function () {
 
                     document.location.href = 'inicio.jsp';
 
-                    document.getElementById("usuario").value = "Sair Esparza";
+                    document.getElementById("usuario").value;
                 }
             },
                     })/*.done(function (data) {
