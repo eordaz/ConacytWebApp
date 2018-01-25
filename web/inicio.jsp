@@ -25,7 +25,7 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="shortcut icon" href="favicon.ico">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -97,7 +97,8 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-                                                <select class="form-control" name="cat_fondos" id="cat_fondos" >
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos" onchange="mostrarValor(this.value);">
+                                                    <!--input type="text" name="valoreninput" id="valoreninput" value="" /-->
 		                                </select>
 	                                    </div>
                                         </div>
@@ -150,10 +151,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>SubDependencia</label>
-                                            <select class="form-control" name="id_cat_subdependencia">
-                                                <option>Seleccionar</option>
-                                                <option value="1">COORDINACI&Oacute;N Y CONSEJO  T&Eacute;CNICO DE  HUMANIDADES</option>
-                                                <option value="3">CENTROS DE INVESTIGACI&Oacute;N INBTERDISCIPLINARIAS EN CIENCIAS  Y HUMANIDADES</option>
+                                            <select class="form-control" name="id_cat_subdependencia" id="cat_subdependencias">
                                             </select>
                                         </div>
                                     </div>
