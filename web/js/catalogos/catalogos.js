@@ -5,8 +5,7 @@
  */
 //FUNCION CAT_FONDOS
 $(function () {
-    $("#cat_fondos").click(function () { // if submit button is clicked
-        $("#cat_fondos").empty();
+    //$("#cat_fondos").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"tabla": 'cat_fondos'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -23,7 +22,7 @@ $(function () {
                     var content = JSON.parse(json);
 
                     fondoLen = content.length;
-                    
+                    $("#cat_fondos").empty();
                     $("#cat_fondos").append(new Option("Seleccione", "-1"));
                    for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -36,10 +35,14 @@ $(function () {
 
         return false;
     });
-});
+//});
+
+
+
+
 //FUNCION CAT_MONEDA
 $(function () {
-    $("#cat_moneda").click(function () { // if submit button is clicked
+   // $("#cat_moneda").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"tabla": 'cat_moneda'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -64,7 +67,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    $("#cat_moneda").empty();
+                    //$("#cat_moneda").empty();
                     $("#cat_moneda").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -88,10 +91,10 @@ $(function () {
 
         return false;
     });
-});
+//});
 //FUNCION CAT_TIPO_GASTO
 $(function () {
-    $("#tipoGasto").click(function () { // if submit button is clicked
+    //$("#tipoGasto").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"tabla": 'cat_tipo_gasto'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -116,7 +119,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    $("#tipoGasto").empty();
+                    //$("#tipoGasto").empty();
                     $("#tipoGasto").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -140,10 +143,10 @@ $(function () {
 
         return false;
     });
-});
+//});
 //FUNCION CAT_DOCUMENTOS
 $(function () {
-    $("#cat_documentos").click(function () { // if submit button is clicked
+    //$("#cat_documentos").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"tabla": 'cat_documentos'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -168,7 +171,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    $("#cat_documentos").empty();
+                    //$("#cat_documentos").empty();
                     $("#cat_documentos").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -192,10 +195,10 @@ $(function () {
 
         return false;
     });
-});
+//});
 //FUNCION CAT_DEPENDENCIAS
 $(function () {
-    $("#cat_dependencias").click(function () { // if submit button is clicked
+   // $("#cat_dependencias").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"tabla": 'cat_dependencias'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -244,7 +247,7 @@ $(function () {
 
         return false;
     });
-});
+//});
 
 
 //SUBDEPENDENCIAS
@@ -258,8 +261,8 @@ $("#cat_dependencias").change(function () {
     });
 });
 
-$(function () {
-    $("#cat_subdependencias").click(function () { // if submit button is clicked
+/**$(function () {
+   // $("#cat_subdependencias").click(function () { // if submit button is clicked
         var json_param = JSON.stringify({"id_cat_catalogo": 'valorDependencia'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
@@ -280,7 +283,7 @@ $(function () {
                      return alert(k[1] + v);          // log the current property name, the last is "".
                      //return v;                  // return the unchanged property value.
                      });*/
-                    var content = JSON.parse(json);
+               /**     var content = JSON.parse(json);
 
                     fondoLen = content.length;
                     //limpiacombos();
@@ -297,7 +300,7 @@ $(function () {
 
                     /*document.location.href = 'inicio.jsp';
                      
-                     document.getElementById("usuario").value = "Sair Esparza";*/
+                     document.getElementById("usuario").value = "Sair Esparza";
                 }
             },
         })/*.done(function (data) {
@@ -306,10 +309,10 @@ $(function () {
          alert(content[0].nombre)
          });*/
 
-        return false;
+/*        return false;
     });
-});
-
+//});
+*/
 
 
 //FUNCION CAT_FONDOS COMPLEMENTO
