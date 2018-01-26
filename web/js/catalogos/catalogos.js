@@ -67,7 +67,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    //$("#cat_moneda").empty();
+                    $("#cat_moneda").empty();
                     $("#cat_moneda").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -119,7 +119,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    //$("#tipoGasto").empty();
+                    $("#tipoGasto").empty();
                     $("#tipoGasto").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -171,7 +171,7 @@ $(function () {
 
                     fondoLen = content.length;
                     //limpiacombos();
-                    //$("#cat_documentos").empty();
+                    $("#cat_documentos").empty();
                     $("#cat_documentos").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -222,7 +222,7 @@ $(function () {
                     var content = JSON.parse(json);
                     fondoLen = content.length;
                     //limpiacombos();
-                    //$("#cat_dependencias").empty();
+                    $("#cat_dependencias").empty();
                     $("#cat_dependencias").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
@@ -262,9 +262,9 @@ $(function () {
 });
 */
 var mostrarDependencia = function(x){
-    document.getElementById('cat_fondos').value=x;
+    document.getElementById('cat_dependencias').value=x;
      console.log(x);
-     $("#cat_fondos").append("Seleccione", x);
+     $("#cat_dependencias").append("Seleccione", x);
      
 $(function () {
    // $("#cat_dependencias").click(function () { // if submit button is clicked
@@ -298,9 +298,9 @@ $(function () {
                         $("#cat_subdependencias").append(new Option(content[i].descripcion, content[i].id_cat_subdependencia));
                     }
                     
-                    // console.log(content['id_cat_tabla']);
-                    // alert(content['id_cat_tabla']);
-                    // alert(content['valor']);
+                    // console.log(content['descripcion']);
+                     //alert(content['id_cat_subdependencia']);
+                     //alert(content['descripcion']);
                     //$("usuario").val(content['nombre_completo']);
 
                     /*document.location.href = 'inicio.jsp';
@@ -318,14 +318,20 @@ $(function () {
     });
     };
 
+
+/*var mostrarSubDependencia = function(y){
+    document.getElementById('cat_subdependencia').value=y;
+     console.log(y);
+     $("#cat_subdependencia").append("Seleccione", y);
+     }*/
 //onchange
 //FUNCION CAT_FONDOS COMPLEMENTO
-var mostrarValor = function(x){
+/*var mostrarValor = function(x){
     document.getElementById('cat_fondos').value=x;
      console.log(x);
      $("#cat_fondos").append("Seleccione", x);
      
-};
+};*/
 //FUNCION CAT_FONDOS COMPLEMENTO
 /*var mostrarDependencia = function(x){
     document.getElementById('cat_fondos').value=x;

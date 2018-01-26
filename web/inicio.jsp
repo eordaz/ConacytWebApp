@@ -97,7 +97,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-                                                <select class="form-control" name="cat_fondos" id="cat_fondos" onchange="mostrarValor(this.value)">
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos">
                                                     <!--input type="text" name="valoreninput" id="valoreninput" value="" /-->
 		                                </select>
 	                                    </div>
