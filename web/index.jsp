@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+ 
     <title>Login</title>
 
     <!-- Bootstrap Core CSS -->
@@ -35,6 +35,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
+    <script type="text/javascript" src="dist/js/bootbox.min.js"></script>
     <script src=vendor/bootstrap/js/bootstrap.min.js></script>
 
     <!-- Metis Menu Plugin JavaScript -->
@@ -62,7 +63,7 @@
                         <p align="center" class="panel-title">&nbsp;</p>
                   </div>
                     <div class="panel-body">
-                        <form name="submit_login" id="submit_login" action="" method="POST">
+                        <form name="frmlogin" id="frmlogin" action="" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="usuario" name="usuario" id="usuario">
@@ -77,7 +78,7 @@
                                 </div>
                             	</fieldset>    
                                 
-                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Accesar">
+                            <input type="submit" id ="submit_login" name="submit_login"  class="btn btn-lg btn-success btn-block" value="Accesar">
                        </form> 
                     </div>
                 </div>

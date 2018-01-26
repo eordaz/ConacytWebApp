@@ -35,6 +35,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
+    <script type="text/javascript" src="dist/js/bootbox.min.js"></script>
 </head>
 
 <body>
@@ -159,14 +160,16 @@
                         	<div class="row">
                                     <div class="col-lg-6" align="right">
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-primary">Siguiente</button>
+                                            <button id="btnSig1"  name="btnSig1" type="button" class="btn btn-primary">Siguiente</button>
                                             <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                                  
+
+                      
+                        
 			<div class="tab-pane fade" id="profile">
                             <div class="panel-body">
                                 <div class="row">
