@@ -59,8 +59,7 @@ function valida_siguiente(){
       	return 0; 
    	} 
    	//el formulario se envia 
-        alert("Llenado correcto");
-        console.log(fvalida);
-        document.fvalida.submit(href = 'inicio.jsp#profile');
+        alert("llenado correcto"); 
+   	document.fvalida.submit(); 
         
 }

@@ -36,6 +36,7 @@
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
     <script src="js/forms/funcionesDeLlenado.js"></script>
+    <script src="js/forms/llenado.js"></script>
     <script src="js/forms/inicioValidaCampo.js"></script>
     <script  src="dist/js/bootbox.min.js"></script>
     
@@ -87,7 +88,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <br/><label>No. de Proyecto</label> 
-                                            <input class="form-control" maxlength="8" name="clave_proyecto" onkeypress="return validarDigitos(event)" onblur="validarDigitosCopiar(this.id);" id="clave_proyecto">
+                                            <input class="form-control" maxlength="8" name="clave_proyecto"id="clave_proyecto"/>
 					</div>
                                     </div>
                     		</div>
@@ -95,7 +96,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre del Proyecto</label>
-                                            <input class="form-control" name="nombre_proyecto" id="nombre_proyecto" onkeypress="return validarLetras(event)" onblur="validarLetrasCopiar(this.id);" />
+                                            <input class="form-control" name="nombre_proyecto" id="nombre_proyecto"/>
                                         </div>
                                     </div>
                         	</div>
@@ -166,7 +167,7 @@
                         	<div class="row">
                                     <div class="col-lg-6" align="right">
                                         <div class="form-group">
-                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" value="Enviar" onclick="valida_siguiente()">Siguiente</button>
+                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="llenado()">Siguiente</button>
                                             <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                     </div>
