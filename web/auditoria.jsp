@@ -173,7 +173,7 @@
 				    	        						<div class="col-lg-4 col-tipo">
 				    	        							  <div class="form-group">
 				                                       		 	<label>Tipo de Gasto</label>
-					                                       			 <select class="form-control" id="tipoGasto" name="id_cat_tipo_gasto" disabled>
+					                                       			 <INPUT class="form-control" id="tipoGasto" name="id_cat_tipo_gasto" disabled/>
 					                                    	         </select>
 				                                   			  </div>
 				    	                             	</div>
@@ -217,7 +217,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="rfcTecnico" type="text" placeholder="DAJS785421FE8" disabled>
+                                           			 <input class="form-control" id="rfcTecnico" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -225,19 +225,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="nomTecnico" type="text" placeholder="DIEGO" disabled>
+                                           			 <input class="form-control" id="nomTecnico"disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="apPatTecnico" type="text" placeholder="MARTINEZ" disabled>
+                                           			 <input class="form-control" id="apPatTecnico" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="apMatTecnico" type="text" placeholder="FLORES" disabled>
+                                           			 <input class="form-control" id="apMatTecnico" disabled/>
                                        			</div>
 												</div>
 											</div>
@@ -245,13 +245,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="correoTecnico" type="text" placeholder="........@hotmail.com" disabled>
+                                           			 <input class="form-control" id="correoTecnico" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="telTecnico" type="text" placeholder="26578498" disabled>
+                                           			 <input class="form-control" id="telTecnico" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -273,7 +273,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="rfcAdmin" type="text" placeholder="POLJ895421LK7" disabled>
+                                           			 <input class="form-control" id="rfcAdmin" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -281,19 +281,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="nomAdmin" type="text" placeholder="MARIA" disabled>
+                                           			 <input class="form-control" id="nomAdmin" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="apPatAdmin" type="text" placeholder="RODRIGUEZ" disabled>
+                                           			 <input class="form-control" id="apPatAdmin" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="apMatAdmin" type="text" placeholder="DÍAZ" disabled>
+                                           			 <input class="form-control" id="apMatAdmin" disabled/>
                                        			</div>
 												</div>
 											</div>
@@ -301,13 +301,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="correoAdmin" type="text" placeholder="........@yahoo.com.mx" disabled>
+                                           			 <input class="form-control" id="correoAdmin" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="telAdmin" type="text" placeholder="57849785" disabled>
+                                           			 <input class="form-control" id="telAdmin" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -328,7 +328,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="rfcResp" type="text" placeholder="JUGS854215BR6" disabled>
+                                           			 <input class="form-control" id="rfcResp" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -336,19 +336,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="nomResp" type="text" placeholder="ANA" disabled>
+                                           			 <input class="form-control" id="nomResp" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="apPatResp" type="text" placeholder="GUTIERREZ" disabled>
+                                           			 <input class="form-control" id="apPatResp" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="apMatResp" type="text" placeholder="HERRERA" disabled>
+                                           			 <input class="form-control" id="apMatResp" disabled/>
                                        			</div>
 												</div>
 											</div>
@@ -356,13 +356,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="correoResp" type="text" placeholder="........@gmail.com" disabled>
+                                           			 <input class="form-control" id="correoResp" disabled/>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="telResp" type="text" placeholder="57426351" disabled>
+                                           			 <input class="form-control" id="telResp" disabled/>
                                        			</div>
 												</div>
 												</div>
@@ -382,7 +382,7 @@
                                                     <div class="row">
                                                     <div class="col-lg-6">
                                                     <div class="form-group">
-                                                                                    <br/><label>Proyecto</label><input type= "file"></input>
+                                                                                    <br/><label>Proyecto</label><input type="text" id="proyArch"></input>
                                                                             </div>
                                                     </div>
                                                     </div>
@@ -390,7 +390,7 @@
                                                     <div class="col-lg-3">
                                                     <div class="form-group">
                                                                                     <label>Otros</label>
-                                                                                    <input type= "file"></input>
+                                                                                    <input id="proyArchOtros"></input>
                                                                             </div>
                                                             </div>
 

@@ -70,11 +70,11 @@
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#datos_gral" data-toggle="tab">Datos Generales</a>
                     </li>
-                    <li><a href="#profile" data-toggle="tab">Datos Presupuestales</a>
+                    <li><a href="#datos_pres" data-toggle="tab">Datos Presupuestales</a>
                     </li>
-                    <li><a href="#messages" data-toggle="tab">Responsables</a>
+                    <li><a href="#resp" data-toggle="tab">Responsables</a>
                     </li>
-                    <li><a href="#settings" data-toggle="tab">Anexos</a>
+                    <li><a href="#anexos" data-toggle="tab">Anexos</a>
                     </li>
                 </ul>
 
@@ -166,7 +166,7 @@
                         	<div class="row">
                                     <div class="col-lg-6" align="right">
                                         <div class="form-group">
-                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="llenado()">Siguiente</button>
+                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="datos_pres"><a href="#datos_pres">"Siguiente</a></button>
                                             <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
 
                       
                         
-			<div class="tab-pane fade" id="profile">
+			<div class="tab-pane fade" id="datos_pres">
                             <div class="panel-body">
                                 <div class="row">
 				
@@ -286,7 +286,7 @@
 
 						<!-- --------------------           RESPONSABLES                     -->				
 								
-                        <div class="tab-pane fade" id="messages">
+                        <div class="tab-pane fade" id="resp">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -462,7 +462,7 @@
 
 <!-- ---------------------------------------------------ANEXO ---------------------- -->								
 								
-                        <div class="tab-pane fade" id="settings">
+                        <div class="tab-pane fade" id="anexos">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">

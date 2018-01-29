@@ -5,8 +5,10 @@
  */
 
 
-function llenado(){
- 
+//function llenado(){
+
+$(function () {
+    $("#Sig").click(function () {
 		var cveproy = document.getElementById('clave_proyecto').value;
 		var nomproy = document.getElementById('nombre_proyecto').value;
 		var catfon = document.getElementById('cat_fondos').value;
@@ -65,4 +67,5 @@ function llenado(){
 		}
  
 		return true;
-	}
+	});
+        });
