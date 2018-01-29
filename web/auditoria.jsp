@@ -63,28 +63,28 @@
                                 </li>
                                 <li><a href="#settings" data-toggle="tab">Anexos</a>
                                 </li>
-								<li><a href="#autoriza" data-toggle="tab">Autorizaci&oacute;n</a>
-                                </li>
+								<!--li><a href="#autoriza" data-toggle="tab">Autorizaci&oacute;n</a>
+                                </li-->
                             </ul>
 
                             <!-- Tab panes -->
                              <div class="tab-content">
                                 <div class="tab-pane fade in active" id="home">
                                     <div class="panel-body">
-										<div class="row">
-											<div class="col-lg-3">
-											<div class="form-group">
-                                		           </br> <label>No. de Proyecto</label>
-                                        		    <input class="form-control" id="txtNoProyecto" type="text">
-                                        		    </div>
-                                        		    </div>
-                                        		    <div class="col-lg-3">
-								    				 <div class="form-group">
-								    			  		  </br><label style="color:#ffffff">consultar</label>
-								                          </br><input type="button" id="btnConsultar"  class="btn btn-primary"  value="Consultar"/>
-								    				  </div>	
-								    				</div>
-										</div>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <div class="form-group">
+                                                   </br> <label>No. de Proyecto</label>
+                                                        <input class="form-control" id="txtNoProyecto" type="text">
+                                                        </div>
+                                                        </div>
+                                                        <div class="col-lg-3">
+                                                         <div class="form-group">
+                                                                  </br><label style="color:#ffffff">consultar</label>
+                                                  </br><input type="button" id="btnConsultar"  class="btn btn-primary"  value="Consultar"/>
+                                                          </div>	
+                                                        </div>
+                                        </div>
 											<div class="row">
 											<div class="col-lg-6">
 											<div class="form-group">
@@ -108,13 +108,13 @@
 												<div class="col-lg-3">
 												<div class="form-group">
         	                                    	<label>Fecha Inicio</label>
-            	                                		<input class="form-control" TYPE="date" id="fechIniConsul" type="text" disabled>
+            	                                		<input class="form-control" id="fechIniConsul" type="text" disabled>
                 	                        	</div>
 												</div>
 												<div class="col-lg-3">
 												<div class="form-group">
                     		                        <label>Fecha Fin</label>
-                            			                <input class="form-control" type="date" id="fechfinConsul" type="text" disabled>
+                            			                <input class="form-control" id="fechfinConsul" type="text" disabled>
 												</div>
 												</div>
 											</div>
@@ -202,42 +202,7 @@
 													</div>
 					                </div></div></div>
 					                </div></div></div>
-                                             
-
-
-<!--  <div class="row">
-					                <div class="col-lg-12">
-                    				<div class="panel panel-primary">
-			                        	<div class="panel-heading">
-            		              	 	 <i class="fa fa-fw"></i> Etapa 2
-                    			    	</div>
-											<div class="panel-body">
-												<div class="row">
-												<div class="col-lg-4">
-												<div class="form-group">
-                                           		 	<label>Tipo de Gasto</label>
-                                           			 <select class="form-control" id="disabledInput" type="text" placeholder="Tipo de Gasto" disabled>
-                                                		<option>CORRIENTE</option>
-                                               			 <option>DE INVERSIÓN</option>
-                                              			 <option>OTROS</option>
-		                                            </select>
-                                       			</div>
-												</div>
-												</div>
-												<div class="row">
-												<div class="col-lg-2">
-												<div class="form-group">
-                                           		 	<label>Importe de la etapa</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="100,000" disabled>
-                                       			</div>
-												</div>
-												</div>
-										</div>
-	    				</div></div></div>
-
-
-							</div>
-							</div> 		-->
+                                            
 								
                                 <div class="tab-pane fade" id="messages">
                                 <div class="panel-body">
@@ -252,7 +217,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="DAJS785421FE8" disabled>
+                                           			 <input class="form-control" id="rfcTecnico" type="text" placeholder="DAJS785421FE8" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -260,19 +225,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="DIEGO" disabled>
+                                           			 <input class="form-control" id="nomTecnico" type="text" placeholder="DIEGO" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="MARTINEZ" disabled>
+                                           			 <input class="form-control" id="apPatTecnico" type="text" placeholder="MARTINEZ" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="FLORES" disabled>
+                                           			 <input class="form-control" id="apMatTecnico" type="text" placeholder="FLORES" disabled>
                                        			</div>
 												</div>
 											</div>
@@ -280,13 +245,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="........@hotmail.com" disabled>
+                                           			 <input class="form-control" id="correoTecnico" type="text" placeholder="........@hotmail.com" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="26578498" disabled>
+                                           			 <input class="form-control" id="telTecnico" type="text" placeholder="26578498" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -308,7 +273,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="POLJ895421LK7" disabled>
+                                           			 <input class="form-control" id="rfcAdmin" type="text" placeholder="POLJ895421LK7" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -316,19 +281,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="MARIA" disabled>
+                                           			 <input class="form-control" id="nomAdmin" type="text" placeholder="MARIA" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="RODRIGUEZ" disabled>
+                                           			 <input class="form-control" id="apPatAdmin" type="text" placeholder="RODRIGUEZ" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="DÍAZ" disabled>
+                                           			 <input class="form-control" id="apMatAdmin" type="text" placeholder="DÍAZ" disabled>
                                        			</div>
 												</div>
 											</div>
@@ -336,13 +301,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="........@yahoo.com.mx" disabled>
+                                           			 <input class="form-control" id="correoAdmin" type="text" placeholder="........@yahoo.com.mx" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="57849785" disabled>
+                                           			 <input class="form-control" id="telAdmin" type="text" placeholder="57849785" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -363,7 +328,7 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>RFC</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="JUGS854215BR6" disabled>
+                                           			 <input class="form-control" id="rfcResp" type="text" placeholder="JUGS854215BR6" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -371,19 +336,19 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Nombre</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="ANA" disabled>
+                                           			 <input class="form-control" id="nomResp" type="text" placeholder="ANA" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido Paterno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="GUTIERREZ" disabled>
+                                           			 <input class="form-control" id="apPatResp" type="text" placeholder="GUTIERREZ" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Apellido materno</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="HERRERA" disabled>
+                                           			 <input class="form-control" id="apMatResp" type="text" placeholder="HERRERA" disabled>
                                        			</div>
 												</div>
 											</div>
@@ -391,13 +356,13 @@
 												<div class="col-lg-4">
 												<div class="form-group">
                                            		 	<label>Correo electr&oacute;nico</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="........@gmail.com" disabled>
+                                           			 <input class="form-control" id="correoResp" type="text" placeholder="........@gmail.com" disabled>
                                        			</div>
 												</div>
 													<div class="col-lg-4">
 													<div class="form-group">
                                            		 	<label>Tel&eacute;fono</label>
-                                           			 <input class="form-control" id="disabledInput" type="text" placeholder="57426351" disabled>
+                                           			 <input class="form-control" id="telResp" type="text" placeholder="57426351" disabled>
                                        			</div>
 												</div>
 												</div>
@@ -412,29 +377,29 @@
 							</div>
 
 								
-											<div class="tab-pane fade" id="settings">
-										<div class="panel-body">
-										<div class="row">
-										<div class="col-lg-6">
-										<div class="form-group">
-														<br/><label>Proyecto</label><input type= "file"></input>
-													</div>
-										</div>
-										</div>
-										<div class="row">
-										<div class="col-lg-3">
-										<div class="form-group">
-														<label>Otros</label>
-														<input type= "file"></input>
-													</div>
-											</div>
-							
+                                                    <div class="tab-pane fade" id="settings">
+                                                    <div class="panel-body">
+                                                    <div class="row">
+                                                    <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                                                    <br/><label>Proyecto</label><input type= "file"></input>
+                                                                            </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="row">
+                                                    <div class="col-lg-3">
+                                                    <div class="form-group">
+                                                                                    <label>Otros</label>
+                                                                                    <input type= "file"></input>
+                                                                            </div>
+                                                            </div>
 
-										</div>
-			
-											</div>
-										</div>
-										<div class="tab-pane fade" id="autoriza">
+
+                                                    </div>
+
+                                                            </div>
+                                                    </div>
+                                                    <div class="tab-pane fade" id="autoriza">
                                 <div class="panel-body">
 								<div class="row">
 											<div class="col-lg-3">
@@ -458,9 +423,9 @@
 											</div>
 											<div class="col-lg-6">
 											<div class="form-group">
-                	                            <label>Nombre de Funcionario</label>
-                    	                        <input class="form-control" id="disabledInput" type="text" placeholder="Datos_usuario">
-                        	                </div>
+                                                                                            <label>Nombre de Funcionario</label>
+                                                                                            <input class="form-control" id="disabledInput" type="text" placeholder="Datos_usuario">
+                                                                                        </div>
 											</div>
 										</div>
 										<div class="row">
