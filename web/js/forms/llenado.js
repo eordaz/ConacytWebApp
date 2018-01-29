@@ -20,7 +20,7 @@ function llenado(){
  
 		
 		if(cveproy == null || cveproy.length == 0 || isNaN(cveproy)){
-			alert('ERROR: INGRESAR CLAVE');
+			alert('ERROR: INGRESAR CLAVE \n\RESTRICCION DE CAMPO: NUMERICO');
 			return false;
 		}
     
@@ -45,7 +45,7 @@ function llenado(){
 		}
                 
                 if(importe == null || importe.length == 0 || isNaN(importe)){
-			alert('ERROR: INGRESAR IMPORTE');
+			alert('ERROR: INGRESAR IMPORTE \n\RESTRICCION DE CAMPO: NUMERICO, SIGNOS Y PUNTOS DECIMALES ');
 			return false;
 		}
                 

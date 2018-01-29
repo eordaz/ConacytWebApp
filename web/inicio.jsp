@@ -35,7 +35,6 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
-    <script src="js/forms/funcionesDeLlenado.js"></script>
     <script src="js/forms/llenado.js"></script>
     <script src="js/forms/inicioValidaCampo.js"></script>
     <script  src="dist/js/bootbox.min.js"></script>
