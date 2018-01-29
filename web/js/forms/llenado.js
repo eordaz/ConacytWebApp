@@ -13,9 +13,9 @@ function llenado(){
 		var fechin = document.getElementById('fecha_inicio').value;
 		var fechfin = document.getElementById('fecha_fin').value;
 		var importe = document.getElementById('importe').value;
-		var catmoneda = document.getElementsByName('cat_moneda').value;
-                var catdependencia = document.getElementsByName('cat_dependencias').value;
-                var catsubdependencia = document.getElementsByName('cat_subdependencias').value;
+		var catmoneda = document.getElementById('cat_moneda').value;
+                var catdependencia = document.getElementById('cat_dependencias').value;
+                var catsubdependencia = document.getElementById('cat_subdependencias').value;
 
  
 		
