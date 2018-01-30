@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
 
+       // inicio(); 
         $("#btn_guardar").click(function () {//Guardar
             var datosgeneralesJson = JSON.stringify(getDatosgenerales()).toString();     
             var datosEtapasJson = JSON.stringify(getEtapas()).toString();
@@ -27,19 +28,80 @@ $(document).ready(function () {
                 cache: false,
                 success: function (data) {
                 console.log("probando");
-
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert("Prueba:" + textStatus + ": " + XMLHttpRequest.responseText);
                 },
                 complete: function (jqXHR, status) {
                     console.log(jqXHR);
-
                 }
             });*/
     });
 
 });
+
+function inicio(){ // 1
+
+    $("span.help-block").hide();
+    $("#btnsig1").click(function(){
+		if(validar()==false){
+		console.log("no valido ");
+		}
+        else{
+		console.log("validos");
+		$("#li2").removeClass("disabledTab");
+		
+		}
+
+    });
+    $("#clave_proyecto").keyup(validar);
+ 	
+}
+
+
+
+
+function  validar()
+{
+	var valor = document.getElementById("clave_proyecto").value;
+	if ( valor == null || valor.length==0  /*||  !(/^\[A-Z]{2}\d{6}$/.test(valor))*/)
+	{
+	  $("#iconotexto").remove();
+	  $("#clave_proyecto").parent().attr("class","form-group has-feedback");
+	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
+	  $("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#clave_proyecto").parent().attr("class","form-group  has-success has-feedback" );
+		$("#clave_proyecto").parent().children("span").text("").hide();
+	 	$("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	 	return true;
+	 
+	}
+        
+        var valor = document.getElementById("importe").value;
+	if ( valor == null || valor.length==0  ||  !(/^\d$/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#clave_proyecto").parent().attr("class","form-group");
+	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
+	  $("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#clave_proyecto").parent().attr("class","form-group  has-success" );
+		$("#clave_proyecto").parent().children("span").text("").hide();
+	 	$("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
+	 	return true;
+	 
+	}
+        
+
+}
+
 function getDatosgenerales(){
     
     var dg = new Object();//datosGenerales
@@ -80,15 +142,62 @@ function getEtapas(){
     
     var dg = new Object();//datosGenerales
     var etapas = [];
-    var renglon = {};
-    var clave_etapa,clave_recurso,tipogasto, importe_asignado, importe_autorizado,no_filas;   
+    var renglonE1 = {};
+    var renglonE2 = {};
+    var renglonE3 = {};
+    var renglonE4 = {};
+    
+    var clave_etapa,clave_recurso,tipogasto, importe_asignado, importe_autorizado,no_filas;
+    var tipogasto2, importe_asignado2, importe_autorizado2;   
+    var tipogasto3, importe_asignado3, importe_autorizado3;       
+    var tipogasto4, importe_asignado4, importe_autorizado4;   
+    
     
     clave_etapa=1;
     no_filas=2;
     clave_recurso= 189;//CY $("#clave_proyecto").val().substring(0,2);
+    
     tipogasto=$("#tipoGasto option:selected").val();
     importe_asignado=$("#importe_asignado").val();
     importe_autorizado=$("#importe_asignado").val();
+    
+    tipogasto2=$("#tipoGasto option:selected").val();
+    importe_asignado2=$("#importe_asignado2").val();
+    importe_autorizado2=$("#importe_asignado2").val();
+    
+    
+    
+        renglonE1["clave_etapa"] = clave_etapa;
+        renglonE1["id_recurso"] = clave_recurso;
+        renglonE1["id_cat_tipo_gasto"] = tipogasto;
+        renglonE1["importe_asignado"] = importe_asignado;
+        renglonE1["importe_autorizado"] = importe_autorizado;
+        renglonE1["id_usuario"] = 1;
+        etapas.push(renglonE1);
+        
+        renglonE2["clave_etapa"] = clave_etapa;
+        renglonE2["id_recurso"] = clave_recurso;
+        renglonE2["id_cat_tipo_gasto"] = tipogasto2;
+        renglonE2["importe_asignado"] = importe_asignado2;
+        renglonE2["importe_autorizado"] = importe_autorizado2;
+        renglonE2["id_usuario"] = 1;
+        etapas.push(renglonE2);
+    
+        renglonE3["clave_etapa"] = "2";
+        renglonE3["id_recurso"] = clave_recurso;
+        renglonE3["id_cat_tipo_gasto"] = tipogasto3;
+        renglonE3["importe_asignado"] = importe_asignado3;
+        renglonE3["importe_autorizado"] = importe_autorizado3;
+        renglonE3["id_usuario"] = 1;
+        etapas.push(renglonE3);
+        
+        renglonE4["clave_etapa"] = "2";
+        renglonE4["id_recurso"] = clave_recurso;
+        renglonE4["id_cat_tipo_gasto"] = tipogasto4;
+        renglonE4["importe_asignado"] = importe_asignado4;
+        renglonE4["importe_autorizado"] = importe_autorizado4;
+        renglonE4["id_usuario"] = 1;
+        etapas.push(renglonE4);
     
    /* dg.clave_etapa =1;
     dg.id_recurso=clave_recurso;
@@ -98,7 +207,7 @@ function getEtapas(){
     dg.importe_autorizado =importe_autorizado;
     dg.id_usuario=1;*/
     
-     for (var i = 0; i <= 1; i++) {
+     /*for (var i = 0; i <= 1; i++) {
          
         renglon["clave_etapa"] = clave_etapa;
         renglon["id_recurso"] = clave_recurso;
@@ -108,7 +217,7 @@ function getEtapas(){
         renglon["id_usuario"] = 1;
         etapas.push(renglon);
         clave_etapa=clave_etapa+1;
-     }
+     }*/
     
     
      return etapas;
@@ -171,10 +280,130 @@ function getResponsables(){
     
 }
 
-
-
-function agrega_etapa(){
-    alert("EENTRA");
+function getDocumentos(){
+    var documentos = [];
+    var documento = {};
+    documento["id_documento"] = 250;
+    documento["nombre_archivo"] = 'datos.pdf';
+    documento["ruta"] = 'contratos';
+    documento["id_usuario"] = 1;
+    
+    documentos.push(documento);
+        
+   return documentos;
     
 }
 
+
+
+function agrega_etapa(){
+    //alert("EENTRA");
+    	var numerot = document.getElementById("num").value;
+	//var numerot = $('#num').val();
+
+	if(numerot==6){
+		}
+		else{
+			numerot++;
+			document.getElementById("num").value = numerot;	
+
+			if (numerot==2) { 
+				//$('#tel3, #tel4, #tel5, #tel6').hide();
+				$('#etapa2').show();
+			}
+			else if (numerot==3) { 
+				//$('#tel4, #tel5, #tel6').hide();
+				//$('#tel2, #tel3').show();
+			}
+			else if (numerot==4) { 
+				//$('#tel5, #tel6').hide();
+				//$('#tel2, #tel3, #tel4').show();
+			}
+			else if (numerot==5) { 
+				//$('#tel6').hide();
+				//$('#tel2, #tel3, #tel4, #tel5').show();
+			}
+			else if (numerot==6) { 
+				//$('#tel2, #tel3, #tel4, #tel5, #tel6').show();
+			}
+			else {}	
+		}    
+}
+
+function validarDigitos(e) { // 1
+    var key;
+    var keychar;
+    if (window.event) { key = window.event.keyCode; }
+    else if (e) { key = e.which; }
+    else { return true; }
+    keychar = String.fromCharCode(key);
+    var validos = "0123456789.";
+    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
+    if (validos.indexOf(keychar) > -1)
+        return true;
+    else
+        return false;
+}
+function validarDigitosCopiar(id) {
+    var cadena = document.getElementById(id).value;
+    var validos = "0123456789.";
+    var erroneos = "";
+    var i;
+    for (i = 0; i < cadena.length; i++) {
+        if (!(validos.indexOf(cadena.charAt(i)) > -1)) {
+            erroneos += cadena.charAt(i);
+        }
+    }
+    if (erroneos == "") {
+        return true;
+    } else {
+        if (erroneos.length == 1) {
+            bootbox.alert("El caracter no es validos.");
+            
+            return false;
+        } else {
+            bootbox.alert("El caracter no es valido.");       
+            
+            return false;
+        }
+    }
+}   
+
+function validarLetras(e) { // 1
+    var key;
+    var keychar;
+    if (window.event) { key = window.event.keyCode; }
+    else if (e) { key = e.which; }
+    else { return true; }
+    keychar = String.fromCharCode(key);
+    var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
+    if (validos.indexOf(keychar) > -1)
+        return true;
+    else
+        return false;
+}
+function validarDigitosCopiar(id) {
+    var cadena = document.getElementById(id).value;
+    var validos = "0123456789.";
+    var erroneos = "";
+    var i;
+    for (i = 0; i < cadena.length; i++) {
+        if (!(validos.indexOf(cadena.charAt(i)) > -1)) {
+            erroneos += cadena.charAt(i);
+        }
+    }
+    if (erroneos == "") {
+        return true;
+    } else {
+        if (erroneos.length == 1) {
+            bootbox.alert("El caracter no es validos.");
+            
+            return false;
+        } else {
+            bootbox.alert("El caracter no es valido.");       
+            
+            return false;
+        }
+    }
+}   

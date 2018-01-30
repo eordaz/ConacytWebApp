@@ -54,10 +54,19 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Nombre de Proyecto</label>
-                                <input name="Input" class="disable form-control"  disabled="disabled" value="TECNICAS DE DIAGNOSTICO DE BACTERIAS">
+                            <input id="nombreProyConsul" class="form-control" disabled="disabled" >
                         </div>
                     </div>	
 		</div>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <input type="button" id="btnConsultarComprobacion"  name="btnConsultarComprobacion" class="btn btn-primary"  value="Consultar"/>
+                        </div>
+                    </div>
+                </div>
+            
+                
         
             <div class="row" >
                 <div class="col-lg-12">
