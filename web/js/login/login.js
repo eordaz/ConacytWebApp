@@ -22,11 +22,13 @@ $(function () {
                 // if ajax function results success
                 var json = JSON.stringify(data);
                 var content = JSON.parse(json);
-                console.log(content['getLogin']);
+                //console.log(content['getLogin']);
                 
                 if (content['getLogin']==='-1') { // if the returned data equal 0
-                    bootbox.alert("No existe el usuario…");
-                    
+                $("#remember").parent().attr("class","form-group  has-error has-feedback" );
+                $("#remember").parent().children("span").text("El usuario o contraseña son inválidos  ").show();
+		
+                 //bootbox.alert("No existe el usuario…");
                     
                 } else { 
                     
