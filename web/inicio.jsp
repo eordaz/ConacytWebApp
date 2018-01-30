@@ -35,6 +35,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
+    
     <script src="js/jquery.funciones.proyectos.js"></script>
     
     <script  src="dist/js/bootbox.min.js"></script>
@@ -44,6 +45,8 @@
 </head>
 
 <body>
+<%session.setAttribute("mivalirable",10);%> 
+<%Object valor=session.getAttribute("mivalirable");%> 
 
     <div id="wrapper">
 
@@ -87,7 +90,8 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <br/><label>No. de Proyecto</label> 
-                                            <input class="form-control" maxlength="8" name="clave_proyecto"id="clave_proyecto"/>
+                                            <input class="form-control" maxlength="8" name="clave_proyecto"id="clave_proyecto" value="CY"/>
+                                             <span class="help-block"> </span>
 					</div>
                                     </div>
                     		</div>
@@ -130,6 +134,7 @@
                                         <div class="form-group">
                                             <label>Importe Total</label>
                                             <input class="form-control" maxlength="12" name="importe" id="importe"/>
+                                             <span class="help-block"> </span>
                                         </div>
                                     </div>
                         	</div>
@@ -201,19 +206,41 @@
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control" id="importe"  name="importe_asignado" placeholder="importe"></input>
+                                                                <input class="form-control" id="importe_asignado"  name="importe_asignado" placeholder="importe"></input>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label style="height:40px"></label>
-                                                                <button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
-                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>
+                                                                <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
                                                         </div>
                                                     </div>				
             					</div>
+                                                <div class="row" id="row_2">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto2">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto2" id="tipoGasto2">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                    <div class="col-lg-2 col-price" id="divImporte">
+                                                        <div class="form-group">
+                                                            <label>Importe</label>
+                                                                <input class="form-control" id="importe_asignado2"  name="importe_asignado2" placeholder="importe"></input>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label style="height:40px"></label>
+                                                                <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                        </div>
+                                                    </div>				
+            					</div>
 													
             										
                                                 <div class="row">
@@ -226,8 +253,8 @@
 
                                                         <div class="col-lg-2 col-price">
                                                                <div class="form-group">
-                                                                <label>Total de Etapa</label>
-                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>
+                                                               <!-- <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_autorizado"  name="importe_autorizado" disabled></input>-->
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -249,6 +276,7 @@
 			                            <div class="form-group">
 			                                <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
                                                         <button type="submit" class="btn btn-primary">Siguiente</button>
+                                                        <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
                                                     </div>
 						</div>
 						            												</div>
@@ -263,33 +291,53 @@
                                                 <i class="fa fa-fw"></i> <span class="stage-title">Etapa 2</span>
 				            </div>
                                         <div class="panel-body panel-medio" id="cuerpo_1">
-                                            <script>var stageId=0;
-                                                    newID=1;
-				            </script>
-                                                <div class="row" id="row_1">
+                                           
+                                                <div class="row" id="row_3">
                                                     <div class="col-lg-4 col-tipo"  id="divTipoGasto">
                                                         <div class="form-group">
                                                             <label>Tipo de Gasto</label>
-                                                                <select class="form-control" name="tipoGasto" id="tipoGasto">
+                                                                <select class="form-control" name="tipoGasto3" id="tipoGasto3">
                                                                 </select>
 				                        </div>
 				    	            </div>
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" id="importe"  name="importe_asignado" placeholder="importe"></input>
+                                                            <input class="form-control" id="importe_asignado3"  name="importe_asignado3" placeholder="importe"></input>
 				                    </div>
 				                </div>
 
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <label style="height:40px"></label>
-                                                            <button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
-                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
                                                     </div>
                                                 </div>
 						</div>
+                                                <div class="row" id="row_4">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto4" id="tipoGasto4">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" id="importe_asignado4"  name="importe_asignado4" placeholder="importe"></input>
+				                    </div>
+				                </div>
 
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
 													
             										
                                                 <div class="row">
@@ -300,10 +348,10 @@
                                                                 </div>
                                                         </div>
 
-                                                                                        <div class="col-lg-2 col-price">
+                                                        <div class="col-lg-2 col-price">
                                                                                 <div class="form-group">
-                                                                <label>Total de Etapa</label>
-                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>
+                                                             <!--   <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>-->
                                                                 </div>
                                                         </div>
                                                 </div>
@@ -311,7 +359,7 @@
                                     <div class="row">
                                       <div class="col-lg-8" align="right">
                                         <div class="form-group">
-                                          <button type="reset" class="btn btn-default">Limpiar</button>
+                                         <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                       </div>
                                     </div>
@@ -323,13 +371,13 @@
 			
 			                            <div class="col-lg-4" align="left">
 			                            <div class="form-group">
-			                                <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
-                                                        <button type="submit" class="btn btn-primary">Siguiente</button>
+			                          <!--      <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>-->
                                                     </div>
 						</div>
 						            												</div>
 
-        			</div><!--row2->
+        			</div><!--row2-->
                                 
                                 
                             </div>
@@ -350,7 +398,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                <input class="form-control" name="rfc"/>
+                                                                <input class="form-control" id="RT_rfc" name="RT_rfc">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label>RFC</label>
+                                                                 <input class="form-control"  id ="RT_tipo_responsable" name="RT_tipo_responsable" value="207">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -358,19 +412,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" name="nombre">
+                                                                <input class="form-control" id ="RT_nombre" name="RT_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                                <input class="form-control" name="apellido_paterno"/>
+                                                               <input class="form-control" id="RT_apellido_paterno"  name="RT_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label>Apellido materno</label>
-                                                                <input class="form-control" name="apellido_materno"/>
+                                                            <label>Apellido materno</label>                                                                
+                                           			 <input class="form-control" id="RT_apellido_materno" name="RT_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -378,13 +432,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Correo electr&oacute;nico</label>
-                                                                <input class="form-control" name="correo"/>
+                                                                <input class="form-control" id="RT_correo"  name="RT_correo">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
-                                                            <label>Tel&eacute;fono</label>
-                                                                <input class="form-control" name="telefono"/>
+                                                            <label>Tel&eacute;fono</label>                                                               
+                                           			 <input class="form-control" id="RT_telefono" name="RT_telefono">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -403,7 +457,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                <input class="form-control" name="rfc"/>
+                                                                 <input class="form-control"  id ="RA_rfc" name="RA_rfc">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                                 <input class="form-control"  id ="RA_tipo_responsable" name="RA_tipo_responsable" value="208">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -411,19 +471,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" name="nombre"/>
+                                                                <input class="form-control" id="RA_nombre" name="RA_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                                <input class="form-control" name="apellido_paterno"/>
+                                                                <input class="form-control" id="RA_apellido_paterno" name="RA_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                                <input class="form-control" name="apellido_materno"/>
+                                                               <input class="form-control" id="RA_apellido_materno" name="RA_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -431,13 +491,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Correo electr&oacute;nico</label>
-                                                                <input class="form-control" name="correo"/>
+                                                                <input class="form-control" id="RA_correo" name="RA_correo">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>
-                                                                <input class="form-control" name="telefono"/>
+                                                                <input class="form-control" id="RA_telefono" name="RA_telefono">
                                                         </div>
                                                     </div>
                                                 </div>	
@@ -456,27 +516,33 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                <input class="form-control" name="rfc"/>
+                                                                <input class="form-control" id="RL_rfc" name="RL_rfc">
                                                         </div>
                                                     </div>
-                                                </div>
+                                                     <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                                <input class="form-control"  id ="RL_tipo_responsable" name="RL_tipo_responsable" value="209">
+                                                        </div>
+                                                    </div>
+                                                 </div>   
                                                 <div class="row">
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" name="nombre"/>
+                                                                <input class="form-control"  id="RL_nombre" name="RL_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                                <input class="form-control" name="apellido_paterno"/>
+                                                              <input class="form-control" id="RL_apellido_paterno" name="RL_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                                <input class="form-control" name="apellido_materno"/>
+                                                               <input class="form-control" id="RL_apellido_materno" name="RL_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -484,13 +550,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Correo electr&oacute;nico</label>
-                                                                <input class="form-control" name="correo"/>
+                                                                <input class="form-control" id="RL_correo" name="RL_correo">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>
-                                                                <input class="form-control" name="telefono"/>
+                                                                <input class="form-control" id="RL_telefono" name="RL_telefono">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -519,7 +585,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <br/><label>Proyecto</label>
-                                            <input type="file" name="uploadfile" style="width:300px"></input>
+                                            <input type="file" id ="uploadfile"  name="uploadfile" style="width:300px"></input>
                                         </div>
                                     </div>
 				</div>
@@ -527,7 +593,7 @@
                             <div class="row">
                                 <div class="col-lg-3" align="right">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button type="button" id="btn_guardar"  class="btn btn-primary">Guardar</button>
 			                <button type="reset" class="btn btn-default">Limpiar</button>
                                     </div>
                                 </div>
