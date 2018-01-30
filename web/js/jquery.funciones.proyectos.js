@@ -173,17 +173,8 @@ function getResponsables(){
 
 
 
-function getDocumentos(){
-    var documentos = [];
-    var documento = {};
-    documento["id_documento"] = 250;
-    documento["nombre_archivo"] = 'datos.pdf';
-    documento["ruta"] = 'contratos';
-    documento["id_usuario"] = 1;
-    
-    documentos.push(documento);
-        
-   return documentos;
+function agrega_etapa(){
+    alert("EENTRA");
     
 }
 

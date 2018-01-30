@@ -35,10 +35,10 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
-    <script src="js/forms/llenado.js"></script>
-    <script src="js/forms/inicioValidaCampo.js"></script>
+    <script src="js/jquery.funciones.proyectos.js"></script>
+    
     <script  src="dist/js/bootbox.min.js"></script>
-    <script  src="js/forms/funcionesClone.js"></script>
+    
     
     
 </head>
@@ -198,6 +198,82 @@
                                                                 </select>
 				                        </div>
 				    	            </div>
+                                                    <div class="col-lg-2 col-price" id="divImporte">
+                                                        <div class="form-group">
+                                                            <label>Importe</label>
+                                                                <input class="form-control" id="importe"  name="importe_asignado" placeholder="importe"></input>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label style="height:40px"></label>
+                                                                <button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>
+                                                        </div>
+                                                    </div>				
+            					</div>
+
+													
+            										
+                                                <div class="row">
+
+                                                        <div class="col-lg-4 col-price">
+                                                                                <div class="form-group">
+                                                                <label></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2 col-price">
+                                                               <div class="form-group">
+                                                                <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>
+                                                                </div>
+                                                        </div>
+                                                </div>
+									
+                                    <div class="row">
+                                      <div class="col-lg-8" align="right">
+                                        <div class="form-group">
+                                          <button type="reset" class="btn btn-default">Limpiar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+            			</div>
+                                <!--/ panel-body -->
+
+			                            </div> <!--/ panel  (finish etapa) -->
+			
+			                            <div class="col-lg-4" align="left">
+			                            <div class="form-group">
+			                                <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>
+                                                    </div>
+						</div>
+						            												</div>
+
+        			</div><!-- etapa 2--->
+                                <div class="row" id="etapa2"  style="display:none;">
+				
+				    <div class="col-lg-12">
+				
+                                        <div class="panel panel-primary panel-stage" id="divStage_1">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 2</span>
+				            </div>
+                                        <div class="panel-body panel-medio" id="cuerpo_1">
+                                            <script>var stageId=0;
+                                                    newID=1;
+				            </script>
+                                                <div class="row" id="row_1">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto" id="tipoGasto">
+                                                                </select>
+				                        </div>
+				    	            </div>
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
@@ -212,10 +288,7 @@
                                                             <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>
                                                     </div>
                                                 </div>
-								                                 		           			
-
-            										
-            										</div>
+						</div>
 
 													
             										
@@ -249,38 +322,16 @@
 			                            </div> <!--/ panel  (finish etapa) -->
 			
 			                            <div class="col-lg-4" align="left">
-			                          		<div class="form-group">
+			                            <div class="form-group">
 			                                <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
                                                         <button type="submit" class="btn btn-primary">Siguiente</button>
-			                                								<script>
-			                                								function addStage() 
-                                                                                                                            {
-                                                                                                                              // Obtengo el id del último elemento de "etapa"
-                                                                                                                              var lastStageId = parseInt($('.panel-stage').last().attr('id').split('_')[1]);
-                                                                                                                              var newId = lastStageId+1;
-
-                                                                                                                              // Clono e inserto el último elemento de "etapa"
-                                                                                                                              $newClone = $('.panel-stage').last().clone(true);
-                                                                                                                              $newClone.attr("id",'divStage_'+newId);
-
-                                                                                                                              // coloco nuevo título "etapa 1, 2, 3..."
-                                                                                                                              $newClone.children('.panel-heading').html('<i class="fa fa-fw"></i> <span class="stage-title">Etapa '+newId+'</span>');
-
-                                                                                                                              // Actualizo función "addColumnPrice" del nuevo elemento
-                                                                                                                              $newClone.find('.btn-add-price').removeAttr("onclick"); // quito onclick del elemento clonado
-                                                                                                                              $newClone.find('.btn-add-price').unbind('click'); // quito onclick del elemento clonado
-                                                                                                                              $newClone.find('.btn-add-price').on("click", function(){ addColumnPrice(newId); });
-
-                                                                                                                              // inserto nuevo elemento
-                                                                                                                              $newClone.insertAfter($('#divStage_'+lastStageId));
-                                                                                                                            }
-			                                								</script>
-						                                 			  </div>
-						                                 			</div>
-
+                                                    </div>
+						</div>
 						            												</div>
 
-        			</div>
+        			</div><!--row2->
+                                
+                                
                             </div>
                         </div>
 

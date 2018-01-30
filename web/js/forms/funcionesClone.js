@@ -76,3 +76,27 @@ function remover(id) {
         $('#row_1').remove();
         console.log("valor del stageId" +stageId);
       }
+      
+      function agrega_etapa() 
+    {
+        
+      alert("entra");
+      // Obtengo el id del último elemento de "etapa"
+      //var lastStageId = parseInt($('.panel-stage').last().attr('id').split('_')[1]);
+      //var newId = lastStageId+1;
+
+      // Clono e inserto el último elemento de "etapa"
+      //$newClone = $('.panel-stage').last().clone(true);
+      //$newClone.attr("id",'divStage_'+newId);
+
+      // coloco nuevo título "etapa 1, 2, 3..."
+      //$newClone.children('.panel-heading').html('<i class="fa fa-fw"></i> <span class="stage-title">Etapa '+newId+'</span>');
+
+      // Actualizo función "addColumnPrice" del nuevo elemento
+      //$newClone.find('.btn-add-price').removeAttr("onclick"); // quito onclick del elemento clonado
+      //$newClone.find('.btn-add-price').unbind('click'); // quito onclick del elemento clonado
+      //$newClone.find('.btn-add-price').on("click", function(){ addColumnPrice(newId); });
+
+      // inserto nuevo elemento
+      //$newClone.insertAfter($('#divStage_'+lastStageId));
+    }
