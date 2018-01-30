@@ -9,9 +9,9 @@
 $(function () {
        
     $("#btnConsultar").click(function () { // if submit button is clicked
-        var NoProyecto = 'CY'+$("input#txtNoProyecto").val(); // define username variable     
+        var NoProyecto = $("input#txtNoProyecto").val(); // define username variable     
         
-        var json_param = JSON.stringify({"clave_proyecto": NoProyecto, "esComprobacion": 'false'});
+        var json_param = JSON.stringify({"id_recurso": '189', "clave_proyecto": NoProyecto});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
             url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerProyectosPorClave',
@@ -24,7 +24,7 @@ $(function () {
                 var json = JSON.stringify(data);
                 console.log('esto es el json:'+json);
                 var content = JSON.parse(json);
-                console.log("valor de content" + content[0]["etapas_proyecto"]["etapa_1"]["recurso_descr"]);
+                console.log("valor de content" + content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
                 
                 
                 //impresion valores en pantalla de registro de proyecto
@@ -37,33 +37,37 @@ $(function () {
                 $('#dependConsul').val(content[0]["datosGenerales"]["Dependencia_desc"]);
                 $('#subdependConsul').val(content[0]["datosGenerales"]["Subdependencia_desc"]);
                 //impresion valores en datos prespuestales
-                $('#tipoGasto').val(content[0]["etapas_proyecto"]["etapa_1"][0]["recurso_descr"]);
-                $('#importe_asignado').val(content[0]["etapas_proyecto"]["etapa_1"][0]["importe"]);
+                $('#tipoGasto').val(content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
+                $('#importe').val(content[0]["etapas_proyecto"]["0"]["importe_autorizado"]);
                 //impresion valores Responsables
-                /*$('#rfcTecnico').val(content[0]["responsables"]["RESPONSABLE TÉCNICO"]["rfc"]);
-                $('#nomTecnico').val(content[0]["responsables"]["RESPONSABLE T&EACUTE;CNICO"]["nombre"]);
-                $('#apPatTecnico').val(content[0]["responsables"]["RESPONSABLE T&EACUTE;CNICO"]["apellido_paterno"]);
-                $('#apMatTecnico').val(content[0]["responsables"]["RESPONSABLE T&EACUTE;CNICO"]["apellido_materno"]);
-                $('#correoTecnico').val(content[0]["responsables"]["RESPONSABLE T&EACUTE;CNICO"]["correo"]);
-                $('#telTecnico').val(content[0]["responsables"]["RESPONSABLE T&EACUTE;CNICO"]["telefono"]);*/
-                $('#rfcAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["rfc"]);
-                $('#nomAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["nombre"]);
-                $('#apPatAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["apellido_paterno"]);
-                $('#apMatAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["apellido_materno"]);
-                $('#correoAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["correo"]);
-                $('#telAdmin').val(content[0]["responsables"]["RESPONSABLE ADMINISTRATIVO"]["telefono"]);
-                $('#rfcResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["rfc"]);
-                $('#nomResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["nombre"]);
-                $('#apPatResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["apellido_paterno"]);
-                $('#apMatResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["apellido_materno"]);
-                $('#correoResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["correo"]);
-                $('#telResp').val(content[0]["responsables"]["RESPONSABLE LEGAL"]["telefono"]);
+                $('#rfcTecnico').val(content[0]["responsables"]["1"]["rfc"]);
+                $('#nomTecnico').val(content[0]["responsables"]["1"]["nombre"]);
+                $('#apPatTecnico').val(content[0]["responsables"]["1"]["apellido_paterno"]);
+                $('#apMatTecnico').val(content[0]["responsables"]["1"]["apellido_materno"]);
+                $('#correoTecnico').val(content[0]["responsables"]["1"]["correo"]);
+                $('#telTecnico').val(content[0]["responsables"]["1"]["telefono"]);
+                $('#rfcAdmin').val(content[0]["responsables"]["0"]["rfc"]);
+                $('#nomAdmin').val(content[0]["responsables"]["0"]["nombre"]);
+                $('#apPatAdmin').val(content[0]["responsables"]["0"]["apellido_paterno"]);
+                $('#apMatAdmin').val(content[0]["responsables"]["0"]["apellido_materno"]);
+                $('#correoAdmin').val(content[0]["responsables"]["0"]["correo"]);
+                $('#telAdmin').val(content[0]["responsables"]["0"]["telefono"]);
+                $('#rfcResp').val(content[0]["responsables"]["2"]["rfc"]);
+                $('#nomResp').val(content[0]["responsables"]["2"]["nombre"]);
+                $('#apPatResp').val(content[0]["responsables"]["2"]["apellido_paterno"]);
+                $('#apMatResp').val(content[0]["responsables"]["2"]["apellido_materno"]);
+                $('#correoResp').val(content[0]["responsables"]["2"]["correo"]);
+                $('#telResp').val(content[0]["responsables"]["2"]["telefono"]);
                 //impresion valores Anexos
                 $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]);
                 
                 
                 
             },
+            
+        /*error: function(data) {
+                    alert("Proyecto inexistente");
+                }*/
         })    
 
         return  false;        

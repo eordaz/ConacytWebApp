@@ -181,7 +181,7 @@
 				                                      	<div class="col-lg-2 col-price">
 				    	        							<div class="form-group">
 				                                     		 	<label>Importe</label>
-				                                     		  	<input class="form-control" id="importe"  name="importe_asignado" disabled></input>
+				                                     		  	<input class="form-control" id="importe"  name="importe" disabled></input>
 				                                 			</div>
 				                                 		</div>
 				                                 	</div>

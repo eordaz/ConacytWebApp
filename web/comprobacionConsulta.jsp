@@ -71,7 +71,7 @@
 		<ul class="nav nav-tabs">
                     <li class="active" > <a href="#profile" data-toggle="tab">Datos de Comprobación</a>					
                     </li>
-                    <li><a href="#polizas" data-toggle="tab">Pólizas</a>					
+                    <li><!--a href="#polizas" data-toggle="tab">Pólizas</a-->					
                     </li>					
 						
 		</ul>

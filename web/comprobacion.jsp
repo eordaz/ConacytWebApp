@@ -72,7 +72,7 @@
 						<ul class="nav nav-tabs">
 						<li class="active" > <a href="#profile" data-toggle="tab">Datos de Comprobación</a>					
 						</li>
-						<li><a href="#polizas" data-toggle="tab">Pólizas</a>					
+						<li><!--a href="#polizas" data-toggle="tab">Pólizas</a-->					
 						</li>					
 						
 						</ul>
@@ -108,7 +108,7 @@
                                                                     <div class="col-lg-3">
                                                                         <div class="form-group">
                                                                                         <label>Importe a Comprobar</label>
-                                                                                        <input class="form-control" id="importe"  name="importe"  value="$1,600.58">
+                                                                                        <input class="form-control" id="importe"  type="text" name="importe"  value="$1,600.58">
                                                                                 <script>   
                                                                                         $(document).ready(function(){ 
                                                                                     $('#tipoGasto').on('click',function(){

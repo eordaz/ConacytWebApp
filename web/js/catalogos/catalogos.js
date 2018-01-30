@@ -26,7 +26,7 @@ $(function () {
                     $("#cat_fondos").append(new Option("Seleccione", "-1"));
                    for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#cat_fondos").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#cat_fondos").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
                     }
                     
                 }
@@ -71,7 +71,7 @@ $(function () {
                     $("#cat_moneda").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#cat_moneda").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#cat_moneda").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
                     }
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);
@@ -175,7 +175,7 @@ $(function () {
                     $("#cat_documentos").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#cat_documentos").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#cat_documentos").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
                     }
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);

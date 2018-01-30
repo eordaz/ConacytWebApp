@@ -166,7 +166,7 @@
                         	<div class="row">
                                     <div class="col-lg-6" align="right">
                                         <div class="form-group">
-                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="datos_pres"><a href="#datos_pres">"Siguiente</a></button>
+                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="datos_pres">Siguiente</button>
                                             <button type="reset" class="btn btn-default">Limpiar</button>
                                         </div>
                                     </div>
