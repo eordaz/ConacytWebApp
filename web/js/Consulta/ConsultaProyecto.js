@@ -62,7 +62,6 @@ $(function () {
                 $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]);
                 
                 
-                
             },
             
         /*error: function(data) {

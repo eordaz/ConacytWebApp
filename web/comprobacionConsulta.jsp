@@ -48,7 +48,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label>No. de Proyecto </label>
-                                <input class="form-control"  disabled="disabled" value="CY201449">
+                                <input class="form-control" id="consulComprobProy" name="consulComprobProy"/>
                         </div>
                     </div>	
                     <div class="col-lg-6">

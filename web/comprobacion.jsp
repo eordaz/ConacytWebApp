@@ -33,6 +33,8 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/catalogos/catalogos.js"></script>
+        <script src="js/Consulta/consultaComprobacion.js"></script>
+
 </head>
 
 <body>
@@ -49,13 +51,13 @@
                     <div class="col-lg-3">
                             <div class="form-group">
                                     <label>No. de Proyecto </label>
-                                    <input class="form-control"  disabled="disabled" value="CY201449">
+                                    <input class="form-control" id="addComprobProy" name="addComprobProy"/>
                             </div>
                     </div>	
                     <div class="col-lg-6">
                             <div class="form-group">
                                     <label>Nombre de Proyecto</label>
-                                    <input name="Input" class="disable form-control"  disabled="disabled" value="TECNICAS DE DIAGNOSTICO DE BACTERIAS">
+                                    <input class="form-control" id="nomProyComprobConsul" name="nomProyComprobConsul" disabled="disabled"/>
                             </div>
                     </div>	
                 </div>
