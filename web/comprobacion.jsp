@@ -92,7 +92,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-3">
                                                                 <div class="form-group">
-                                                                    <label>Comprobación</label>
+                                                                    <label>Tipo de Gasto</label>
                                                                         <select class="form-control" id="tipoGasto"  name="tipoGasto"> 
                                                                          </select>
                                                                 </div>

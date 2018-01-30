@@ -32,6 +32,7 @@
     <![endif]-->
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="js/Consulta/consultaComprobacion.js"></script>
 </head>
 
 <body>
@@ -40,6 +41,7 @@
 
         <!-- Navigation -->
         <%@ include file="navmenu.html" %>
+        
      
         <div id="page-wrapper">
         	<div class="row">  
@@ -48,23 +50,25 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label>No. de Proyecto </label>
-                                <input class="form-control" id="consulComprobProy" name="consulComprobProy"/>
+                            <% session.getAttribute("idProyecto");
+                                out.print("welcome"+ session.getAttribute("idProyecto"));%>
+                                <input class="form-control" id="consulComprobProy" name="consulComprobProy" disabled="disabled"/>
                         </div>
                     </div>	
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label>Nombre de Proyecto</label>
-                            <input id="nombreProyConsul" class="form-control" disabled="disabled" >
+                            <input id="nombreProyConsul" class="form-control" disabled="disabled" />
                         </div>
                     </div>	
 		</div>
-                <div class="row">
+                <!--div class="row">
                     <div class="col-lg-3">
                         <div class="form-group">
                             <input type="button" id="btnConsultarComprobacion"  name="btnConsultarComprobacion" class="btn btn-primary"  value="Consultar"/>
                         </div>
                     </div>
-                </div>
+                </div-->
             
                 
         
@@ -78,7 +82,7 @@
             <div class="panel-body">
                 					<!-- Nav tabs -->
 		<ul class="nav nav-tabs">
-                    <li class="active" > <a href="#profile" data-toggle="tab">Datos de Comprobación</a>					
+                    <li class="active" > Datos de Comprobación			
                     </li>
                     <li><!--a href="#polizas" data-toggle="tab">Pólizas</a-->					
                     </li>					
@@ -97,42 +101,16 @@
                                         <div class="row">
                                             <div class="col-lg-3">
                                                 <div class="form-group">
-                                                    <label>Comprobación</label>
-                                                        <select class="form-control" id="cmbComprobacion"  name="cmbComprobacion" disabled="disabled"> 
-                                                            <option selected>Seleccionar</option> 
-                                                            <option value="1" id="GastoCorriente">Gasto Corriente</option>
-                                                            <option value="2" id="alternar-respuesta-ej1">Gasto de Inversión</option>
-                                                            <option value="3" id="Gasto">Honorarios</option>
-							</select>
+                                                    <label>Tipo de Gasto</label>
+                                                        <INPUT type="text" class="form-control" id="cmbComprobacion"  name="cmbComprobacion" disabled="disabled"/> 
 						</div>
-                                            </div>
-                                            <div class="col-lg-3" id="divSicop" style="display:none">
-                                                <div class="form-group">
-                                                    <label>Folio SICOP</label>
-                                                        <input class="form-control" id="sicop"   type="text" name="sicop"  >
-                                                </div>
                                             </div>
 					</div>
 					<div class="row">
                                             <div class="col-lg-3">
                                                 <div class="form-group">
                                                     <label>Importe a Comprobar</label>
-                                                        <input class="form-control" id="importe"  name="importe"  value="$1,600.58" disabled="disabled">
-                                                            <script>   
-                                                                $(document).ready(function(){ 
-                                                                                            $('#cmbComprobacion').on('click',function(){
-                                                                                            dato = $('#cmbComprobacion').val();
-                                                                                            if (dato==2){
-                                                                                            //$('#divSicop').toggle();
-                                                                                            $('#divSicop').show();
-                                                                                            }
-                                                                                            else{
-                                                                                                //document.getByElementID('divSicop').style="display:none"; 
-                                                                                                $('#divSicop').hide();
-                                                                                                }
-                                                                                            });
-                                                                                            });
-                                                            </script>
+                                                        <input class="form-control" id="importeComprobacion"  name="importeComprobacion"  disabled="disabled">
 						</div>
                                             </div>
 					</div>	
@@ -148,45 +126,21 @@
                                         <div class="col-lg-3">
                                             <div class="form-group">
                                                 <label>Tipo de documento</label>
-                                                    <select class="form-control" id="cmbTipodoc"  name="cmbTipodoc" disabled="disabled">  
-                                                        <option selected>Seleccionar</option>
-                                                        <option value="1">Tickets</option>
-                                                        <option value="2">CFDI</option>
-                                                        <option value="3">FORMA MULTIPLE</option>
-                                                        <option value="4">CONTRATO BECARIO CONACYT</option>
-                                                        <option value="5">CARTA DE  INVITACION</option>
-                                                        <option value="6">LISTA DE INVITADOS</option>
-                                                        <option value="7">OTROS</option>
-                                                    </select>
+                                                    <input class="form-control" id="cmbTipodoc"  name="cmbTipodoc" disabled="disabled"/>  
                                             </div>	
 					</div>
                                     	<div class="col-lg-3" id="divOtros" style="display:none">
                                             <div class="form-group">
                                                 <label>Descripci&oacute;n</label>
-                                                    <input class="form-control" id="otros"   type="text" name="otros"  >
+                                                    <input class="form-control" id="descrip" name="descrip"   type="text"/>
                                             </div>
 					</div>
-					<script>   
-                                            $(document).ready(function(){ 
-                                                                        $('#cmbTipodoc').on('click',function(){
-                                                                        dato = $('#cmbTipodoc').val();
-                                                                        if (dato==7){
-                                                                                //$('#divSicop').toggle();
-                                                                                 $('#divOtros').show();
-                                                                                    }
-                                                                        else{
-                                                                                //document.getByElementID('divSicop').style="display:none"; 
-                                                                                $('#divOtros').hide();
-                                                                            }
-                                                                                                                });
-                                                                        });
-                                        </script>
                                     </div>
                                     <div class="row">             
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label>Documento Comprobatorio</label>                                           
-                                                    <input type="file">
+                                                <input id="anexoComprob" name="anexoComprob" disabled="disabled">
                                             </div>
 					</div>
                                     </div>
@@ -210,7 +164,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Tipo de póliza</label>
-                                            <select class="form-control" id="cmbTipodoc"  name="cmbTipoPol" disabled="disabled"> 
+                                            <select class="form-control" id="poliza"  name="poliza" disabled="disabled"> 
 						<option selected>Seleccionar</option>
 						<option value="2">Gasto</option>
 						<option value="3">Ingreso</option>

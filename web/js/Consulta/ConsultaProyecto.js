@@ -29,6 +29,7 @@ $(function () {
                 console.log(idProyecto);
                 //impresion valores en pantalla de registro de proyecto
                 $('#nomProyConsul').val(content[0]["datosGenerales"]["proyecto_desc"]);
+                $('#idProyConsul').val(content[0]["datosGenerales"]["id_proyecto"]);
                 $('#fondoConsul').val(content[0]["datosGenerales"]["fondo_desc"]);
                 $('#fechIniConsul').val(content[0]["datosGenerales"]["fecha_inicio"]);
                 $('#fechfinConsul').val(content[0]["datosGenerales"]["fecha_fin"]);
@@ -60,8 +61,6 @@ $(function () {
                 $('#telResp').val(content[0]["responsables"]["2"]["telefono"]);
                 //impresion valores Anexos
                 $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]);
-                
-                session.setAttribute("nombre",idProyecto);
                 
             },
             

@@ -89,7 +89,10 @@
 											<div class="col-lg-6">
 											<div class="form-group">
                                 	            <label>Nombre del Proyecto</label>
-                                    	        <input class="form-control" id="nomProyConsul" type="text" value="" disabled>
+                                    	        <input class="form-control" id="nomProyConsul" type="text" value="" disabled/>
+                                                <input class="form-control" id="idProyConsul" name="idProyConsul" type="hidden"/>
+                                                <% session.setAttribute("idProyecto", "idProyConsul");
+                                                out.print("idProyecto");%>
                                         	</div>
 											</div>
 											</div>
@@ -382,7 +385,7 @@
                                                     <div class="row">
                                                     <div class="col-lg-6">
                                                     <div class="form-group">
-                                                                                    <br/><label>Proyecto</label><input type="text" id="proyArch"></input>
+                                                        <br/><label>Proyecto</label><input type="text" id="proyArch" disabled></input>
                                                                             </div>
                                                     </div>
                                                     </div>
@@ -390,7 +393,7 @@
                                                     <div class="col-lg-3">
                                                     <div class="form-group">
                                                                                     <label>Otros</label>
-                                                                                    <input id="proyArchOtros"></input>
+                                                                                    <input id="proyArchOtros" disabled></input>
                                                                             </div>
                                                             </div>
 

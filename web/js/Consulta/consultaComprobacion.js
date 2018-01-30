@@ -5,24 +5,36 @@
  */
 
 $(function () {
-    $("#btnConsultarComprobacion").click(function () { // if submit button is clicked
-        $getsession.prototype(content[0]["etapas_proyecto"]["0"]["id_proyecto"]);
-        var NoProyecto = $("input#consulComprobProy").val(); // define username variable     
-        
-        var json_param = JSON.stringify({"id_proyecto": NoProyecto});
+       
+        var json_param = JSON.stringify({"id_proyecto": '4'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
             url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
-            data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
+            data: 'json=' + json_param, //'{\"id_proyecto\":\"' 4 '\"}',      
             dataType: "json", // type of returned data
             success: function (data) {
-                    console.log(data);
+                
+                // if ajax function results success
+                console.log(data);
+                var json = JSON.stringify(data);
+                console.log('esto es el json:'+json);
+                var content = JSON.parse(json);
+                console.log("valor de content" + content);
+                
                 //impresion valores en pantalla de registro de proyecto
-                $('#nombreProyConsul').val(data[0]["datosGenerales"]["proyecto_desc"]);
+                $('#consulComprobProy').val(content[0]["clave_proyecto"]);
+                $('#nombreProyConsul').val(content[0]["proyecto_desc"]);
+                $('#cmbComprobacion').val(content[0]["descripcion"]);
+                $('#importeComprobacion').val(content[0]["importe"]);
+                $('#cmbTipodoc').val(content[0]["documentos_descr"]);
+                $('#anexoComprob').val(content[0]["nombre_archivo"]);
+                
             },
             
+        error: function() {
+                    alert("Proyecto inexistente");
+                }
         })    
 
         return  false;        
         });
-    });
