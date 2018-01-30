@@ -33,6 +33,7 @@
 	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
 	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script src="js/Consulta/consultaComprobacion.js"></script>
+
 </head>
 
 <body>
@@ -50,9 +51,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label>No. de Proyecto </label>
-                            <% session.getAttribute("idProyecto");
-                                out.print("welcome"+ session.getAttribute("idProyecto"));%>
-                                <input class="form-control" id="consulComprobProy" name="consulComprobProy" disabled="disabled"/>
+                                <input class="form-control" id="consulComprobProy" name="consulComprobProy" />
                         </div>
                     </div>	
                     <div class="col-lg-6">
@@ -62,13 +61,13 @@
                         </div>
                     </div>	
 		</div>
-                <!--div class="row">
+                <div class="row">
                     <div class="col-lg-3">
                         <div class="form-group">
                             <input type="button" id="btnConsultarComprobacion"  name="btnConsultarComprobacion" class="btn btn-primary"  value="Consultar"/>
                         </div>
                     </div>
-                </div-->
+                </div>
             
                 
         

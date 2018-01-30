@@ -90,9 +90,7 @@
 											<div class="form-group">
                                 	            <label>Nombre del Proyecto</label>
                                     	        <input class="form-control" id="nomProyConsul" type="text" value="" disabled/>
-                                                <input class="form-control" id="idProyConsul" name="idProyConsul" type="hidden"/>
-                                                <% session.setAttribute("idProyecto", "idProyConsul");
-                                                out.print("idProyecto");%>
+                                                <input class="form-control" id="consulIdPro" name="consulIdPro" type="hidden"/>
                                         	</div>
 											</div>
 											</div>

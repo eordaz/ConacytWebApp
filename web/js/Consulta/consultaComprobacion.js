@@ -6,7 +6,10 @@
 
 $(function () {
        
-        var json_param = JSON.stringify({"id_proyecto": '4'});
+       $("#btnConsultarComprobacion").click(function () { // if submit button is clicked
+        var NoProyecto = $("input#consulComprobProy").val(); // define username variable     
+       
+        var json_param = JSON.stringify({"id_recurso": '189', "clave_proyecto": NoProyecto});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
             url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
@@ -22,7 +25,6 @@ $(function () {
                 console.log("valor de content" + content);
                 
                 //impresion valores en pantalla de registro de proyecto
-                $('#consulComprobProy').val(content[0]["clave_proyecto"]);
                 $('#nombreProyConsul').val(content[0]["proyecto_desc"]);
                 $('#cmbComprobacion').val(content[0]["descripcion"]);
                 $('#importeComprobacion').val(content[0]["importe"]);
@@ -38,3 +40,5 @@ $(function () {
 
         return  false;        
         });
+        
+});        
