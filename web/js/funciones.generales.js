@@ -61,7 +61,7 @@ function validarLetras(e) { // 1
 }
 function validarLetrasCopiar(id) {
     var cadena = document.getElementById(id).value;
-   var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚ";
+   var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚÄËÏÖÜ";
     var erroneos = "";
     var i;
     for (i = 0; i < cadena.length; i++) {
