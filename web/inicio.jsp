@@ -76,6 +76,7 @@
             <!-- /.row -->
             <!-- /.row -->
 <!-------------------------------------------------------------------------------------------------------------------> 
+
 	<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -338,6 +339,7 @@
                                                             <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
 				                    </div>
 				                </div>
+
                                                 <div class="col-lg-4">
                                                     <div class="form-group">
                                                         <label style="height:40px"></label>
@@ -753,6 +755,7 @@
     <script src="vendor/raphael/raphael.min.js"></script>
     <!--<script src="vendor/morrisjs/morris.min.js"></script>
     <script src="data/morris-data.js"></script> --->
+
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
 	 

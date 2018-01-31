@@ -67,17 +67,20 @@
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" type="text" placeholder="usuario" name="usuario" id="usuario">
+                                      
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" type="password" placeholder="contrase&ntilde;a" name="password" id="password">
+                                    
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Recordar">Recordar
+                                        <input id="remember" name="remember" type="checkbox" value="Recordar">Recordar
+                                          <span class="help-block"> </span>
                                     </label>
                                 </div>
                             	</fieldset>    
-                                
+                              
                             <input type="submit" id ="submit_login" name="submit_login"  class="btn btn-lg btn-success btn-block" value="Accesar">
                        </form> 
                     </div>

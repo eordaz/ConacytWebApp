@@ -124,6 +124,9 @@ $(function () {
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
                         $("#tipoGasto").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#tipoGasto2").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#tipoGasto3").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#tipoGasto4").append(new Option(content[i].descripcion, content[i].valor));
                     }
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);
