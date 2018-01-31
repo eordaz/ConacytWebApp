@@ -52,7 +52,7 @@ function validarLetras(e) { // 1
     else if (e) { key = e.which; }
     else { return true; }
     keychar = String.fromCharCode(key);
-    var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚ";
+    var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚÁÉÍÓÚÄËÏÖÜ.";
     if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
     if (validos.indexOf(keychar) > -1)
         return true;
@@ -61,7 +61,7 @@ function validarLetras(e) { // 1
 }
 function validarLetrasCopiar(id) {
     var cadena = document.getElementById(id).value;
-   var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚÄËÏÖÜ";
+   var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ áéíóúÁÉÍÓÚÄËÏÖÜ.";
     var erroneos = "";
     var i;
     for (i = 0; i < cadena.length; i++) {
