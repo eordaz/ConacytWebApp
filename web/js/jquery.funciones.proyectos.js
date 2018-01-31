@@ -125,7 +125,7 @@ function  validar_personales()
        
     
         var valor = document.getElementById("clave_proyecto").value;
-	if ( valor == null || valor.length==0  ||  !(/CY\d{6}/.test(valor)))
+	if ( valor == null || valor.length==0  ||  !(/CY\d{1,6}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
 	  $("#clave_proyecto").parent().attr("class","form-group has-error has-feedback");
