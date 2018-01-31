@@ -5,7 +5,6 @@
  */
 
 
-
 $(function () {
        
     $("#btnConsultar").click(function () { // if submit button is clicked
@@ -26,9 +25,9 @@ $(function () {
                 var content = JSON.parse(json);
                 console.log("valor de content" + content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
                 
-                
                 //impresion valores en pantalla de registro de proyecto
                 $('#nomProyConsul').val(content[0]["datosGenerales"]["proyecto_desc"]);
+                $('#consulIdProy').val(content[0]["datosGenerales"]["id_proyecto"]);
                 $('#fondoConsul').val(content[0]["datosGenerales"]["fondo_desc"]);
                 $('#fechIniConsul').val(content[0]["datosGenerales"]["fecha_inicio"]);
                 $('#fechfinConsul').val(content[0]["datosGenerales"]["fecha_fin"]);
@@ -61,17 +60,14 @@ $(function () {
                 //impresion valores Anexos
                 $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]);
                 
-                
             },
             
-        /*error: function(data) {
+        error: function() {
                     alert("Proyecto inexistente");
-                }*/
+                }
         })    
 
         return  false;        
         });
  
 });
-
-

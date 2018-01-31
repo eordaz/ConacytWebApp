@@ -44,7 +44,7 @@
 
            <!------------------------------------------------------------------------------------------------->
 		   
-		   <div id="page-wrapper">
+	<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Consulta de Proyecto</h1>
@@ -89,7 +89,8 @@
 											<div class="col-lg-6">
 											<div class="form-group">
                                 	            <label>Nombre del Proyecto</label>
-                                    	        <input class="form-control" id="nomProyConsul" type="text" value="" disabled>
+                                    	        <input class="form-control" id="nomProyConsul" type="text" value="" disabled/>
+                                                <input class="form-control" id="consulIdPro" name="consulIdPro" type="hidden"/>
                                         	</div>
 											</div>
 											</div>
@@ -382,7 +383,7 @@
                                                     <div class="row">
                                                     <div class="col-lg-6">
                                                     <div class="form-group">
-                                                                                    <br/><label>Proyecto</label><input type="text" id="proyArch"></input>
+                                                        <br/><label>Proyecto</label><input type="text" id="proyArch" disabled></input>
                                                                             </div>
                                                     </div>
                                                     </div>
@@ -390,7 +391,7 @@
                                                     <div class="col-lg-3">
                                                     <div class="form-group">
                                                                                     <label>Otros</label>
-                                                                                    <input id="proyArchOtros"></input>
+                                                                                    <input id="proyArchOtros" disabled></input>
                                                                             </div>
                                                             </div>
 
@@ -447,8 +448,9 @@
 			
 			
          
-
+        </div>
     </div>
+</div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
