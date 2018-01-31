@@ -51,7 +51,7 @@
                     <div class="col-lg-3">
                             <div class="form-group">
                                     <label>No. de Proyecto </label>
-                                    <input class="form-control" id="addComprobProy" name="addComprobProy"/>
+                                    <input class="form-control" id="numProyComprob" name="numProyComprob"/>
                             </div>
                     </div>	
                     <div class="col-lg-6">

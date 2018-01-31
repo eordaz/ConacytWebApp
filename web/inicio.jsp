@@ -32,18 +32,35 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
-    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/catalogos/catalogos.js"></script>
+    <!--<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
     
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+  
+  
+    <script src="js/catalogos/catalogos.js"></script>
+    <script src="js/funciones.generales.js"></script>
     <script src="js/jquery.funciones.proyectos.js"></script>
     
     <script  src="dist/js/bootbox.min.js"></script>
-    
-    
+
     
 </head>
-
+<style type="text/css">
+  
+    .disabledTab {
+        cursor: not-allowed;
+    }
+   
+    li.disabledTab > a[data-toggle="tab"] {
+        pointer-events: none;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+    }
+</style>
+    
 <body>
 <%session.setAttribute("mivalirable",10);%> 
 <%Object valor=session.getAttribute("mivalirable");%> 
@@ -69,19 +86,19 @@
                 <!-- /.panel-heading -->
             <div class="panel-body">
                     <!-- Nav tabs -->
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#datos_gral" data-toggle="tab">Datos Generales</a>
+                <ul class="nav nav-tabs" id="TabProy">
+                    <li class="active" id="tab1"><a  href="#datos_gral" data-toggle="tab">Datos Generales</a>
                     </li>
-                    <li><a href="#datos_pres" data-toggle="tab">Datos Presupuestales</a>
+                    <li class="disabledTab"  id="tab2"><a  href="#datos_pres" data-toggle="tab">Datos Presupuestales</a>
                     </li>
-                    <li><a href="#resp" data-toggle="tab">Responsables</a>
+                    <li class="disabledTab" id="tab3"><a  href="#resp" data-toggle="tab">Responsables</a>
                     </li>
-                    <li><a href="#anexos" data-toggle="tab">Anexos</a>
+                    <li class="disabledTab" id="tab4"><a  href="#anexos" data-toggle="tab">Anexos</a>
                     </li>
                 </ul>
 
                             <!-- Tab panes -->
-                <form name="fvalida">
+                <form name="fvalida" role="form" id="frmProyTab1">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="datos_gral">
                             <div class="panel-body">
@@ -89,7 +106,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <br/><label>No. de Proyecto</label> 
-                                            <input class="form-control" maxlength="8" name="clave_proyecto"id="clave_proyecto" value="CY"/>
+                                            <input class="form-control"   pattern="^CY[0-9]{6}$" maxlength="8" name="clave_proyecto"  id="clave_proyecto" value="CY" required title="Formato no válido CY000000" />
                                              <span class="help-block"> </span>
 					</div>
                                     </div>
@@ -98,7 +115,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre del Proyecto</label>
-                                            <input class="form-control" name="nombre_proyecto" id="nombre_proyecto"/>
+                                            <input class="form-control"   name="nombre_proyecto"  id="nombre_proyecto" required/>
+                                            <div class="help-block"></div>
                                         </div>
                                     </div>
                         	</div>
@@ -118,7 +136,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Fecha Inicio</label>
-                                            <input class="form-control" TYPE="date" name="fecha_inicio" id="fecha_inicio"/>
+                                            <input class="form-control" TYPE="date" name="fecha_inicio"  id="fecha_inicio" />
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
@@ -132,8 +150,8 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Importe Total</label>
-                                            <input class="form-control" maxlength="12" name="importe" id="importe"/>
-                                             <span class="help-block"> </span>
+                                            <input class="form-control"   onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"    maxlength="12" name="importe" id="importe" title="Solo dígitos" />
+                                             <div class="help-block"></div>
                                         </div>
                                     </div>
                         	</div>
@@ -152,7 +170,7 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                             <label>Dependencia</label>
-                                            <select class="form-control" name="cat_dependencias" id="cat_dependencias" onchange="mostrarDependencia(this.value)">
+                                            <select class="form-control" name="cat_dependencias" id="cat_dependencias" onchange="mostrarDependencia(this.value)" required>
                                             </select>
                                             </div>
                                         </div>
@@ -162,7 +180,7 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>SubDependencia</label>
-                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias">
+                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias" required>
                                             </select>
                                         </div>
                                     </div>
@@ -170,12 +188,25 @@
                         	<div class="row">
                                     <div class="col-lg-6" align="right">
                                         <div class="form-group">
-                                            <button name="Sig" id="Sig" type="button" class="btn btn-primary" onclick="datos_pres">Siguiente</button>
-                                            <button type="reset" class="btn btn-default">Limpiar</button>
+                                           <!-- <button name="Sig" id="Sig" type="submit" class="btn btn-primary" >Siguiente</button>-->
+                                           <!-- <button type="reset" class="btn btn-default">Limpiar</button>-->
                                         </div>
                                     </div>
                                 </div>
+                            <!-- #messages is where the messages are placed inside -->
+                            <div class="form-group">
+                                <div class="col-md-9 col-md-offset-3">
+                                    <div id="messages"></div>
+                                </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-md-offset-3">
+                                    <button name="btn1" id="btn1"  class="btn btn-primary" >Siguiente</button>
+                                    <button type="reset" class="btn btn-default">Limpiar</button>
+                                    <!--<button type="submit" class="btn btn-default">Validate</button>--> 
+                                </div>
+                            </div><!-- messseges  -->
+                            </div><!--  body-->
                         </div>
 
                       
@@ -198,14 +229,15 @@
                                                     <div class="col-lg-4 col-tipo"  id="divTipoGasto">
                                                         <div class="form-group">
                                                             <label>Tipo de Gasto</label>
-                                                                <select class="form-control" name="tipoGasto" id="tipoGasto">
+                                                                <select class="form-control" name="tipoGasto" id="tipoGasto" required>
                                                                 </select>
 				                        </div>
 				    	            </div>
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control" id="importe_asignado"  name="importe_asignado" placeholder="importe"></input>
+                                                                <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado"  name="importe_asignado" placeholder="importe"></input>
+                                                                  <div class="help-block"></div>
                                                         </div>
                                                     </div>
 
@@ -228,7 +260,8 @@
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control" id="importe_asignado2"  name="importe_asignado2" placeholder="importe"></input>
+                                                                <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dígitos" ></input>
+                                                                <span class="help-block"> </span>
                                                         </div>
                                                     </div>
 
@@ -274,7 +307,7 @@
 			                            <div class="col-lg-4" align="left">
 			                            <div class="form-group">
 			                                <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
-                                                        <button type="submit" class="btn btn-primary">Siguiente</button>
+                                                        <button type="button" name="btn2" id="btn2"  class="btn btn-primary">Siguiente</button>
                                                         <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
                                                     </div>
 						</div>
@@ -302,7 +335,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" id="importe_asignado3"  name="importe_asignado3" placeholder="importe"></input>
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
 				                    </div>
 				                </div>
                                                 <div class="col-lg-4">
@@ -324,7 +357,103 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" id="importe_asignado4"  name="importe_asignado4" placeholder="importe"></input>
+                                                            <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dígitos"></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+													
+            										
+                                                <div class="row">
+
+                                                        <div class="col-lg-4 col-price">
+                                                                                <div class="form-group">
+                                                                <label></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2 col-price">
+                                                                                <div class="form-group">
+                                                             <!--   <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>-->
+                                                                </div>
+                                                        </div>
+                                                </div>
+									
+                                    <div class="row">
+                                      <div class="col-lg-8" align="right">
+                                        <div class="form-group">
+                                         <button type="reset" class="btn btn-default">Limpiar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+            			</div>
+                                <!--/ panel-body -->
+
+			                            </div> <!--/ panel  (finish etapa) -->
+			
+			                            <div class="col-lg-4" align="left">
+			                            <div class="form-group">
+			                          <!--      <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>-->
+                                                    </div>
+						</div>
+						            												</div>
+
+        			</div><!--row 2-->
+                                  <div class="row" id="etapa3"  style="display:none;">
+				
+				    <div class="col-lg-12">
+				
+                                        <div class="panel panel-primary panel-stage" id="divStage_1">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 3</span>
+				            </div>
+                                        <div class="panel-body panel-medio" id="cuerpo_1">
+                                           
+                                                <div class="row" id="row_3">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto5" id="tipoGasto5">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dígitos"></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+                                                <div class="row" id="row_4">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto4" id="tipoGasto6" required>
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado6"  name="importe_asignado6" placeholder="importe" title=""></input>
 				                    </div>
 				                </div>
 
@@ -375,8 +504,7 @@
 						</div>
 						            												</div>
 
-        			</div><!--row2-->
-                                
+        			</div>
                                 
                             </div>
                         </div>
@@ -396,7 +524,8 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                <input class="form-control" id="RT_rfc" name="RT_rfc">
+                                                                <input class="form-control"   id="RT_rfc" name="RT_rfc"  required>
+                                                                 <div class="help-block"></div>    
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4" hidden="hidden">
@@ -410,19 +539,20 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" id ="RT_nombre" name="RT_nombre">
+                                                            <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  maxlength="80" id="RT_nombre" name="RT_nombre">
+                                                            <div class="help-block"></div>     
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                               <input class="form-control" id="RT_apellido_paterno"  name="RT_apellido_paterno">
+                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"   id="RT_apellido_paterno"  maxlength="80" name="RT_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>                                                                
-                                           			 <input class="form-control" id="RT_apellido_materno" name="RT_apellido_materno">
+                                           			 <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"   id="RT_apellido_materno" maxlength="80"  name="RT_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -430,13 +560,13 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Correo electr&oacute;nico</label>
-                                                                <input class="form-control" id="RT_correo"  name="RT_correo">
+                                                                <input type="email" class="form-control" id="RT_correo"  name="RT_correo" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>                                                               
-                                           			 <input class="form-control" id="RT_telefono" name="RT_telefono">
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  maxlength="10" pattern="[0-9]{10}" id="RT_telefono" name="RT_telefono" title="Solo dígitos">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -469,19 +599,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" id="RA_nombre" name="RA_nombre">
+                                                                <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RA_nombre" name="RA_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                                <input class="form-control" id="RA_apellido_paterno" name="RA_apellido_paterno">
+                                                                <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RA_apellido_paterno" name="RA_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                               <input class="form-control" id="RA_apellido_materno" name="RA_apellido_materno">
+                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RA_apellido_materno" name="RA_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -495,7 +625,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>
-                                                                <input class="form-control" id="RA_telefono" name="RA_telefono">
+                                                                <input class="form-control" maxlength="10" onkeypress="return validarDigitos(event);" onblur="validarDigitos(this.id);"  id="RA_telefono" name="RA_telefono">
                                                         </div>
                                                     </div>
                                                 </div>	
@@ -528,19 +658,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control"  id="RL_nombre" name="RL_nombre">
+                                                                <input class="form-control"  onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RL_nombre" name="RL_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                              <input class="form-control" id="RL_apellido_paterno" name="RL_apellido_paterno">
+                                                              <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RL_apellido_paterno" name="RL_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                               <input class="form-control" id="RL_apellido_materno" name="RL_apellido_materno">
+                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RL_apellido_materno" name="RL_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -554,14 +684,14 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>
-                                                                <input class="form-control" id="RL_telefono" name="RL_telefono">
+                                                            <input class="form-control"  maxlength="10" onkeypress="return validarDigitos(event);" onblur="validarDigitos(this.id);" id="RL_telefono" name="RL_telefono">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-12" align="right">
                                                         <div class="form-group">
-                                                            <button type="button" class="btn btn-primary">Siguiente</button>
+                                                            <button type="button" name="btn3" id="btn3" class="btn btn-primary">Siguiente</button>
                                                             <button type="reset" class="btn btn-default">Limpiar</button>
                                                         </div>
                                                     </div>
@@ -583,7 +713,10 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <br/><label>Proyecto</label>
-                                            <input type="file" id ="uploadfile"  name="uploadfile" style="width:300px"></input>
+                                            <input type="file" id ="pdf_comprobante"  onchange="archivo_tipo(this.value, 'pdf_comprobante');" name="pdf_comprobante" style="width:300px"></input>
+                                            <input type="hidden" name="extension" id="extension" value="" readonly="readonly" />
+                                            <input type="hidden" name="nombre_archivo" id="nombre_archivo" value="" readonly="readonly" />
+                                            <span class="help-block"> </span>
                                         </div>
                                     </div>
 				</div>

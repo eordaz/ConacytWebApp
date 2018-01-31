@@ -32,7 +32,7 @@ $(function () {
                     
                     console.log(data.id_usuario_rol);
                     document.location.href = 'inicio.jsp';
-                    
+                   
                 }
             },
         })    

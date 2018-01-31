@@ -5,9 +5,16 @@
  */
 
 $(document).ready(function () {
-
+        
+        
        // inicio(); 
         $("#btn_guardar").click(function () {//Guardar
+
+        $("#tab1").removeClass("disabledTab");
+        $("#tab2").removeClass("disabledTab");
+        $("#tab3").removeClass("disabledTab");
+        $("#tab4").removeClass("disabledTab");    
+            
             var datosgeneralesJson = JSON.stringify(getDatosgenerales()).toString();     
             var datosEtapasJson = JSON.stringify(getEtapas()).toString();
             var datosResponsablesJson = JSON.stringify(getResponsables()).toString();
@@ -17,28 +24,75 @@ $(document).ready(function () {
 
             console.log(json);
 
-           /* $.ajax({
-                url: $("#form1").attr("action"),
-                data: formData,
-                type: "POST",
-                dataType: "json",
-                async: false,
-                contentType: false,
-                processData: false,
-                cache: false,
-                success: function (data) {
-                console.log("probando");
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Prueba:" + textStatus + ": " + XMLHttpRequest.responseText);
-                },
-                complete: function (jqXHR, status) {
-                    console.log(jqXHR);
-                }
-            });*/
-    });
 
+      /*  $.ajax({// JQuery ajax function
+                type: "POST", // Submitting Method
+                url: 'http://localhost:8080/conacyt-war/resources/conacyt//proyectos/insertarOactualizarProyecto',
+                data: 'json=' + json, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
+                dataType: "json", // type of returned data
+                success: function (data) {
+                    // if ajax function results success
+                    var json = JSON.stringify(data);
+                    var content = JSON.parse(json);
+                    //console.log(content['getLogin']);
+                    if (content['getLogin']==='-1') { // if the returned data equal 0
+                    
+                        console.log("Ocurrio un error…");
+                    } else { 
+                        
+                        bootbox.alert("Registro exitoso…");
+                        
+                        
+                    }
+                },
+            })*/
+
+
+           
+    });
+    
+   /* $('#form').validator().on('submit', function (e) {
+      if (e.isDefaultPrevented()) {
+        // handle the invalid form...
+        console.log("invalido");
+        
+        $("#importe").parent().attr("class","form-group has-error has-feedback has-feedback");
+	$("#importe").parent().children("span").text("Debe ingresar dígitos").show();
+            
+      } else {
+          console.log("valido");
+        // everything looks good!
+      }
+    });*/
+    
+    
+    $("#btn1").on("click", function(e) {
+      $("span.help-block").hide();
+      e.preventDefault();
+      validar_personales();
+ 
+    });
+    
+
+    $("#btn2").on("click", function(e) {
+      $("span.help-block").hide();
+      e.preventDefault();
+      validar_etapas();
+      $("#tab1").removeClass("disabledTab");
+      $("#tab2").removeClass("disabledTab");
+    });
+    
+      $("#btn3").on("click", function(e) {
+      $("span.help-block").hide();
+      e.preventDefault();
+      validar_responsables();
+       $("#tab1").removeClass("disabledTab");
+       $("#tab2").removeClass("disabledTab");
+       $("#tab3").removeClass("disabledTab");
+    });
+    
 });
+
 
 function inicio(){ // 1
 
@@ -61,45 +115,131 @@ function inicio(){ // 1
 
 
 
-function  validar()
+function  validar_personales()
 {
-	var valor = document.getElementById("clave_proyecto").value;
-	if ( valor == null || valor.length==0  /*||  !(/^\[A-Z]{2}\d{6}$/.test(valor))*/)
+       
+    
+        var valor = document.getElementById("clave_proyecto").value;
+	if ( valor == null || valor.length==0  ||  !(/CY\d{6}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
-	  $("#clave_proyecto").parent().attr("class","form-group has-feedback");
+	  $("#clave_proyecto").parent().attr("class","form-group has-error has-feedback");
 	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
-	  $("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+	  
 	  return false;
 	}
 	else{
 		$("#iconotexto").remove();
 		$("#clave_proyecto").parent().attr("class","form-group  has-success has-feedback" );
 		$("#clave_proyecto").parent().children("span").text("").hide();
-	 	$("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-	 	return true;
 	 
 	}
         
-        var valor = document.getElementById("importe").value;
-	if ( valor == null || valor.length==0  ||  !(/^\d$/.test(valor)))
+        var valor = document.getElementById("nombre_proyecto").value;
+	if ( valor == null || valor.length==0  ||  !(/\w+/.test(valor)))
 	{
 	  $("#iconotexto").remove();
-	  $("#clave_proyecto").parent().attr("class","form-group");
-	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
-	  $("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-remove form-control-feedback'></span>");
+	  $("#nombre_proyecto").parent().attr("class","form-group has-error has-feedback");
+	  $("#nombre_proyecto").parent().children("span").text("Error de datos").show();
+	  
 	  return false;
 	}
 	else{
 		$("#iconotexto").remove();
-		$("#clave_proyecto").parent().attr("class","form-group  has-success" );
-		$("#clave_proyecto").parent().children("span").text("").hide();
-	 	$("#clave_proyecto").parent().append("<span  id='iconotexto' class='glyphicon glyphicon-ok form-control-feedback'></span>");
-	 	return true;
+		$("#nombre_proyecto").parent().attr("class","form-group  has-success has-feedback" );
+		$("#nombre_proyecto").parent().children("span").text("").hide();
+	 
+	}
+        var valor = document.getElementById("importe").value;
+	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#importe").parent().attr("class","form-group has-error has-feedback");
+	  $("#importe").parent().children("span").text("Solo dígitos").show();	  
+	  return false;
+	}
+	else{
+            $("#iconotexto").remove();
+            $("#importe").parent().attr("class","form-group  has-success has-feedback" );
+            $("#importe").parent().children("span").text("").hide();
+	    //return true;
+             $('#TabProy a[href="#datos_pres"]').tab('show');
 	 
 	}
         
+}
 
+function  validar_etapas()
+{
+        var valor = document.getElementById("importe_asignado").value;
+	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#importe_asignado").parent().attr("class","form-group has-error has-feedback");
+	  $("#importe_asignado").parent().children("span").text("Formato de importe a dos decimales 0.00").show();
+	  
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#importe_asignado").parent().attr("class","form-group  has-success has-feedback" );
+		$("#importe_asignado").parent().children("span").text("").hide();
+	 
+	}
+        
+        var valor = document.getElementById("importe_asignado2").value;
+	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#importe_asignado2").parent().attr("class","form-group has-error has-feedback");
+	  $("#importe_asignado2").parent().children("span").text("Formato de importe a dos decimales 0.00").show();
+	  
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#importe_asignado2").parent().attr("class","form-group  has-success has-feedback" );
+		$("#importe_asignado2").parent().children("span").text("").hide();
+                $('#TabProy a[href="#resp"]').tab('show');
+	}
+       
+}
+
+
+function  validar_responsables()
+{
+        /*var valor = document.getElementById("importe_asignado").value;
+	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#importe_asignado").parent().attr("class","form-group has-error has-feedback");
+	  $("#importe_asignado").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
+	  
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#importe_asignado").parent().attr("class","form-group  has-success has-feedback" );
+		$("#importe_asignado").parent().children("span").text("").hide();
+	 
+	}
+        
+        var valor = document.getElementById("importe_asignado2").value;
+	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	{
+	  $("#iconotexto").remove();
+	  $("#importe_asignado2").parent().attr("class","form-group has-error has-feedback");
+	  $("#importe_asignado2").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
+	  
+	  return false;
+	}
+	else{
+		$("#iconotexto").remove();
+		$("#importe_asignado2").parent().attr("class","form-group  has-success has-feedback" );
+		$("#importe_asignado2").parent().children("span").text("").hide();*/
+                $('#TabProy a[href="#anexos"]').tab('show');
+	/*}*/
+       
 }
 
 function getDatosgenerales(){
@@ -107,7 +247,7 @@ function getDatosgenerales(){
     var dg = new Object();//datosGenerales
     var  cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep	;   
      
-    cve_recurso= $("#clave_proyecto").val().substring(0,2);
+    cve_recurso= 189;//$("#clave_proyecto").val().substring(0,2);
     cve_proy=$("#clave_proyecto").val().substring(2,$("#clave_proyecto").val().length);
     nombre_proy=$("#nombre_proyecto").val();
     cat_fondos=$("#cat_fondos").val();
@@ -119,19 +259,17 @@ function getDatosgenerales(){
     cat_subdep=$("#cat_subdependencias").val();
     id_usuario=1;
     
-    
-    dg.clave_recurso = cve_recurso;
+    dg.id_fondo = cat_fondos;
+    dg.id_moneda =cat_moneda;
+    dg.id_recurso = cve_recurso;
     dg.clave_proyecto = cve_proy;
     dg.nombre_proyecto = nombre_proy;//
-    dg.id_fondo = cat_fondos;
-    dg.fecha_inicio = fecha_ini;
-    dg.fecha_fin = fecha_fin;//id_partida
-    dg.importe_total =importe;
-    dg.id_moneda =cat_moneda;
     dg.id_dependencia =cat_dep;
     dg.id_subdependencia = cat_subdep;
+    dg.importe_total =importe;
+    dg.fecha_inicio = fecha_ini;
+    dg.fecha_fin = fecha_fin;//id_partida
     dg.id_usuario = 1;
-    
     return dg;
 	
     
@@ -148,11 +286,11 @@ function getEtapas(){
     var renglonE4 = {};
     
     var clave_etapa,clave_recurso,tipogasto, importe_asignado, importe_autorizado,no_filas;
-    var tipogasto2, importe_asignado2, importe_autorizado2;   
+    var tipogasto2, importe_asignado2, importe_autorizado2,ministracion;   
     var tipogasto3, importe_asignado3, importe_autorizado3;       
     var tipogasto4, importe_asignado4, importe_autorizado4;   
     
-    
+    ministracion=1;
     clave_etapa=1;
     no_filas=2;
     clave_recurso= 189;//CY $("#clave_proyecto").val().substring(0,2);
@@ -167,32 +305,36 @@ function getEtapas(){
     
     
     
-        renglonE1["clave_etapa"] = clave_etapa;
+        renglonE1["id_etapa"] = clave_etapa;
         renglonE1["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE1["id_cat_tipo_gasto"] = tipogasto;
         renglonE1["importe_asignado"] = importe_asignado;
         renglonE1["importe_autorizado"] = importe_autorizado;
         renglonE1["id_usuario"] = 1;
         etapas.push(renglonE1);
         
-        renglonE2["clave_etapa"] = clave_etapa;
+        renglonE2["id_etapa"] = clave_etapa;
         renglonE2["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE2["id_cat_tipo_gasto"] = tipogasto2;
         renglonE2["importe_asignado"] = importe_asignado2;
         renglonE2["importe_autorizado"] = importe_autorizado2;
         renglonE2["id_usuario"] = 1;
         etapas.push(renglonE2);
     
-        renglonE3["clave_etapa"] = "2";
+        renglonE3["id_etapa"] = "2";
         renglonE3["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE3["id_cat_tipo_gasto"] = tipogasto3;
         renglonE3["importe_asignado"] = importe_asignado3;
         renglonE3["importe_autorizado"] = importe_autorizado3;
         renglonE3["id_usuario"] = 1;
         etapas.push(renglonE3);
         
-        renglonE4["clave_etapa"] = "2";
+        renglonE4["id_etapa"] = "2";
         renglonE4["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE4["id_cat_tipo_gasto"] = tipogasto4;
         renglonE4["importe_asignado"] = importe_asignado4;
         renglonE4["importe_autorizado"] = importe_autorizado4;
@@ -235,8 +377,9 @@ function getResponsables(){
     var renglonRA = {};
     var renglonRL = {};
       
-        renglonRT["rfc"] = $("#RT_rfc").val();
+        
         renglonRT["id_cat_tipo_responsable"] =  $("#RT_tipo_responsable").val();
+        renglonRT["rfc"] = $("#RT_rfc").val();
         renglonRT["nombre"] =  $("#RT_nombre").val();
         renglonRT["apellido_paterno"] =$("#RT_apellido_paterno").val();
         renglonRT["apellido_materno"] =  $("#RT_apellido_materno").val();
@@ -247,8 +390,9 @@ function getResponsables(){
         
         responsables.push(renglonRT);
         
-        renglonRA["rfc"] = $("#RA_rfc").val();
+        
         renglonRA["id_cat_tipo_responsable"] = $("#RA_tipo_responsable").val();
+        renglonRA["rfc"] = $("#RA_rfc").val();
         renglonRA["nombre"] =  $("#RA_nombre").val();
         renglonRA["apellido_paterno"] =$("#RA_apellido_paterno").val();
         renglonRA["apellido_materno"] =  $("#RA_apellido_materno").val();
@@ -260,8 +404,9 @@ function getResponsables(){
         responsables.push(renglonRA);
         
                 
-        renglonRL["rfc"] = $("#RL_rfc").val();
+        
         renglonRL["id_cat_tipo_responsable"] =$("#RL_tipo_responsable").val();
+        renglonRL["rfc"] = $("#RL_rfc").val();
         renglonRL["nombre"] =  $("#RL_nombre").val();
         renglonRL["apellido_paterno"] =$("#RL_apellido_paterno").val();
         renglonRL["apellido_materno"] =  $("#RL_apellido_materno").val();
@@ -270,21 +415,14 @@ function getResponsables(){
         renglonRL["telefono"] = $("#RL_telefono").val();
         renglonRL["id_usuario"] = 1;
         responsables.push(renglonRL);
-
-    
-    
-    
      return responsables;
-    
-   
-    
 }
 
 function getDocumentos(){
     var documentos = [];
     var documento = {};
-    documento["id_documento"] = 250;
-    documento["nombre_archivo"] = 'datos.pdf';
+    documento["id_cat_documento"] = 250;
+    documento["nombre_archivo"] = $("#nombre_archivo").val();
     documento["ruta"] = 'contratos';
     documento["id_usuario"] = 1;
     
@@ -330,124 +468,42 @@ function agrega_etapa(){
 		}    
 }
 
-function validarDigitos(e) { // 1
-    var key;
-    var keychar;
-    if (window.event) { key = window.event.keyCode; }
-    else if (e) { key = e.which; }
-    else { return true; }
-    keychar = String.fromCharCode(key);
-    var validos = "0123456789.";
-    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
-    if (validos.indexOf(keychar) > -1)
-        return true;
-    else
-        return false;
-}
-function validarDigitosCopiar(id) {
-    var cadena = document.getElementById(id).value;
-    var validos = "0123456789.";
-    var erroneos = "";
-    var i;
-    for (i = 0; i < cadena.length; i++) {
-        if (!(validos.indexOf(cadena.charAt(i)) > -1)) {
-            erroneos += cadena.charAt(i);
-        }
-    }
-    if (erroneos == "") {
-        return true;
-    } else {
-        if (erroneos.length == 1) {
-            bootbox.alert("El caracter no es validos.");
-            
-            return false;
-        } else {
-            bootbox.alert("El caracter no es valido.");       
-            
-            return false;
-        }
-    }
-}   
-<<<<<<< HEAD
-=======
 
-function validarLetras(e) { // 1
-    var key;
-    var keychar;
-    if (window.event) { key = window.event.keyCode; }
-    else if (e) { key = e.which; }
-    else { return true; }
-    keychar = String.fromCharCode(key);
-    var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
-    if (validos.indexOf(keychar) > -1)
-        return true;
-    else
-        return false;
-}
-function validarDigitosCopiar(id) {
-    var cadena = document.getElementById(id).value;
-    var validos = "0123456789.";
-    var erroneos = "";
-    var i;
-    for (i = 0; i < cadena.length; i++) {
-        if (!(validos.indexOf(cadena.charAt(i)) > -1)) {
-            erroneos += cadena.charAt(i);
-        }
-    }
-    if (erroneos == "") {
-        return true;
-    } else {
-        if (erroneos.length == 1) {
-            bootbox.alert("El caracter no es validos.");
-            
-            return false;
-        } else {
-            bootbox.alert("El caracter no es valido.");       
-            
-            return false;
-        }
-    }
-}   
+function eliminar_etapa(cualtel){
+	var numerot = document.getElementById("num").value;	
+			if(numerot==1){
+			}
+			else{
+                            numerot--;
+                            document.getElementById("num").value = numerot;
+			}
+	switch (cualtel) {
 
-
->>>>>>> 412fd93e2379d7644bb861ea5c13c8beb13b201e
-
-function validarLetras(e) { // 1
-    var key;
-    var keychar;
-    if (window.event) { key = window.event.keyCode; }
-    else if (e) { key = e.which; }
-    else { return true; }
-    keychar = String.fromCharCode(key);
-    var validos = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-    if ((key == null) || (key == 0) || (key == 8) || (key == 9) || (key == 13) || (key == 27)) { return true; }
-    if (validos.indexOf(keychar) > -1)
-        return true;
-    else
-        return false;
-}
-function validarDigitosCopiar(id) {
-    var cadena = document.getElementById(id).value;
-    var validos = "0123456789.";
-    var erroneos = "";
-    var i;
-    for (i = 0; i < cadena.length; i++) {
-        if (!(validos.indexOf(cadena.charAt(i)) > -1)) {
-            erroneos += cadena.charAt(i);
-        }
-    }
-    if (erroneos == "") {
-        return true;
-    } else {
-        if (erroneos.length == 1) {
-            bootbox.alert("El caracter no es validos.");
-            
-            return false;
-        } else {
-            bootbox.alert("El caracter no es valido.");       
-            
-            return false;
-        }
-    }
-}   
+		case 2:
+			$('#tel2').hide();
+			$('#tipo_telefono2').removeAttr('selected');
+			$('#telefono2, #tipo_telefono2').val('');
+			break;
+		case 3:
+			$('#tel3').hide();
+			$('#tipo_telefono3').removeAttr('selected');
+			$('#telefono3, #tipo_telefono3').val('');
+			break;
+		case 4:
+			$('#tel4').hide();
+			$('#tipo_telefono4').removeAttr('selected');
+			$('#telefono4, #tipo_telefono4').val('');
+			break;
+		case 5:
+			$('#tel5').hide();
+			$('#tipo_telefono5').removeAttr('selected');
+			$('#telefono5, #tipo_telefono5').val('');
+			break;
+		case 6:
+			$('#tel6').hide();
+			$('#tipo_telefono6').removeAttr('selected');
+			$('#telefono6, #tipo_telefono6').val('');
+			break;
+	}
+	
+}  
