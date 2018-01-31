@@ -1,4 +1,4 @@
-/* 
+* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,7 +31,6 @@ $(document).ready(function () {
                 data: 'json=' + json, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
                 dataType: "json", // type of returned data
                 success: function (data) {
-<<<<<<< .mine
                     // if ajax function results success
                     var json = JSON.stringify(data);
                     var content = JSON.parse(json);
@@ -45,36 +44,12 @@ $(document).ready(function () {
                         
                         
                     }
-
-
-
-
-=======
-
-                    // if ajax function results success
-                    var json = JSON.stringify(data);
-                    var content = JSON.parse(json);
-                    //console.log(content['getLogin']);
-
-                    if (content['getLogin']==='-1') { // if the returned data equal 0
-                    
-                        console.log("Ocurrio un error…");
-
-                    } else { 
-                        
-                        bootbox.alert("Registro exitoso…");
-                        
-                        
-
-                    }
->>>>>>> .theirs
                 },
             })*/
 
 
            
     });
-<<<<<<< .mine
     
    /* $('#form').validator().on('submit', function (e) {
       if (e.isDefaultPrevented()) {
@@ -83,82 +58,6 @@ $(document).ready(function () {
         
         $("#importe").parent().attr("class","form-group has-error has-feedback has-feedback");
 	$("#importe").parent().children("span").text("Debe ingresar dígitos").show();
-            
-      } else {
-          console.log("valido");
-        // everything looks good!
-      }
-    });*/
-    
-    
-    $("#btn1").on("click", function(e) {
-      $("span.help-block").hide();
-      e.preventDefault();
-      validar_personales();
- 
-    });
-    
-=======
-    
-   /* $('#form').validator().on('submit', function (e) {
-      if (e.isDefaultPrevented()) {
-        // handle the invalid form...
-        console.log("invalido");
-        
-        $("#importe").parent().attr("class","form-group has-error has-feedback has-feedback");
-	$("#importe").parent().children("span").text("Debe ingresar dígitos").show();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
-
-<<<<<<< .mine
-    $("#btn2").on("click", function(e) {
-      $("span.help-block").hide();
-      e.preventDefault();
-      validar_etapas();
-      $("#tab1").removeClass("disabledTab");
-      $("#tab2").removeClass("disabledTab");
-    });
-    
-      $("#btn3").on("click", function(e) {
-      $("span.help-block").hide();
-      e.preventDefault();
-      validar_responsables();
-       $("#tab1").removeClass("disabledTab");
-       $("#tab2").removeClass("disabledTab");
-       $("#tab3").removeClass("disabledTab");
-    });
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
             
       } else {
           console.log("valido");
@@ -192,7 +91,6 @@ $(document).ready(function () {
        $("#tab3").removeClass("disabledTab");
     });
     
->>>>>>> .theirs
 });
 
 
@@ -219,17 +117,10 @@ function inicio(){ // 1
 
 function  validar_personales()
 {
-<<<<<<< .mine
        
     
         var valor = document.getElementById("clave_proyecto").value;
 	if ( valor == null || valor.length==0  ||  !(/CY\d{6}/.test(valor)))
-=======
-       
-    
-        var valor = document.getElementById("clave_proyecto").value;
-	if ( valor == null || valor.length==0  ||  !(/CY\d{1,6}/.test(valor)))
->>>>>>> .theirs
 	{
 	  $("#iconotexto").remove();
 	  $("#clave_proyecto").parent().attr("class","form-group has-error has-feedback");
@@ -295,8 +186,8 @@ function  validar_etapas()
 		$("#importe_asignado").parent().children("span").text("").hide();
 	 
 	}
-         $('#TabProy a[href="#resp"]').tab('show');
-        /*var valor = document.getElementById("importe_asignado2").value;
+        
+        var valor = document.getElementById("importe_asignado2").value;
 	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
@@ -310,7 +201,7 @@ function  validar_etapas()
 		$("#importe_asignado2").parent().attr("class","form-group  has-success has-feedback" );
 		$("#importe_asignado2").parent().children("span").text("").hide();
                 $('#TabProy a[href="#resp"]').tab('show');
-	}*/
+	}
        
 }
 
@@ -588,7 +479,6 @@ function eliminar_etapa(cualtel){
 			}
 	switch (cualtel) {
 
-<<<<<<< .mine
 		case 2:
 			$('#tel2').hide();
 			$('#tipo_telefono2').removeAttr('selected');
@@ -616,36 +506,4 @@ function eliminar_etapa(cualtel){
 			break;
 	}
 	
-}       
-
-=======
-		case 2:
-			$('#tel2').hide();
-			$('#tipo_telefono2').removeAttr('selected');
-			$('#telefono2, #tipo_telefono2').val('');
-			break;
-		case 3:
-			$('#tel3').hide();
-			$('#tipo_telefono3').removeAttr('selected');
-			$('#telefono3, #tipo_telefono3').val('');
-			break;
-		case 4:
-			$('#tel4').hide();
-			$('#tipo_telefono4').removeAttr('selected');
-			$('#telefono4, #tipo_telefono4').val('');
-			break;
-		case 5:
-			$('#tel5').hide();
-			$('#tipo_telefono5').removeAttr('selected');
-			$('#telefono5, #tipo_telefono5').val('');
-			break;
-		case 6:
-			$('#tel6').hide();
-			$('#tipo_telefono6').removeAttr('selected');
-			$('#telefono6, #tipo_telefono6').val('');
-			break;
-	}
-	
-}                        
-
->>>>>>> .theirs
+}  
