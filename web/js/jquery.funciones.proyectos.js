@@ -24,27 +24,35 @@ $(document).ready(function () {
 
             console.log(json);
 
-           /* $.ajax({
-                url: $("#form1").attr("action"),
-                data: formData,
-                type: "POST",
-                dataType: "json",
-                async: false,
-                contentType: false,
-                processData: false,
-                cache: false,
+
+      /*  $.ajax({// JQuery ajax function
+                type: "POST", // Submitting Method
+                url: 'http://localhost:8080/conacyt-war/resources/conacyt//proyectos/insertarOactualizarProyecto',
+                data: 'json=' + json, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
+                dataType: "json", // type of returned data
                 success: function (data) {
-                console.log("probando");
 
-                },
-                error: function (XMLHttpRequest, textStatus, errorThrown) {
-                    alert("Prueba:" + textStatus + ": " + XMLHttpRequest.responseText);
-                },
-                complete: function (jqXHR, status) {
-                    console.log(jqXHR);
+                    // if ajax function results success
+                    var json = JSON.stringify(data);
+                    var content = JSON.parse(json);
+                    //console.log(content['getLogin']);
 
-                }
-            });*/
+                    if (content['getLogin']==='-1') { // if the returned data equal 0
+                    
+                        console.log("Ocurrio un error…");
+
+                    } else { 
+                        
+                        bootbox.alert("Registro exitoso…");
+                        
+                        
+
+                    }
+                },
+            })*/
+
+
+           
     });
     
    /* $('#form').validator().on('submit', function (e) {
@@ -244,7 +252,7 @@ function getDatosgenerales(){
     var dg = new Object();//datosGenerales
     var  cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep	;   
      
-    cve_recurso= $("#clave_proyecto").val().substring(0,2);
+    cve_recurso= 189;//$("#clave_proyecto").val().substring(0,2);
     cve_proy=$("#clave_proyecto").val().substring(2,$("#clave_proyecto").val().length);
     nombre_proy=$("#nombre_proyecto").val();
     cat_fondos=$("#cat_fondos").val();
@@ -256,18 +264,17 @@ function getDatosgenerales(){
     cat_subdep=$("#cat_subdependencias").val();
     id_usuario=1;
     
-    dg.clave_recurso = cve_recurso;
+    dg.id_fondo = cat_fondos;
+    dg.id_moneda =cat_moneda;
+    dg.id_recurso = cve_recurso;
     dg.clave_proyecto = cve_proy;
     dg.nombre_proyecto = nombre_proy;//
-    dg.id_fondo = cat_fondos;
-    dg.fecha_inicio = fecha_ini;
-    dg.fecha_fin = fecha_fin;//id_partida
-    dg.importe_total =importe;
-    dg.id_moneda =cat_moneda;
     dg.id_dependencia =cat_dep;
     dg.id_subdependencia = cat_subdep;
+    dg.importe_total =importe;
+    dg.fecha_inicio = fecha_ini;
+    dg.fecha_fin = fecha_fin;//id_partida
     dg.id_usuario = 1;
-    
     return dg;
 	
     
@@ -284,11 +291,11 @@ function getEtapas(){
     var renglonE4 = {};
     
     var clave_etapa,clave_recurso,tipogasto, importe_asignado, importe_autorizado,no_filas;
-    var tipogasto2, importe_asignado2, importe_autorizado2;   
+    var tipogasto2, importe_asignado2, importe_autorizado2,ministracion;   
     var tipogasto3, importe_asignado3, importe_autorizado3;       
     var tipogasto4, importe_asignado4, importe_autorizado4;   
     
-    
+    ministracion=1;
     clave_etapa=1;
     no_filas=2;
     clave_recurso= 189;//CY $("#clave_proyecto").val().substring(0,2);
@@ -303,32 +310,36 @@ function getEtapas(){
     
     
     
-        renglonE1["clave_etapa"] = clave_etapa;
+        renglonE1["id_etapa"] = clave_etapa;
         renglonE1["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE1["id_cat_tipo_gasto"] = tipogasto;
         renglonE1["importe_asignado"] = importe_asignado;
         renglonE1["importe_autorizado"] = importe_autorizado;
         renglonE1["id_usuario"] = 1;
         etapas.push(renglonE1);
         
-        renglonE2["clave_etapa"] = clave_etapa;
+        renglonE2["id_etapa"] = clave_etapa;
         renglonE2["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE2["id_cat_tipo_gasto"] = tipogasto2;
         renglonE2["importe_asignado"] = importe_asignado2;
         renglonE2["importe_autorizado"] = importe_autorizado2;
         renglonE2["id_usuario"] = 1;
         etapas.push(renglonE2);
     
-        renglonE3["clave_etapa"] = "2";
+        renglonE3["id_etapa"] = "2";
         renglonE3["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE3["id_cat_tipo_gasto"] = tipogasto3;
         renglonE3["importe_asignado"] = importe_asignado3;
         renglonE3["importe_autorizado"] = importe_autorizado3;
         renglonE3["id_usuario"] = 1;
         etapas.push(renglonE3);
         
-        renglonE4["clave_etapa"] = "2";
+        renglonE4["id_etapa"] = "2";
         renglonE4["id_recurso"] = clave_recurso;
+        renglonE1["id_ministracion"] = ministracion;
         renglonE4["id_cat_tipo_gasto"] = tipogasto4;
         renglonE4["importe_asignado"] = importe_asignado4;
         renglonE4["importe_autorizado"] = importe_autorizado4;
@@ -371,8 +382,9 @@ function getResponsables(){
     var renglonRA = {};
     var renglonRL = {};
       
-        renglonRT["rfc"] = $("#RT_rfc").val();
+        
         renglonRT["id_cat_tipo_responsable"] =  $("#RT_tipo_responsable").val();
+        renglonRT["rfc"] = $("#RT_rfc").val();
         renglonRT["nombre"] =  $("#RT_nombre").val();
         renglonRT["apellido_paterno"] =$("#RT_apellido_paterno").val();
         renglonRT["apellido_materno"] =  $("#RT_apellido_materno").val();
@@ -383,8 +395,9 @@ function getResponsables(){
         
         responsables.push(renglonRT);
         
-        renglonRA["rfc"] = $("#RA_rfc").val();
+        
         renglonRA["id_cat_tipo_responsable"] = $("#RA_tipo_responsable").val();
+        renglonRA["rfc"] = $("#RA_rfc").val();
         renglonRA["nombre"] =  $("#RA_nombre").val();
         renglonRA["apellido_paterno"] =$("#RA_apellido_paterno").val();
         renglonRA["apellido_materno"] =  $("#RA_apellido_materno").val();
@@ -396,8 +409,9 @@ function getResponsables(){
         responsables.push(renglonRA);
         
                 
-        renglonRL["rfc"] = $("#RL_rfc").val();
+        
         renglonRL["id_cat_tipo_responsable"] =$("#RL_tipo_responsable").val();
+        renglonRL["rfc"] = $("#RL_rfc").val();
         renglonRL["nombre"] =  $("#RL_nombre").val();
         renglonRL["apellido_paterno"] =$("#RL_apellido_paterno").val();
         renglonRL["apellido_materno"] =  $("#RL_apellido_materno").val();
@@ -412,7 +426,7 @@ function getResponsables(){
 function getDocumentos(){
     var documentos = [];
     var documento = {};
-    documento["id_documento"] = 250;
+    documento["id_cat_documento"] = 250;
     documento["nombre_archivo"] = $("#nombre_archivo").val();
     documento["ruta"] = 'contratos';
     documento["id_usuario"] = 1;
