@@ -191,8 +191,8 @@ function  validar_etapas()
 		$("#importe_asignado").parent().children("span").text("").hide();
 	 
 	}
-        
-        var valor = document.getElementById("importe_asignado2").value;
+         $('#TabProy a[href="#resp"]').tab('show');
+        /*var valor = document.getElementById("importe_asignado2").value;
 	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
@@ -206,7 +206,7 @@ function  validar_etapas()
 		$("#importe_asignado2").parent().attr("class","form-group  has-success has-feedback" );
 		$("#importe_asignado2").parent().children("span").text("").hide();
                 $('#TabProy a[href="#resp"]').tab('show');
-	}
+	}*/
        
 }
 
