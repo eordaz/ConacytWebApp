@@ -22,8 +22,8 @@ $(document).ready(function () {
 
             var json = '{"datosGenerales":' + datosgeneralesJson + ',"etapasProyecto":' + datosEtapasJson + ',"responsables":' + datosResponsablesJson + ',"documentos":' + datosDocumentosJson + '}';
 
-            console.log(json);
-
+              console.log(json);
+             
 
         $.ajax({// JQuery ajax function
                 type: "POST", // Submitting Method
@@ -44,12 +44,12 @@ $(document).ready(function () {
                     } else { 
                         
                         bootbox.alert("Registro exitoso…");
-                        
+                        limpia_controles();
                         
 
                     }
-                },
-            })
+                }
+            });
 
 
            
@@ -297,33 +297,19 @@ function getEtapas(){
     var tipogasto4, importe_asignado4, importe_autorizado4;   
     
     ministracion=1;
-    clave_etapa1=$("#etapa1").val();
-    clave_etapa2=$("#etapa2").val();
+    clave_etapa1=parseInt($("#id_etapa1").val());
+    clave_etapa2=parseInt($("#id_etapa2").val());
     no_filas=2;
     clave_recurso= 189;//CY $("#clave_proyecto").val().substring(0,2);
     
    
     
-   
+   if ($("#importe_asignado").val() !== ""){
     tipogasto=parseInt($("#tipoGasto option:selected").val());
     importe_asignado=$("#importe_asignado").val();
     importe_autorizado=$("#importe_asignado").val();
-    
-    tipogasto2=$("#tipoGasto2 option:selected").val();
-    importe_asignado2=$("#importe_asignado2").val();
-    importe_autorizado2=$("#importe_asignado2").val();
-    
-    
-    tipogasto3=$("#tipoGasto3 option:selected").val();
-    importe_asignado3=$("#importe_asignado3").val();
-    importe_autorizado3=$("#importe_asignado3").val();
-    
-    tipogasto4=$("#tipoGasto4 option:selected").val();
-    importe_asignado4=$("#importe_asignado4").val();
-    importe_autorizado4=$("#importe_asignado4").val();
-    
-    
-    
+
+
         renglonE1["id_etapa"] = clave_etapa1;
         renglonE1["id_recurso"] = clave_recurso;
         renglonE1["id_ministracion"] = ministracion;
@@ -332,33 +318,52 @@ function getEtapas(){
         renglonE1["importe_autorizado"] = importe_autorizado;
         renglonE1["id_usuario"] = 1;
         etapas.push(renglonE1);
-        
+
+    }
+    
+    if ($("#importe_asignado2").val() !== "")
+    { tipogasto2=$("#tipoGasto2 option:selected").val();
+    importe_asignado2=$("#importe_asignado2").val();
+    importe_autorizado2=$("#importe_asignado2").val();
         renglonE2["id_etapa"] = clave_etapa1;
         renglonE2["id_recurso"] = clave_recurso;
-        renglonE1["id_ministracion"] = ministracion;
+        renglonE2["id_ministracion"] = ministracion;
         renglonE2["id_cat_tipo_gasto"] = tipogasto2;
         renglonE2["importe_asignado"] = importe_asignado2;
         renglonE2["importe_autorizado"] = importe_autorizado2;
         renglonE2["id_usuario"] = 1;
         etapas.push(renglonE2);
+
+    }
     
-        renglonE3["id_etapa"] = clave_etapa2;
+    if ($("#importe_asignado3").val() !== "")
+    {tipogasto3=parseInt($("#tipoGasto3 option:selected").val());
+    importe_asignado3=$("#importe_asignado3").val();
+    importe_autorizado3=$("#importe_asignado3").val();
+    renglonE3["id_etapa"] = clave_etapa2;
         renglonE3["id_recurso"] = clave_recurso;
-        renglonE1["id_ministracion"] = ministracion;
+        renglonE3["id_ministracion"] = ministracion;
         renglonE3["id_cat_tipo_gasto"] = tipogasto3;
         renglonE3["importe_asignado"] = importe_asignado3;
         renglonE3["importe_autorizado"] = importe_autorizado3;
         renglonE3["id_usuario"] = 1;
         etapas.push(renglonE3);
-        
+    
+    }
+    
+    if ($("#importe_asignado4").val() !== "")
+    {tipogasto4=parseInt($("#tipoGasto4 option:selected").val());
+    importe_asignado4=$("#importe_asignado4").val();
+    importe_autorizado4=$("#importe_asignado4").val();
         renglonE4["id_etapa"] = clave_etapa2;
         renglonE4["id_recurso"] = clave_recurso;
-        renglonE1["id_ministracion"] = ministracion;
+        renglonE4["id_ministracion"] = ministracion;
         renglonE4["id_cat_tipo_gasto"] = tipogasto4;
         renglonE4["importe_asignado"] = importe_asignado4;
         renglonE4["importe_autorizado"] = importe_autorizado4;
         renglonE4["id_usuario"] = 1;
-        etapas.push(renglonE4);
+        etapas.push(renglonE4);}
+    
     
    /* dg.clave_etapa =1;
     dg.id_recurso=clave_recurso;
@@ -396,8 +401,8 @@ function getResponsables(){
     var renglonRA = {};
     var renglonRL = {};
       
-        
-        renglonRT["id_cat_tipo_responsable"] =  $("#RT_tipo_responsable").val();
+        if($("#RT_tipo_responsable").val() !== ""){
+        renglonRT["id_cat_tipo_responsable"] =  parseInt($("#RT_tipo_responsable").val());
         renglonRT["rfc"] = $("#RT_rfc").val();
         renglonRT["nombre"] =  $("#RT_nombre").val();
         renglonRT["apellido_paterno"] =$("#RT_apellido_paterno").val();
@@ -406,11 +411,10 @@ function getResponsables(){
         renglonRT["correo"] =  $("#RT_correo").val();
         renglonRT["telefono"] = $("#RT_telefono").val();
         renglonRT["id_usuario"] = 1;
-        
         responsables.push(renglonRT);
-        
-        
-        renglonRA["id_cat_tipo_responsable"] = $("#RA_tipo_responsable").val();
+        }
+        if($("#RA_rfc").val() !== ""){
+        renglonRA["id_cat_tipo_responsable"] = parseInt($("#RA_tipo_responsable").val());
         renglonRA["rfc"] = $("#RA_rfc").val();
         renglonRA["nombre"] =  $("#RA_nombre").val();
         renglonRA["apellido_paterno"] =$("#RA_apellido_paterno").val();
@@ -421,10 +425,10 @@ function getResponsables(){
         renglonRA["id_usuario"] = 1;
         
         responsables.push(renglonRA);
-        
+       }
                 
-        
-        renglonRL["id_cat_tipo_responsable"] =$("#RL_tipo_responsable").val();
+        if(  $("#RL_rfc").val() !==""){
+           renglonRL["id_cat_tipo_responsable"] =parseInt($("#RL_tipo_responsable").val());
         renglonRL["rfc"] = $("#RL_rfc").val();
         renglonRL["nombre"] =  $("#RL_nombre").val();
         renglonRL["apellido_paterno"] =$("#RL_apellido_paterno").val();
@@ -433,7 +437,9 @@ function getResponsables(){
         renglonRL["correo"] =  $("#RL_correo").val();
         renglonRL["telefono"] = $("#RL_telefono").val();
         renglonRL["id_usuario"] = 1;
-        responsables.push(renglonRL);
+        responsables.push(renglonRL); 
+        }
+        
      return responsables;
 }
 
@@ -443,6 +449,7 @@ function getDocumentos(){
     documento["id_cat_documento"] = 250;
     documento["nombre_archivo"] = $("#nombre_archivo").val();
     documento["ruta"] = 'contratos';
+    documento["id_comprobacion"] = 1;
     documento["id_usuario"] = 1;
     
     documentos.push(documento);
@@ -526,3 +533,19 @@ function eliminar_etapa(cualtel){
 	}
 	
 }                        
+function limpia_controles(){
+   /*clave_proyeto
+   nombre_proyecto
+   cat_fondos
+   fecha_inicio
+   fecha_fin
+   cat_moneda
+   cat_dependencias
+   cat_subdependencias
+   tipo_gasto
+   importe_asignado
+   tipo_gasto2
+   importe_asignado2
+*/
+    
+}
