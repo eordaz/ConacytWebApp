@@ -446,7 +446,7 @@ function getResponsables(){
 function getDocumentos(){
     var documentos = [];
     var documento = {};
-    documento["id_cat_documento"] = 250;
+    documento["id_cat_cat_documento"] = 250;
     documento["nombre_archivo"] = $("#nombre_archivo").val();
     documento["ruta"] = 'contratos';
     documento["id_comprobacion"] = 1;
