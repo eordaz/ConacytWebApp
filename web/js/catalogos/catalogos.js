@@ -121,12 +121,13 @@ $(function () {
                     //limpiacombos();
                     $("#tipoGasto").empty();
                     $("#tipoGasto").append(new Option("Seleccione", "-1"));
+                    $("#tipoGasto2").append(new Option("Seleccione", "-1"));
                     for (i = 0; i <= fondoLen - 1; i++)
                     {
-                        $("#tipoGasto").append(new Option(content[i].descripcion, content[i].valor));
-                        $("#tipoGasto2").append(new Option(content[i].descripcion, content[i].valor));
-                        $("#tipoGasto3").append(new Option(content[i].descripcion, content[i].valor));
-                        $("#tipoGasto4").append(new Option(content[i].descripcion, content[i].valor));
+                        $("#tipoGasto").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
+                        $("#tipoGasto2").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
+                        $("#tipoGasto3").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
+                        $("#tipoGasto4").append(new Option(content[i].descripcion, content[i].id_cat_cat_catalogos));
                     }
                     // console.log(content['id_cat_tabla']);
                     // alert(content['id_cat_tabla']);
