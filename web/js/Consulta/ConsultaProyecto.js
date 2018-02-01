@@ -23,10 +23,16 @@ $(function () {
                 var json = JSON.stringify(data);
                 console.log('esto es el json:'+json);
                 var content = JSON.parse(json);
-                console.log("valor de content" + content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
+                console.log(  "json " +content[0].obtenerProyectosPorClave);
+               // console.log("valor de content" + content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
                 
-                //impresion valores en pantalla de registro de proyecto
-                $('#nomProyConsul').val(content[0]["datosGenerales"]["proyecto_desc"]);
+                 if (content[0].obtenerProyectosPorClave === -1) {
+                     
+                     bootbox.alert("No existe el proyecto");
+                     
+                 }else{
+                     
+                 $('#nomProyConsul').val(content[0]["datosGenerales"]["proyecto_desc"]);
                 $('#consulIdProy').val(content[0]["datosGenerales"]["id_proyecto"]);
                 $('#fondoConsul').val(content[0]["datosGenerales"]["fondo_desc"]);
                 $('#fechIniConsul').val(content[0]["datosGenerales"]["fecha_inicio"]);
@@ -38,6 +44,9 @@ $(function () {
                 //impresion valores en datos prespuestales
                 $('#tipoGasto').val(content[0]["etapas_proyecto"]["0"]["recurso_descr"]);
                 $('#importe').val(content[0]["etapas_proyecto"]["0"]["importe_autorizado"]);
+                $('#tipoGasto2').val(content[0]["etapas_proyecto"]["1"]["recurso_descr"]);
+                $('#importe2').val(content[0]["etapas_proyecto"]["1"]["importe_autorizado"]);
+              
                 //impresion valores Responsables
                 $('#rfcTecnico').val(content[0]["responsables"]["1"]["rfc"]);
                 $('#nomTecnico').val(content[0]["responsables"]["1"]["nombre"]);
@@ -58,7 +67,12 @@ $(function () {
                 $('#correoResp').val(content[0]["responsables"]["2"]["correo"]);
                 $('#telResp').val(content[0]["responsables"]["2"]["telefono"]);
                 //impresion valores Anexos
-                $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]);
+                $('#proyArch').val(content[0]["documentos"]["nombre_archivo"]); 
+                     
+                 }
+                
+                //impresion valores en pantalla de registro de proyecto
+               
                 
             },
             

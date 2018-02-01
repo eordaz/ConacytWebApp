@@ -43,7 +43,7 @@ $(document).ready(function () {
 
                     } else { 
                         
-                        bootbox.alert("Registro exitoso…");
+                        bootbox.alert("Registro exitoso");
                         limpia_controles();
                         
 

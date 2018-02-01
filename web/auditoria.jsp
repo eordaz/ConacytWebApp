@@ -72,13 +72,21 @@
                         <div class="tab-pane fade in active" id="home">
                             <div class="panel-body">
                                 <div class="row">
+                                       <div class="col-lg-1">
+                                        <div class="form-group">
+                                            </br> 
+                                                <label diseabled style="font-color:white;" >Recurso</label>
+                                                <input class="form-control" type="text" value="CY" disabled></label>
+                                        </div>
+                                    </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             </br> 
                                                 <label>No. de Proyecto</label>
-                                                    <input class="form-control" id="txtNoProyecto" type="text"/>
+                                                    <input class="form-control" maxlength="6"   id="txtNoProyecto" type="text"/>
                                         </div>
                                     </div>
+                                 
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             </br>
@@ -192,7 +200,36 @@
                                                     <div class="col-lg-2 col-price">
                                                         <div class="form-group">
                                                             <label>Importe Total de Etapa</label>
-                                                                <input class="form-control" id="importe_etapa"  name="importe_total_etapa" disabled></input>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_total_etapa"  hidden="hidden" disabled></input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="panel-body panel-medio" id="cuerpo_2">
+                                                <div class="row" id="row_1">
+                                                    <div class="col-lg-4 col-tipo">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <INPUT class="form-control" id="tipoGasto2" name="id_cat_tipo_gasto" disabled/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-price">
+                                                        <div class="form-group">
+                                                            <label>Importe</label>
+                                                                <input class="form-control" id="importe2"  name="importe" disabled></input>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-price">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2 col-price">
+                                                        <div class="form-group">
+                                                            <label>Importe Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa2"  name="importe_total_etapa" disabled  hidden="hidden"></input>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -435,6 +472,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script  src="dist/js/bootbox.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
