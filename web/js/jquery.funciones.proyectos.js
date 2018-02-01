@@ -20,7 +20,7 @@ $(document).ready(function () {
             var datosResponsablesJson = JSON.stringify(getResponsables()).toString();
             var datosDocumentosJson = JSON.stringify(getDocumentos()).toString();
 
-            var json = '{ "json":{"datosGenerales":' + datosgeneralesJson + ',"etapasProyecto":' + datosEtapasJson + ',"responsables":' + datosResponsablesJson + ',"documentos":' + datosDocumentosJson + '} }';
+            var json = '{"datosGenerales":' + datosgeneralesJson + ',"etapasProyecto":' + datosEtapasJson + ',"responsables":' + datosResponsablesJson + ',"documentos":' + datosDocumentosJson + '}';
 
             console.log(json);
 
@@ -251,18 +251,18 @@ function  validar_responsables()
 function getDatosgenerales(){
     
     var dg = new Object();//datosGenerales
-    var  cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep	;   
+    var  cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep,id_usuario;   
      
     cve_recurso= 189;//$("#clave_proyecto").val().substring(0,2);
     cve_proy=$("#clave_proyecto").val().substring(2,$("#clave_proyecto").val().length);
     nombre_proy=$("#nombre_proyecto").val();
-    cat_fondos=$("#cat_fondos").val();
+    cat_fondos=parseInt($("#cat_fondos").val());
     fecha_ini= $("#fecha_inicio").val();
     fecha_fin = $("#fecha_fin").val();
     importe=$("#importe").val();
-    cat_moneda=$("#cat_moneda option:selected").val();
-    cat_dep=$("#cat_dependencias").val();
-    cat_subdep=$("#cat_subdependencias").val();
+    cat_moneda=parseInt($("#cat_moneda option:selected").val());
+    cat_dep=parseInt($("#cat_dependencias").val());
+    cat_subdep=parseInt($("#cat_subdependencias").val());
     id_usuario=1;
     
     dg.id_fondo = cat_fondos;
@@ -305,7 +305,7 @@ function getEtapas(){
    
     
    
-    tipogasto=$("#tipoGasto option:selected").val();
+    tipogasto=parseInt($("#tipoGasto option:selected").val());
     importe_asignado=$("#importe_asignado").val();
     importe_autorizado=$("#importe_asignado").val();
     
