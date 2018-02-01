@@ -84,10 +84,11 @@
 					    					  </div>	
 					    				</div>
 					    				<div class="col-lg-2">
-					    				  <div class="form-group">
-					    			  		  <label style="color:#ffffff">Nombre Proyecto</label>
-					                          <input type="button"  class="btn btn-primary"  value="Buscar"/>
-					    				  </div>	
+                                                                            <div class="form-group">
+                                                                                <label style="color:#ffffff">Nombre Proyecto</label>
+                                                                                    </br>
+                                                                                        <input type="button"  class="btn btn-primary"  value="Buscar"/>
+                                                                            </div>	
 					    				</div>
 					                </div>
 					                <br/><br/>

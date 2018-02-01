@@ -35,7 +35,7 @@
         <script src="js/catalogos/catalogos.js"></script>
         <script src="js/Consulta/consultaComprobacion.js"></script>
         <script src="js/funciones.generales.js"></script>
-        <script src="js/jquery.funciones.proyectos.js"></script>
+        <script src="js/registro/registroComprobacion.js"></script>
 
 </head>
 
@@ -55,20 +55,24 @@
                                     <label>No. de Proyecto </label>
                                         <input class="form-control" maxlength="8" id="numProyComprob" name="numProyComprob"/>
                                 </div>
-                            </div>	
-                            <div class="col-lg-6">
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>Nombre de Proyecto</label>
-                                        <input class="form-control" id="nomProyComprobConsul" name="nomProyComprobConsul" disabled="disabled"/>
+                                    </br>
+                                        <input type="button" id="btnConsultarRegComprobacion"  name="btnConsultarRegComprobacion" class="btn btn-primary"  value="Consultar"/>
                                 </div>
-                            </div>	
+                            </div>
+                        
+                            	
                 </div>
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="button" id="btnConsultarRegComprobacion"  name="btnConsultarRegComprobacion" class="btn btn-primary"  value="Consultar"/>
+                            <label>Nombre de Proyecto</label>
+                                <input class="form-control" id="nomProyComprobConsul" name="nomProyComprobConsul" disabled="disabled"/>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="row" >
                     <div class="col-lg-12">
@@ -112,7 +116,7 @@
                                                 <div class="col-lg-3">
                                                     <div class="form-group">
                                                         <label>Importe a Comprobar</label>
-                                                            <input class="form-control" id="importe"  type="text" name="importe">
+                                                            <input class="form-control" id="importe"  type="text" name="importe" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);">
                                                     </div>
                                                 </div>
                                             </div>	
@@ -142,7 +146,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                         <label>Documento Comprobatorio</label>                                           
-                                                            <input type="file">
+                                                            <input type="file" id="docComprobacion">
                                                     </div>
 						</div>
                                             </div>
@@ -151,7 +155,7 @@
                                                     <br/>          
                                                         <div class="col-lg-3" align="right">
                                                             <div class="form-group">
-                                                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                                                <button class="btn btn-primary" id="btn_guardar" name="btn_guardar">Guardar</button>
                                                                 <button type="reset" class="btn btn-default">Limpiar</button>
                                                             </div>
 							</div>
