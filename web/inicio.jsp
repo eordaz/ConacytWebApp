@@ -41,9 +41,7 @@
     <script src="js/catalogos/catalogos.js"></script>
     <script src="js/funciones.generales.js"></script>
     <script src="js/jquery.funciones.proyectos.js"></script>
-    
-    <script  src="dist/js/bootbox.min.js"></script>
-
+   
     
 </head>
 <style type="text/css">
@@ -221,6 +219,7 @@
                                         <div class="panel panel-primary panel-stage" id="divStage_1">
                                             <div class="panel-heading">
                                                 <i class="fa fa-fw"></i> <span class="stage-title">Etapa 1</span>
+                                                <input type="hidden" readonly id="id_etapa1"  name="id_etapa1" value="1"></input>
 				            </div>
                                         <div class="panel-body panel-medio" id="cuerpo_1">
                                             <script>var stageId=0;
@@ -237,7 +236,7 @@
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado"  name="importe_asignado" placeholder="importe"></input>
+                                                            <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado" maxlength="13"  name="importe_asignado" placeholder="importe"></input>
                                                                   <div class="help-block"></div>
                                                         </div>
                                                     </div>
@@ -261,7 +260,7 @@
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dígitos" ></input>
+                                                                <input class="form-control"  maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dígitos" ></input>
                                                                 <span class="help-block"> </span>
                                                         </div>
                                                     </div>
@@ -322,6 +321,7 @@
                                         <div class="panel panel-primary panel-stage" id="divStage_1">
                                             <div class="panel-heading">
                                                 <i class="fa fa-fw"></i> <span class="stage-title">Etapa 2</span>
+                                                 <input type="hidden" readonly id="id_etapa2"  name="id_etapa2" value="2"></input>
 				            </div>
                                         <div class="panel-body panel-medio" id="cuerpo_1">
                                            
@@ -336,7 +336,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
 				                    </div>
 				                </div>
 
@@ -359,7 +359,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dígitos"></input>
 				                    </div>
 				                </div>
 
@@ -432,7 +432,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dígitos"></input>
 				                    </div>
 				                </div>
 
@@ -455,7 +455,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado6"  name="importe_asignado6" placeholder="importe" title=""></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado6"  name="importe_asignado6" placeholder="importe" title=""></input>
 				                    </div>
 				                </div>
 
@@ -526,7 +526,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                <input class="form-control"   id="RT_rfc" name="RT_rfc"  required>
+                                                            <input class="form-control"   id="RT_rfc" name="RT_rfc" maxlength="13"  required>
                                                                  <div class="help-block"></div>    
                                                         </div>
                                                     </div>
@@ -747,6 +747,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+ 
+    <script  src="dist/js/bootbox.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
