@@ -14,32 +14,32 @@ $(document).ready(function () {
             var comprobacionJson = JSON.stringify(getComprobacion()).toString();     
             
 
-            var json = '{ "json":{"comprobacion": '+ comprobacionJson + '} }';
+            var json = '{"comprobacion": '+ comprobacionJson + '} }';
 
             console.log(json);  
     
     
     
 });
-	});
+});
 
 
 function getComprobacion(){
     
     var gC = new Object();//datosGenerales
-    var  cve_recurso, cve_proy,tipo_gasto, importe, tipo_documento, ruta_archivo, nombre_archivo;   
+    var  cve_recurso, cve_proy,tipo_gasto, importe, tipo_documento, ruta_archivo, nombre_archivo, id_usuario;   
      
     cve_recurso= 189;//fijo hasta resolver combo de recursos (CY,CC,CO)
-    cve_proy=$("#numProyComprob").val();
+    cve_proy=parceint($("#numProyComprob")).val();
     tipo_gasto=$("#tipoGasto").val();
-    importe=$("importe").val();
+    importe= parceint($("importe")).val();
     tipo_documento=$("cat_documentos").val();
     ruta_archivo=$("ruta").val();
     nombre_archivo=$("docComprobacion").val();
     id_usuario=1;
     
     gC.id_proyecto = cve_proy;
-    gc.id_cheque = 1;
+    gC.id_cheque = 1;
     gC.id_etapa_proyecto = 1;
     gC.concepto = 1;
     gC.importe = importe;
@@ -54,4 +54,5 @@ function getComprobacion(){
 	
     
 }
+
 
