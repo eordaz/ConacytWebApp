@@ -22,13 +22,17 @@ $(function () {
             var json = JSON.stringify(data);
             console.log('esto es el json:'+json);
             var content = JSON.parse(json);
-            console.log("valor de content" + content);
+            console.log(content.lenght);
+            i=0; i < content.lenght; i++;
+            console.log("valor de content" + content[i]["documentos_descr"]);
 
             //impresion valores en pantalla de registro de proyecto
             $('#nombreProyConsul').val(content[0]["proyecto_desc"]);
             $('#cmbComprobacion').val(content[0]["descripcion"]);
             $('#importeComprobacion').val(content[0]["importe"]);
             $('#cmbTipodoc').val(content[0]["documentos_descr"]);
+            
+            //i=0; i < content.lenght; 
             $('#anexoComprob').val(content[0]["nombre_archivo"]);
 
         },
