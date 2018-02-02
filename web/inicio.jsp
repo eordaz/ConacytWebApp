@@ -533,7 +533,7 @@
                                                     <div class="col-lg-4" hidden="hidden">
                                                         <div class="form-group">
                                                             <label>RFC</label>
-                                                                 <input class="form-control"  id ="RT_tipo_responsable" name="RT_tipo_responsable" value="207">
+                                                                 <input class="form-control"  id ="RT_tipo_responsable" name="RT_tipo_responsable" value="208">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -593,7 +593,7 @@
                                                     <div class="col-lg-4" hidden="hidden">
                                                         <div class="form-group">
                                                             <label></label>
-                                                                 <input class="form-control"  id ="RA_tipo_responsable" name="RA_tipo_responsable" value="208">
+                                                                 <input class="form-control"  id ="RA_tipo_responsable" name="RA_tipo_responsable" value="207">
                                                         </div>
                                                     </div>
                                                 </div>
