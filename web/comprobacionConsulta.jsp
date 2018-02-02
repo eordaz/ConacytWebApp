@@ -50,7 +50,7 @@
                         <br/>               
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>No. de Proyecto </label>
+                                    <label>Clave de Proyecto </label>
                                         <input class="form-control" id="consulComprobProy" name="consulComprobProy" />
                                 </div>
                             </div>
