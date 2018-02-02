@@ -72,13 +72,6 @@
                         <div class="tab-pane fade in active" id="home">
                             <div class="panel-body">
                                 <div class="row">
-                                       <div class="col-lg-1">
-                                        <div class="form-group">
-                                            </br> 
-                                                <label diseabled style="font-color:white;" >Recurso</label>
-                                                <input class="form-control" type="text" value="CY" disabled></label>
-                                        </div>
-                                    </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             </br> 
