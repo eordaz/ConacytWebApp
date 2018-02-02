@@ -75,7 +75,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             </br> 
-                                                <label>No. de Proyecto</label>
+                                                <label>Clave de Proyecto</label>
                                                     <input class="form-control" id="txtNoProyecto" type="text"/>
                                         </div>
                                     </div>
