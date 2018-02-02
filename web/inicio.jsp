@@ -104,7 +104,7 @@
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <br/><label>No. de Proyecto</label> 
+                                            <br/><label>Clave de Proyecto</label> 
                                             <input class="form-control" name="clave_proyecto"  id="clave_proyecto" value="" required title="" />
                                              <span class="help-block"> </span>
 					</div>
@@ -149,7 +149,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Importe Total</label>
-                                            <input class="form-control"   onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"    maxlength="12" name="importe" id="importe" title="Solo dígitos" />
+                                            <input class="form-control"   onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"    maxlength="12" name="importe" id="importe" title="Solo dÃ­gitos" />
                                              <div class="help-block"></div>
                                         </div>
                                     </div>
@@ -260,7 +260,7 @@
                                                     <div class="col-lg-2 col-price" id="divImporte">
                                                         <div class="form-group">
                                                             <label>Importe</label>
-                                                                <input class="form-control"  maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dígitos" ></input>
+                                                                <input class="form-control"  maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dÃ­gitos" ></input>
                                                                 <span class="help-block"> </span>
                                                         </div>
                                                     </div>
@@ -336,7 +336,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dÃ­gitos"></input>
 				                    </div>
 				                </div>
 
@@ -359,7 +359,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dÃ­gitos"></input>
 				                    </div>
 				                </div>
 
@@ -432,7 +432,7 @@
                                                 <div class="col-lg-2 col-price" id="divImporte">
                                                     <div class="form-group">
                                                         <label>Importe</label>
-                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dígitos"></input>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dÃ­gitos"></input>
 				                    </div>
 				                </div>
 
@@ -568,7 +568,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>                                                               
-                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  maxlength="10" pattern="[0-9]{10}" id="RT_telefono" name="RT_telefono" title="Solo dígitos">
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  maxlength="10" pattern="[0-9]{10}" id="RT_telefono" name="RT_telefono" title="Solo dÃ­gitos">
                                                         </div>
                                                     </div>
                                                 </div>
