@@ -52,7 +52,7 @@
                         <br/>               
                             <div class="col-lg-3">
                                 <div class="form-group">
-                                    <label>No. de Proyecto </label>
+                                    <label>Clave de Proyecto </label>
                                         <input class="form-control" maxlength="8" id="numProyComprob" name="numProyComprob"/>
                                 </div>
                             </div>
