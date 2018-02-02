@@ -76,7 +76,7 @@
                                         <div class="form-group">
                                             </br> 
                                                 <label>No. de Proyecto</label>
-                                                    <input class="form-control" maxlength="6"   id="txtNoProyecto" type="text"/>
+                                                    <input class="form-control" id="txtNoProyecto" type="text"/>
                                         </div>
                                     </div>
                                  
