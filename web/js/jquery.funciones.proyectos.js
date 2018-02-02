@@ -250,7 +250,7 @@ function getDatosgenerales(){
     var cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep,id_usuario;   
      
     cve_recurso= 189;//$("#clave_proyecto").val().substring(0,2);
-    cve_proy=$("#clave_proyecto").val().substring(2,$("#clave_proyecto").val().length);
+    cve_proy=$("#clave_proyecto").val();
     nombre_proy=$("#nombre_proyecto").val();
     cat_fondos=parseInt($("#cat_fondos").val());
     fecha_ini= $("#fecha_inicio").val();

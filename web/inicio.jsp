@@ -105,7 +105,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <br/><label>No. de Proyecto</label> 
-                                            <input class="form-control"    maxlength="8" name="clave_proyecto"  id="clave_proyecto" value="" required title="" />
+                                            <input class="form-control" name="clave_proyecto"  id="clave_proyecto" value="" required title="" />
                                              <span class="help-block"> </span>
 					</div>
                                     </div>

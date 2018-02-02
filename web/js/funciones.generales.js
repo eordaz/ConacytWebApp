@@ -107,29 +107,29 @@ function archivo_tipo(archivo, elemento) {
             document.getElementById("extension").value = extension;
             
         }
-        permitida = false;
-        for (var i = 0; i < ext_permitidas.length; i++) {
-            if (ext_permitidas[i] == extension) {
-                permitida = true;
-
-                var input = document.getElementById(elemento);
-                document.getElementById("nombre_archivo").value = input.files[0].name;
-                /*if (input.files && input.files.length == 1) {
-                    if (input.files[0].size > max_img_size)
-                        error_f = "El archivo no puede ser más grande de " + (max_img_size / 1024) + "KB";
-                }*/
-            }
-        }
-        if (!permitida) {
-            error_f = "Sólo se permite incluir archivos:" + ext_permitidas.join();
-        } else {
-            //Correcto
-        }
+//        permitida = false;
+//        for (var i = 0; i < ext_permitidas.length; i++) {
+//            if (ext_permitidas[i] == extension) {
+//                permitida = true;
+//
+//                var input = document.getElementById(elemento);
+//                document.getElementById("nombre_archivo").value = input.files[0].name;
+//                /*if (input.files && input.files.length == 1) {
+//                    if (input.files[0].size > max_img_size)
+//                        error_f = "El archivo no puede ser más grande de " + (max_img_size / 1024) + "KB";
+//                }*/
+//            }
+//        }
+//        if (!permitida) {
+//            error_f = "Sólo se permite incluir archivos:" + ext_permitidas.join();
+//        } else {
+//            //Correcto
+//        }
     }
-    if (error_f != "") {
-        $("#extension").parent().attr("class","form-group  has-error has-feedback" );
-        $("#extension").parent().children("span").text("Solo se  permite archivos con formato PDF  ").show();
-    } else {
-        //Todo en orden
-    }
+//    if (error_f != "") {
+//        $("#extension").parent().attr("class","form-group  has-error has-feedback" );
+//        $("#extension").parent().children("span").text("Solo se  permite archivos con formato PDF  ").show();
+//    } else {
+//        //Todo en orden
+//    }
 }
