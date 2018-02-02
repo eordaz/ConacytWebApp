@@ -105,7 +105,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <br/><label>No. de Proyecto</label> 
-                                            <input class="form-control"   pattern="^CY[0-9]{6}$" maxlength="8" name="clave_proyecto"  id="clave_proyecto" value="CY" required title="Formato no válido CY000000" />
+                                            <input class="form-control"    maxlength="8" name="clave_proyecto"  id="clave_proyecto" value="" required title="" />
                                              <span class="help-block"> </span>
 					</div>
                                     </div>
@@ -302,16 +302,16 @@
             			</div>
                                 <!--/ panel-body -->
 
-			                            </div> <!--/ panel  (finish etapa) -->
+			        </div> <!--/ panel  (finish etapa) -->
 			
-			                            <div class="col-lg-4" align="left">
+			            <div class="col-lg-4" align="left">
 			                            <div class="form-group">
 			                                <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
                                                         <button type="button" name="btn2" id="btn2"  class="btn btn-primary">Siguiente</button>
                                                         <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
                                                     </div>
-						</div>
-						            												</div>
+				    </div>
+				</div>
 
         			</div><!-- etapa 2--->
                                 <div class="row" id="etapa2"  style="display:none;">
@@ -541,20 +541,20 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                            <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  maxlength="80" id="RT_nombre" name="RT_nombre">
+                                                            <input class="form-control"  maxlength="80" id="RT_nombre" name="RT_nombre">
                                                             <div class="help-block"></div>     
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"   id="RT_apellido_paterno"  maxlength="80" name="RT_apellido_paterno">
+                                                               <input class="form-control"  id="RT_apellido_paterno"  maxlength="80" name="RT_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>                                                                
-                                           			 <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"   id="RT_apellido_materno" maxlength="80"  name="RT_apellido_materno">
+                                           			 <input class="form-control"    id="RT_apellido_materno" maxlength="80"  name="RT_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -601,19 +601,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RA_nombre" name="RA_nombre">
+                                                                <input class="form-control"  id="RA_nombre" name="RA_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                                <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RA_apellido_paterno" name="RA_apellido_paterno">
+                                                                <input class="form-control"  id="RA_apellido_paterno" name="RA_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RA_apellido_materno" name="RA_apellido_materno">
+                                                               <input class="form-control"   id="RA_apellido_materno" name="RA_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -660,19 +660,19 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Nombre</label>
-                                                                <input class="form-control"  onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RL_nombre" name="RL_nombre">
+                                                                <input class="form-control"   id="RL_nombre" name="RL_nombre">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido Paterno</label>
-                                                              <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);"  id="RL_apellido_paterno" name="RL_apellido_paterno">
+                                                              <input class="form-control"  id="RL_apellido_paterno" name="RL_apellido_paterno">
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Apellido materno</label>
-                                                               <input class="form-control" onkeypress="return validarLetras(event);" onblur="validarLetrasCopiar(this.id);" id="RL_apellido_materno" name="RL_apellido_materno">
+                                                               <input class="form-control"  id="RL_apellido_materno" name="RL_apellido_materno">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -686,7 +686,7 @@
                                                     <div class="col-lg-4">
                                                         <div class="form-group">
                                                             <label>Tel&eacute;fono</label>
-                                                            <input class="form-control"  maxlength="10" onkeypress="return validarDigitos(event);" onblur="validarDigitos(this.id);" id="RL_telefono" name="RL_telefono">
+                                                            <input class="form-control"  maxlength="10" id="RL_telefono" name="RL_telefono">
                                                         </div>
                                                     </div>
                                                 </div>
