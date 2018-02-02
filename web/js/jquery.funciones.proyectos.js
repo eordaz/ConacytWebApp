@@ -19,10 +19,9 @@ $(document).ready(function () {
             var datosEtapasJson = JSON.stringify(getEtapas()).toString();
             var datosResponsablesJson = JSON.stringify(getResponsables()).toString();
             var datosDocumentosJson = JSON.stringify(getDocumentos()).toString();
-
             var json = '{"datosGenerales":' + datosgeneralesJson + ',"etapasProyecto":' + datosEtapasJson + ',"responsables":' + datosResponsablesJson + ',"documentos":' + datosDocumentosJson + '}';
 
-              console.log(json);
+            console.log(json);
              
 
         $.ajax({// JQuery ajax function
@@ -77,7 +76,6 @@ $(document).ready(function () {
       validar_personales();
  
     });
-    
 
     $("#btn2").on("click", function(e) {
       $("span.help-block").hide();
@@ -121,15 +119,14 @@ function inicio(){ // 1
 
 
 function  validar_personales()
-{
-       
+{      
     
         var valor = document.getElementById("clave_proyecto").value;
-	if ( valor == null || valor.length==0  ||  !(/CY\d{1,6}/.test(valor)))
-	{
+        //!(/CY\d{1,6}/.test(valor)
+	if ( valor == null || valor.length==0   ){
 	  $("#iconotexto").remove();
 	  $("#clave_proyecto").parent().attr("class","form-group has-error has-feedback");
-	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato CY999999").show();
+	  $("#clave_proyecto").parent().children("span").text("Debe ingresar caracteres con formato ").show();
 	  
 	  return false;
 	}
@@ -156,7 +153,7 @@ function  validar_personales()
 	 
 	}
         var valor = document.getElementById("importe").value;
-	if ( valor == null || valor.length==0  ||  !(/\d{1,10}\.\d{2}/.test(valor)))
+	if ( valor == null || valor.length==0  ||  !(/\d{1,12}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
 	  $("#importe").parent().attr("class","form-group has-error has-feedback");
@@ -168,8 +165,7 @@ function  validar_personales()
             $("#importe").parent().attr("class","form-group  has-success has-feedback" );
             $("#importe").parent().children("span").text("").hide();
 	    //return true;
-             $('#TabProy a[href="#datos_pres"]').tab('show');
-	 
+             $('#TabProy a[href="#datos_pres"]').tab('show');	 
 	}
         
 }
@@ -178,11 +174,11 @@ function  validar_etapas()
 {
         var valor = document.getElementById("importe_asignado").value;
         //(/\d{1,10}\.\d{2}/
-	if ( valor == null || valor.length==0  ||  !(/\d{1,10}/.test(valor)))
+	if ( valor == null || valor.length==0  ||  !(/\d{1,12}/.test(valor)))
 	{
 	  $("#iconotexto").remove();
 	  $("#importe_asignado").parent().attr("class","form-group has-error has-feedback");
-	  $("#importe_asignado").parent().children("span").text("Formato de importe a dos decimales 0.00").show();
+	  $("#importe_asignado").parent().children("span").text("").show();
 	  
 	  return false;
 	}
@@ -251,7 +247,7 @@ function  validar_responsables()
 function getDatosgenerales(){
     
     var dg = new Object();//datosGenerales
-    var  cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep,id_usuario;   
+    var cve_recurso, cve_proy,nombre_proy,cat_fondos,fecha_ini,fecha_fin,importe,cat_moneda,cat_dep,cat_subdep,id_usuario;   
      
     cve_recurso= 189;//$("#clave_proyecto").val().substring(0,2);
     cve_proy=$("#clave_proyecto").val().substring(2,$("#clave_proyecto").val().length);
