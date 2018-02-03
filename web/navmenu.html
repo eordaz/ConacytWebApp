@@ -1,4 +1,13 @@
-        
+
+<script src="js/login/login.js"></script>
+
+<script>
+                    var user = sessionStorage.getItem("usuario");
+                    console.log(user);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+</script>        
+
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -21,7 +30,7 @@
                         <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><i class="fa fa-user fa-fw"></i> Usuario
+                        <li><i class="fa fa-user fa-fw"><input type="text" disabled id="usuarioIndex"/></i>
                         </li>
                         <li class="divider"></li>
                         <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
