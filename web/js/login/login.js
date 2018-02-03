@@ -30,9 +30,11 @@ $(function () {
 		
                  //bootbox.alert("No existe el usuario…");
                     
-                } else { 
-                    
-                    console.log(data.id_usuario_rol);
+               } else { 
+                    var usuario = content["nombre_completo"];
+                    //console.log(content["nombre_completo"]);
+                    sessionStorage.usuario=usuario;// usuario en almacenamiento local
+                    alert(sessionStorage.usuario);
                     document.location.href = 'inicio.jsp';
                    
                 }
