@@ -41,6 +41,7 @@
     <script src="js/catalogos/catalogos.js"></script>
     <script src="js/funciones.generales.js"></script>
     <script src="js/jquery.funciones.proyectos.js"></script>
+    <script src="js/login/login.js"></script>
    
     
 </head>
@@ -76,6 +77,12 @@
 <!-------------------------------------------------------------------------------------------------------------------> 
 
 	<div id="page-wrapper">
+	<script>
+            var user = sessionStorage.getItem("usuario");
+            console.log(user);
+            $("#usuarioIndex").val(user); // define username variable
+            //document.getElementById(user);
+        </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Datos del Proyecto</h1>
