@@ -90,7 +90,7 @@
                                         <div class="form-group">
                                             </br> 
                                                 <label>Clave de Proyecto</label>
-                                                    <input class="form-control" id="txtNoProyecto" type="text"/>
+                                                <input class="form-control" maxlength="10" id="txtNoProyecto" type="text"/>
                                         </div>
                                     </div>
                                  
@@ -204,12 +204,6 @@
                                                             <label></label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-2 col-price">
-                                                        <div class="form-group">
-                                                            <label>Importe Total de Etapa</label>
-                                                                <input class="form-control" id="importe_etapa"  name="importe_total_etapa"  hidden="hidden" disabled></input>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                              <div class="panel-body panel-medio" id="cuerpo_2">
@@ -231,12 +225,6 @@
                                                     <div class="col-lg-4 col-price">
                                                         <div class="form-group">
                                                             <label></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-2 col-price">
-                                                        <div class="form-group">
-                                                            <label>Importe Total de Etapa</label>
-                                                                <input class="form-control" id="importe_etapa2"  name="importe_total_etapa" disabled  hidden="hidden"></input>
                                                         </div>
                                                     </div>
                                                 </div>
