@@ -48,21 +48,20 @@
     <script src="js/funciones.generales.js"></script>
     <script src="js/jquery.funciones.proyectos.js"></script>
     <script src="js/login/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="dist/css/template.css"/>
     
 </head>
 <style type="text/css">
   
-    .disabledTab {
-        cursor: not-allowed;
-    }
-   
-    li.disabledTab > a[data-toggle="tab"] {
-        pointer-events: none;
-        filter: alpha(opacity=65);
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        opacity: .65;
-    }
+    .navegacion {
+    height: 22px;
+    width: 980px;
+    background-color: #e1b715;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #f8ebb9;
+    float: left;
+}
 </style>
 
 <body>
@@ -86,33 +85,10 @@
 </script>
 
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <img src="img/unam.png" class="img-responsive" width="40" align="left">
-            <img src="img/patronatotxt.gif" class="img-responsive" align="left">
-            <a class="navbar-brand" href="navmenu.jsp">Modulo de Administraci&oacute;n de Recursos CONACYT</a>
-        </div>
-        <!-- /.navbar-header -->
-
-        <ul class="nav navbar-top-links navbar-right">
-
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><i class="fa fa-user fa-fw"><input type="text" disabled id="usuarioIndex"/></i>
-                    </li>                            
-                    <li class="divider"></li>
-                    <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
+        <jsp:include page="header.jspf" />
         <!-- /.navbar-top-links -->
-
+        <div id="menu">
+        </div>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
@@ -273,19 +249,16 @@
                     //document.getElementById(user);
                 </script>
             
-            <div class="row">
+            <!--div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Bienvenido al Modulo de Administracion de Recursos Conacyt</h1>
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
+                <!-- /.col-lg-12 >
+            </div> ---->
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <h3 align="left" ><img src="img/unam.jpg" width="300" /></h3>
-                    </div>
-                    <div class="col-lg-3">
-                        <h3 align="left"><img src="img/conacyt.jpg" width="300" /></h3>
+                    <div class="col-lg-9" align="center">
+                         <img src="img/unam-escudo-blanco.png" />
                     </div>
                 </div>
             </div>
