@@ -25,33 +25,67 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="shortcut icon" href="favicon.ico"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-
+    <!--<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+    
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+  
+  
+    <script src="js/catalogos/catalogos.js"></script>
+    <script src="js/funciones.generales.js"></script>
+    <script src="js/jquery.funciones.proyectos.js"></script>
+    <script src="js/login/login.js"></script>
+    
 </head>
+<style type="text/css">
+  
+    .disabledTab {
+        cursor: not-allowed;
+    }
+   
+    li.disabledTab > a[data-toggle="tab"] {
+        pointer-events: none;
+        filter: alpha(opacity=65);
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        opacity: .65;
+    }
+</style>
 
 <body>
+<!--% sessionStorage.getItem("usuario"); %-->
 
     <div id="wrapper">
 
         <!-- Navigation -->
        		<!--   jsp:include page="navmenu.html" -->
                 <%@include file="navmenu.html" %>   
-        
+                
         
        
             <!-- /.row -->
             <!-- /.row -->
-<!------------------------------------------------------------------------------------------------------------------->
-	<form name="formCaptura" method="post" action="usuario.jsp">   
-
+<!-------------------------------------------------------------------------------------------------------------------> 
+        
 	<div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+                </script>
+            
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Datos del Proyecto</h1>
@@ -59,23 +93,30 @@
                 <!-- /.col-lg-12 -->
             </div>
                 <!-- /.panel-heading -->
-                <div class="panel-body">
+            <div class="panel-body">
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#inicio" data-toggle="tab">Datos Generales</a>
-                        </li>
-                        
-                    </ul>
+                <ul class="nav nav-tabs" id="TabProy">
+                    <li class="active" id="tab1"><a  href="#datos_gral" data-toggle="tab">Datos Generales</a>
+                    </li>
+                    <li class="disabledTab"  id="tab2"><a  href="#datos_pres" data-toggle="tab">Datos Presupuestales</a>
+                    </li>
+                    <li class="disabledTab" id="tab3"><a  href="#resp" data-toggle="tab">Responsables</a>
+                    </li>
+                    <li class="disabledTab" id="tab4"><a  href="#anexos" data-toggle="tab">Anexos</a>
+                    </li>
+                </ul>
 
                             <!-- Tab panes -->
+                <form name="fvalida" role="form" id="frmProyTab1">
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="inicio">
+                        <div class="tab-pane fade in active" id="datos_gral">
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
-                                            <br/><label>No. de Proyecto</label>
-                                                <input class="form-control" name="clave_proyecto">
+                                            <br/><label>Clave de Proyecto</label> 
+                                            <input class="form-control"    maxlength="8" name="clave_proyecto"  id="clave_proyecto" value="" required title="" />
+                                             <span class="help-block"> </span>
 					</div>
                                     </div>
                     		</div>
@@ -83,7 +124,8 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>Nombre del Proyecto</label>
-                                            <input class="form-control" name="nombre_proyecto">
+                                            <input class="form-control"   name="nombre_proyecto"  id="nombre_proyecto" required/>
+                                            <div class="help-block"></div>
                                         </div>
                                     </div>
                         	</div>
@@ -92,14 +134,8 @@
                                         <div class="form-group">
                                             <div class="form-group">
                                                 <label>Fondo</label>
-		                                <select class="form-control" name="id_fondo">
-                                                    <option>Seleccionar</option>
-		                                    <option value="3">FOINS</option>
-		                                    <option value="1">FONDO SECTORIAL</option>
-		                                    <option value="2">FONDO MIXTO</option>
-		                                    <option value="4">FORDECYT</option>
-		                                    <option value="5">FONCICYT</option>
-		                                    <option value="6">CIBIOGEM</option>
+                                                <select class="form-control" name="cat_fondos" id="cat_fondos">
+                                                    <!--input type="text" name="valoreninput" id="valoreninput" value="" /-->
 		                                </select>
 	                                    </div>
                                         </div>
@@ -109,13 +145,13 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Fecha Inicio</label>
-                                            <input class="form-control" TYPE="date" name="fecha_inicio">
+                                            <input class="form-control" TYPE="date" name="fecha_inicio"  id="fecha_inicio" />
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Fecha Fin</label>
-                                            <input class="form-control" type="date" name="fecha_fin">
+                                            <input class="form-control" type="date" name="fecha_fin" id="fecha_fin"/>
                             		</div>
                                     </div>
                         	</div>
@@ -123,166 +159,16 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Importe Total</label>
-                                            <input class="form-control" name="importe">
+                                            <input class="form-control"   onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"    maxlength="12" name="importe" id="importe" title="Solo dígitos" />
+                                             <div class="help-block"></div>
                                         </div>
                                     </div>
-
+                        	</div>
+                        	<div class="row">
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label>Moneda</label>
-                                            <select class="form-control" name="id_moneda">
-                                                <option>Seleccionar</option>
-                                                <option value="1">DIRHAM DE LOS EMIRATOS AR&Aacute;BES UNIDOS</option>
-                                                <option value="2">AFGANI AFGANO</option>
-                                                <option value="3">LEK ALBAN&Eacute;S</option>
-                                                <option value="4">DRAM ARMENIO</option>
-                                                <option value="5">FLOR&Iacute;N ANTILLANO NEERLAND&Eacute;S</option>
-                                                <option value="6">KWANZA ANGOLE&Ntilde;O</option>
-                                                <option value="7">PESO ARGENTINO</option>
-                                                <option value="8">D&Oacute;LAR AUSTRALIANO</option>
-                                                <option value="9">FLOR&Iacute;N ARUBE&Ntilde;O</option>
-                                                <option value="10">MANAT AZERBAIYANO</option>
-                                                <option value="11">MARCO CONVERTIBLE DE BOSNIA-HERZEGOVINA</option>
-                                                <option value="12">D&Oacute;LAR DE BARBADOS</option>
-                                                <option value="13">TAKA DE BANGLAD&Eacute;S</option>
-                                                <option value="14">LEV B&Uacute;LGARO</option>
-                                                <option value="15">DINAR BAHREIN&Iacute;</option>
-                                                <option value="16">FRANCO BURUND&Eacute;S</option>
-                                                <option value="17">D&Oacute;LAR DE BERMUDA</option>
-                                                <option value="18">D&Oacute;LAR DE BRUN&Eacute;I</option>
-                                                <option value="19">BOLIVIANO</option>
-                                                <option value="20">MVDOL BOLIVIANO (C&Oacute;DIGO DE FONDOS)</option>
-                                                <option value="21">REAL BRASILE&Ntilde;O</option>
-                                                <option value="22">D&Oacute;LAR BAHAME&Ntilde;O</option>
-                                                <option value="23">NGULTRUM DE BUT&Aacute;N</option>
-                                                <option value="24">PULA DE BOTSUANA</option>
-                                                <option value="25">RUBLO BIELORRUSO</option>
-                                                <option value="26">D&Oacute;LAR DE BELICE</option>
-                                                <option value="27">D&Oacute;LAR CANADIENSE</option>
-                                                <option value="28">FRANCO CONGOLE&Ntilde;O, O CONGOL&Eacute;S</option>
-                                                <option value="29">FRANCO SUIZO</option>
-                                                <option value="30">UNIDADES DE FOMENTO CHILENAS (C&Oacute;DIGO DE FONDOS)</option>
-                                                <option value="31">PESO CHILENO</option>
-                                                <option value="32">YUAN CHINO</option>
-                                                <option value="33">PESO COLOMBIANO</option>
-                                                <option value="34">UNIDAD DE VALOR REAL COLOMBIANA (A&Ntilde;ADIDA AL COP)</option>
-                                                <option value="35">COL&Oacute;N COSTARRICENSE</option>
-                                                <option value="36">DINAR SERBIO (REEMPLAZADO POR RSD EL 25 DE OCTUBRE DE 2006)</option>
-                                                <option value="37">PESO CUBANO CONVERTIBLE</option>
-                                                <option value="38">PESO CUBANO</option>
-                                                <option value="39">ESCUDO CABOVERDIANO</option>
-                                                <option value="40">KORUNA CHECA</option>
-                                                <option value="41">FRANCO YIBUTIANO</option>
-                                                <option value="42">CORONA DANESA</option>
-                                                <option value="43">PESO DOMINICANO</option>
-                                                <option value="44">DINAR ARGELINO</option>
-                                                <option value="45">LIBRA EGIPCIA</option>
-                                                <option value="46">NAKFA ERITREO</option>
-                                                <option value="47">BIRR ET&Iacute;OPE</option>
-                                                <option value="48">EURO</option>
-                                                <option value="49">D&Oacute;LAR FIYIANO</option>
-                                                <option value="50">LIBRA MALVINENSE</option>
-                                                <option value="51">LIBRA ESTERLINA</option>
-                                                <option value="52">LARI GEORGIANO</option>
-                                                <option value="53">CEDI GHAN&Eacute;S</option>
-                                                <option value="54">LIBRA DE GIBRALTAR</option>
-                                                <option value="55">DALASI GAMBIANO</option>
-                                                <option value="56">FRANCO GUINEANO</option>
-                                                <option value="57">QUETZAL GUATEMALTECO</option>
-                                                <option value="58">D&Oacute;LAR GUYAN&Eacute;S</option>
-                                                <option value="59">D&Oacute;LAR DE HONG KONG</option>
-                                                <option value="60">LEMPIRA HONDURE&Ntilde;O</option>
-                                                <option value="61">KUNA CROATA</option>
-                                                <option value="62">GOURDE HAITIANO</option>
-                                                <option value="63">FORINT H&Uacute;NGARO</option>
-                                                <option value="64">RUPIAH INDONESIA</option>
-                                                <option value="65">NUEVO SH&Eacute;QUEL ISRAEL&Iacute;</option>
-                                                <option value="66">RUPIA INDIA</option>
-                                                <option value="67">DINAR IRAQU&Iacute;</option>
-                                                <option value="68">RIAL IRAN&Iacute;</option>
-                                                <option value="69">KR&Oacute;NA ISLANDESA</option>
-                                                <option value="70">D&Oacute;LAR JAMAICANO</option>
-                                                <option value="71">DINAR JORDANO</option>
-                                                <option value="72">YEN JAPON&Eacute;S</option>
-                                                <option value="73">CHEL&Iacute;N KENIATA</option>
-                                                <option value="74">SOM KIRGU&Iacute;S (DE KIRGUIST&Aacute;N)</option>
-                                                <option value="75">RIEL CAMBOYANO</option>
-                                                <option value="76">FRANCO COMORIANO (DE COMORAS)</option>
-                                                <option value="77">WON NORCOREANO</option>
-                                                <option value="78">WON SURCOREANO</option>
-                                                <option value="79">DINAR KUWAIT&Iacute;</option>
-                                                <option value="80">D&Oacute;LAR CAIMANO (DE ISLAS CAIM&Aacute;N)</option>
-                                                <option value="81">TENGE KAZAJO</option>
-                                                <option value="82">KIP LAO</option>
-                                                <option value="83">LIBRA LIBANESA</option>
-                                                <option value="84">RUPIA DE SRI LANKA</option>
-                                                <option value="85">D&Oacute;LAR LIBERIANO</option>
-                                                <option value="86">LOTI LESOTENSE</option>
-                                                <option value="87">LITAS LITUANO</option>
-                                                <option value="88">LAT LET&Oacute;N</option>
-                                                <option value="89">DINAR LIBIO</option>
-                                                <option value="90">DIRHAM MARROQU&Iacute;</option>
-                                                <option value="91">LEU MOLDAVO</option>
-                                                <option value="92">ARIARY MALGACHE</option>
-                                                <option value="93">DENAR MACEDONIO</option>
-                                                <option value="94">KYAT BIRMANO</option>
-                                                <option value="95">TUGHRIK MONGOL</option>
-                                                <option value="96">PATACA DE MACAO</option>
-                                                <option value="97">OUGUIYA MAURITANA</option>
-                                                <option value="98">RUPIA MAURICIA</option>
-                                                <option value="99">RUFIYAA MALDIVA C&Oacute;DIGO MONEDA</option>
-                                                <option value="100">KWACHA MALAU&Iacute;</option>
-                                                <option value="101">PESO MEXICANO</option>
-                                                <option value="102">UNIDAD DE INVERSI&Oacute;N (UDI) MEXICANA (C&Oacute;DIGO DE FONDOS)</option>
-                                                <option value="103">RINGGIT MALAYO</option>
-                                                <option value="104">METICAL MOZAMBIQUE&Ntilde;O</option>
-                                                <option value="105">D&Oacute;LAR NAMIBIO</option>
-                                                <option value="106">NAIRA NIGERIANA</option>
-                                                <option value="107">C&Oacute;RDOBA NICARAGÜENSE</option>
-                                                <option value="108">CORONA NORUEGA</option>
-                                                <option value="109">RUPIA NEPALESA</option>
-                                                <option value="110">D&Oacute;LAR NEOZELAND&Eacute;S</option>
-                                                <option value="111">RIAL OMAN&Iacute;</option>
-                                                <option value="112">BALBOA PANAME&Ntilde;A</option>
-                                                <option value="113">NUEVO SOL PERUANO</option>
-                                                <option value="114">KINA DE PAP&Uacute;A NUEVA GUINEA</option>
-                                                <option value="115">PESO FILIPINO</option>
-                                                <option value="116">RUPIA PAKISTAN&Iacute;</option>
-                                                <option value="117">ZLOTY POLACO</option>
-                                                <option value="118">GUARAN&Iacute; PARAGUAYO</option>
-                                                <option value="119">RIAL QATAR&Iacute;</option>
-                                                <option value="120">LEU RUMANO</option>
-                                                <option value="121">RUBLO RUSO</option>
-                                                <option value="122">FRANCO RUAND&Eacute;S</option>
-                                                <option value="123">RIYAL SAUD&Iacute;</option>
-                                                <option value="124">D&Oacute;LAR DE LAS ISLAS SALOM&Oacute;N</option>
-                                                <option value="125">RUPIA DE SEYCHELLES</option>
-                                                <option value="126">DINAR SUDAN&Eacute;S</option>
-                                                <option value="127">CORONA SUECA</option>
-                                                <option value="128">D&Oacute;LAR DE SINGAPUR</option>
-                                                <option value="129">LIBRA DE SANTA HELENA</option>
-                                                <option value="130">LEONE DE SIERRA LEONA</option>
-                                                <option value="131">CHEL&Iacute;N SOMAL&Iacute;</option>
-                                                <option value="132">D&Oacute;LAR SURINAM&Eacute;S</option>
-                                                <option value="133">DOBRA DE SANTO TOM&Eacute; Y PR&Iacute;NCIPE</option>
-                                                <option value="134">LIBRA SIRIA</option>
-                                                <option value="135">LILANGENI SUAZI</option>
-                                                <option value="136">BAHT TAILAND&Eacute;S</option>
-                                                <option value="137">SOMONI TAYIK (DE TAYIKIST&Aacute;N)</option>
-                                                <option value="138">MANAT TURCOMANO</option>
-                                                <option value="139">DINAR TUNECINO</option>
-                                                <option value="140">PA'ANGA TONGANO</option>
-                                                <option value="141">LIRA TURCA</option>
-                                                <option value="142">D&Oacute;LAR DE TRINIDAD Y TOBAGO</option>
-                                                <option value="143">D&Oacute;LAR TAIWAN&Eacute;S</option>
-                                                <option value="144">CHEL&Iacute;N TANZANO</option>
-                                                <option value="145">GRIVNA UCRANIANA</option>
-                                                <option value="146">CHEL&Iacute;N UGAND&Eacute;S</option>
-                                                <option value="147">DOLAR AMERICANO</option>
-                                                <option value="148">D&Oacute;LAR ESTADOUNIDENSE (SIGUIENTE D&Iacute;A) (C&Oacute;DIGO DE FONDOS)</option>
-                                                <option value="149">D&Oacute;LAR ESTADOUNIDENSE (MISMO D&Iacute;A) (C&Oacute;DIGO DE FONDOS)</option>
-                                                <option value="150">PESO URUGUAYO</option>
-                    
+                                            <select class="form-control" name="cat_moneda" id="cat_moneda">
                                             </select>
 
                                         </div>
@@ -291,15 +177,11 @@
                         	<div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <div class="form-group">
                                             <label>Dependencia</label>
-                                            <select class="form-control" name="id_cat_dependencia" >
-                                                <option>Seleccionar</option>
-                                                <option value="1">UNIVERSIDAD NACIONAL AUTONOMA DE M&Eacute;XICO</option>
-                                                <option value="2">INSTITUTO POLITECNICO NACIONAL</option>
-                                                <option value="3">UNIVERSIDAD AUTONOMA DE MEXICO</option>
-                                                <option value="4">CONACYT</option>
-                                                <option value="5">DGP</option>
+                                            <select class="form-control" name="cat_dependencias" id="cat_dependencias" onchange="mostrarDependencia(this.value)" required>
                                             </select>
+                                            </div>
                                         </div>
                                     </div>
                         	</div>
@@ -307,47 +189,566 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>SubDependencia</label>
-                                            <select class="form-control" name="id_cat_subdependencia">
-                                                <option>Seleccionar</option>
-                                                <option value="1">COORDINACI&Oacute;N Y CONSEJO  T&Eacute;CNICO DE  HUMANIDADES</option>
-                                                <option value="3">CENTROS DE INVESTIGACI&Oacute;N INBTERDISCIPLINARIAS EN CIENCIAS  Y HUMANIDADES</option>
+                                            <select class="form-control" name="cat_subdependencias" id="cat_subdependencias" required>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
+                        	<div class="row">
+                                    <div class="col-lg-6" align="right">
+                                        <div class="form-group">
+                                           <!-- <button name="Sig" id="Sig" type="submit" class="btn btn-primary" >Siguiente</button>-->
+                                           <!-- <button type="reset" class="btn btn-default">Limpiar</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- #messages is where the messages are placed inside -->
+                            <div class="form-group">
+                                <div class="col-md-9 col-md-offset-3">
+                                    <div id="messages"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9 col-md-offset-3">
+                                    <button name="btn1" id="btn1"  class="btn btn-primary" >Siguiente</button>
+                                    <button type="reset" class="btn btn-default">Limpiar</button>
+                                    <!--<button type="submit" class="btn btn-default">Validate</button>--> 
+                                </div>
+                            </div><!-- messseges  -->
+                            </div><!--  body-->
+                        </div>
 
+                      
+                        
+			<div class="tab-pane fade" id="datos_pres">
+                            <div class="panel-body">
+                                <div class="row">
+				
+				    <div class="col-lg-12">
+				
+                                        <div class="panel panel-primary panel-stage" id="divStage_1">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 1</span>
+                                                <input type="hidden" readonly id="id_etapa1"  name="id_etapa1" value="1"></input>
+				            </div>
+                                        <div class="panel-body panel-medio" id="cuerpo_1">
+                                            <script>var stageId=0;
+                                                    newID=1;
+				            </script>
+                                                <div class="row" id="row_1">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto" id="tipoGasto" required>
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                    <div class="col-lg-2 col-price" id="divImporte">
+                                                        <div class="form-group">
+                                                            <label>Importe</label>
+                                                            <input class="form-control"  onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado" maxlength="13"  name="importe_asignado" placeholder="importe"></input>
+                                                                  <div class="help-block"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label style="height:40px"></label>
+                                                                <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                        </div>
+                                                    </div>				
+            					</div>
+                                                <div class="row" id="row_2">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto2">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto2" id="tipoGasto2">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                    <div class="col-lg-2 col-price" id="divImporte">
+                                                        <div class="form-group">
+                                                            <label>Importe</label>
+                                                                <input class="form-control"  maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  id="importe_asignado2"  name="importe_asignado2" placeholder="importe" title="Solo dígitos" ></input>
+                                                                <span class="help-block"> </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label style="height:40px"></label>
+                                                                <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                                <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                        </div>
+                                                    </div>				
+            					</div>
+													
+            										
+                                                <div class="row">
+
+                                                        <div class="col-lg-4 col-price">
+                                                                                <div class="form-group">
+                                                                <label></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2 col-price">
+                                                               <div class="form-group">
+                                                               <!-- <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_autorizado"  name="importe_autorizado" disabled></input>-->
+                                                                </div>
+                                                        </div>
+                                                </div>
+									
+                                    <div class="row">
+                                      <div class="col-lg-8" align="right">
+                                        <div class="form-group">
+                                          <button type="reset" class="btn btn-default">Limpiar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+            			</div>
+                                <!--/ panel-body -->
+
+			        </div> <!--/ panel  (finish etapa) -->
+			
+			            <div class="col-lg-4" align="left">
+			                            <div class="form-group">
+			                                <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
+                                                        <button type="button" name="btn2" id="btn2"  class="btn btn-primary">Siguiente</button>
+                                                        <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
+                                                    </div>
+				    </div>
+				</div>
+
+        			</div><!-- etapa 2--->
+                                <div class="row" id="etapa2"  style="display:none;">
+				
+				    <div class="col-lg-12">
+				
+                                        <div class="panel panel-primary panel-stage" id="divStage_1">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 2</span>
+                                                 <input type="hidden" readonly id="id_etapa2"  name="id_etapa2" value="2"></input>
+				            </div>
+                                        <div class="panel-body panel-medio" id="cuerpo_1">
+                                           
+                                                <div class="row" id="row_3">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto3" id="tipoGasto3">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado3"  name="importe_asignado3" placeholder="importe" title="Solo dígitos"></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+                                                <div class="row" id="row_4">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto4" id="tipoGasto4">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado4"  name="importe_asignado4" placeholder="importe" title="Solo dígitos"></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+													
+            										
+                                                <div class="row">
+
+                                                        <div class="col-lg-4 col-price">
+                                                                                <div class="form-group">
+                                                                <label></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2 col-price">
+                                                                                <div class="form-group">
+                                                             <!--   <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>-->
+                                                                </div>
+                                                        </div>
+                                                </div>
+									
+                                    <div class="row">
+                                      <div class="col-lg-8" align="right">
+                                        <div class="form-group">
+                                         <button type="reset" class="btn btn-default">Limpiar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+            			</div>
+                                <!--/ panel-body -->
+
+			                            </div> <!--/ panel  (finish etapa) -->
+			
+			                            <div class="col-lg-4" align="left">
+			                            <div class="form-group">
+			                          <!--      <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>-->
+                                                    </div>
+						</div>
+						            												</div>
+
+        			</div><!--row 2-->
+                                  <div class="row" id="etapa3"  style="display:none;">
+				
+				    <div class="col-lg-12">
+				
+                                        <div class="panel panel-primary panel-stage" id="divStage_1">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 3</span>
+				            </div>
+                                        <div class="panel-body panel-medio" id="cuerpo_1">
+                                           
+                                                <div class="row" id="row_3">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto5" id="tipoGasto5">
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$"  id="importe_asignado5"  name="importe_asignado5" placeholder="importe6" title="Solo dígitos"></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+                                                <div class="row" id="row_4">
+                                                    <div class="col-lg-4 col-tipo"  id="divTipoGasto">
+                                                        <div class="form-group">
+                                                            <label>Tipo de Gasto</label>
+                                                                <select class="form-control" name="tipoGasto4" id="tipoGasto6" required>
+                                                                </select>
+				                        </div>
+				    	            </div>
+                                                <div class="col-lg-2 col-price" id="divImporte">
+                                                    <div class="form-group">
+                                                        <label>Importe</label>
+                                                            <input class="form-control" maxlength="13" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);" pattern="^[0-9]{1,10}\.[0-9]{2}$" id="importe_asignado6"  name="importe_asignado6" placeholder="importe" title=""></input>
+				                    </div>
+				                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label style="height:40px"></label>
+                                                            <!--<button type="button" onclick="addColumnPriceV()" class="btn btn-primary btn-add-price" name="lastPrice" id="boton">Agregar Importe</button>
+                                                            <button type="button" onclick="javascript:remover(this.id)" class="btn btn-primary btn-add-price" id="quitar">Quitar</button>-->
+                                                    </div>
+                                                </div>
+						</div>
+													
+            										
+                                                <div class="row">
+
+                                                        <div class="col-lg-4 col-price">
+                                                                                <div class="form-group">
+                                                                <label></label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2 col-price">
+                                                                                <div class="form-group">
+                                                             <!--   <label>Total de Etapa</label>
+                                                                <input class="form-control" id="importe_etapa"  name="importe_autorizado" disabled></input>-->
+                                                                </div>
+                                                        </div>
+                                                </div>
+									
+                                    <div class="row">
+                                      <div class="col-lg-8" align="right">
+                                        <div class="form-group">
+                                         <button type="reset" class="btn btn-default">Limpiar</button>
+                                        </div>
+                                      </div>
+                                    </div>
+
+            										</div>
+                                <!--/ panel-body -->
+
+			                            </div> <!--/ panel  (finish etapa) -->
+			
+			                            <div class="col-lg-4" align="left">
+			                            <div class="form-group">
+			                          <!--      <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Etapa</button>
+                                                        <button type="submit" class="btn btn-primary">Siguiente</button>-->
+                                                    </div>
+						</div>
+						            												</div>
+
+        			</div>
+                                
+                            </div>
+                        </div>
+
+						<!-- --------------------           RESPONSABLES                     -->				
+								
+                        <div class="tab-pane fade" id="resp">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw" name="id_cat_tipo_responsable" value="2"></i> Responsable T&eacute;cnico
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>RFC</label>
+                                                            <input class="form-control"   id="RT_rfc" name="RT_rfc" maxlength="13"  required>
+                                                                 <div class="help-block"></div>    
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label>RFC</label>
+                                                                 <input class="form-control"  id ="RT_tipo_responsable" name="RT_tipo_responsable" value="208">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Nombre</label>
+                                                            <input class="form-control"  maxlength="80" id="RT_nombre" name="RT_nombre">
+                                                            <div class="help-block"></div>     
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido Paterno</label>
+                                                               <input class="form-control"  id="RT_apellido_paterno"  maxlength="80" name="RT_apellido_paterno">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido materno</label>                                                                
+                                           			 <input class="form-control"    id="RT_apellido_materno" maxlength="80"  name="RT_apellido_materno">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Correo electr&oacute;nico</label>
+                                                                <input type="email" class="form-control" id="RT_correo"  name="RT_correo" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Tel&eacute;fono</label>                                                               
+                                                            <input class="form-control" onkeypress="return validarDigitos(event);" onblur="validarDigitosCopiar(this.id);"  maxlength="10" pattern="[0-9]{10}" id="RT_telefono" name="RT_telefono" title="Solo dígitos">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw" name="id_cat_tipo_responsable" value="1"></i> Responsable Administrativo
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>RFC</label>
+                                                                 <input class="form-control"  id ="RA_rfc" name="RA_rfc">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                                 <input class="form-control"  id ="RA_tipo_responsable" name="RA_tipo_responsable" value="207">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Nombre</label>
+                                                                <input class="form-control"  id="RA_nombre" name="RA_nombre">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido Paterno</label>
+                                                                <input class="form-control"  id="RA_apellido_paterno" name="RA_apellido_paterno">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido materno</label>
+                                                               <input class="form-control"   id="RA_apellido_materno" name="RA_apellido_materno">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Correo electr&oacute;nico</label>
+                                                                <input class="form-control" id="RA_correo" name="RA_correo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Tel&eacute;fono</label>
+                                                                <input class="form-control" maxlength="10" onkeypress="return validarDigitos(event);" onblur="validarDigitos(this.id);"  id="RA_telefono" name="RA_telefono">
+                                                        </div>
+                                                    </div>
+                                                </div>	
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-fw" name="id_cat_tipo_responsable" value="3"></i> Responsable Legal
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>RFC</label>
+                                                                <input class="form-control" id="RL_rfc" name="RL_rfc">
+                                                        </div>
+                                                    </div>
+                                                     <div class="col-lg-4" hidden="hidden">
+                                                        <div class="form-group">
+                                                            <label></label>
+                                                                <input class="form-control"  id ="RL_tipo_responsable" name="RL_tipo_responsable" value="209">
+                                                        </div>
+                                                    </div>
+                                                 </div>   
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Nombre</label>
+                                                                <input class="form-control"   id="RL_nombre" name="RL_nombre">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido Paterno</label>
+                                                              <input class="form-control"  id="RL_apellido_paterno" name="RL_apellido_paterno">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Apellido materno</label>
+                                                               <input class="form-control"  id="RL_apellido_materno" name="RL_apellido_materno">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Correo electr&oacute;nico</label>
+                                                                <input class="form-control" id="RL_correo" name="RL_correo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        <div class="form-group">
+                                                            <label>Tel&eacute;fono</label>
+                                                            <input class="form-control"  maxlength="10" id="RL_telefono" name="RL_telefono">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12" align="right">
+                                                        <div class="form-group">
+                                                            <button type="button" name="btn3" id="btn3" class="btn btn-primary">Siguiente</button>
+                                                            <button type="reset" class="btn btn-default">Limpiar</button>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+							
+						
+
+<!-- ---------------------------------------------------ANEXO ---------------------- -->								
+								
+                        <div class="tab-pane fade" id="anexos">
+                            <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <br/><label>Proyecto</label>
-                                            <input type="file" name="uploadfile" style="width:300px"></input>
+                                            <input type="file" id ="pdf_comprobante"  onchange="archivo_tipo(this.value, 'pdf_comprobante');" name="pdf_comprobante" style="width:300px"></input>
+                                            <input type="hidden" name="extension" id="extension" value="" readonly="readonly" />
+                                            <input type="hidden" name="nombre_archivo" id="nombre_archivo" value="" readonly="readonly" />
+                                            <span class="help-block"> </span>
                                         </div>
                                     </div>
 				</div>
-                                
-                                </div>
-                        </div>
-
-				<div class="row">
-                                    <div class="col-lg-6" align="right">
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
-			                    <button type="reset" class="btn btn-default">Limpiar</button>
-					</div>
+                            </div>      
+                            <div class="row">
+                                <div class="col-lg-3" align="right">
+                                    <div class="form-group">
+                                        <button type="button" id="btn_guardar"  class="btn btn-primary">Guardar</button>
+			                <button type="reset" class="btn btn-default">Limpiar</button>
                                     </div>
-				</div>
+                                </div>
                             </div>
-                         </div>
+                        </div>
+                    </div>
                         <!-- /.panel-body -->
                 
                     <!-- /.panel -->
-                
-		</form>		
-				<!------------------------------------------------------------------------------------------->	
-			
-	 
-         
-
+                </form>		<!------------------------------------------------------------------------------------------->	
+            </div>	
+        </div>
     </div>
     <!-- /#wrapper -->
 
@@ -356,6 +757,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+ 
+    <script  src="dist/js/bootbox.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="vendor/metisMenu/metisMenu.min.js"></script>

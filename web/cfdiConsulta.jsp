@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
     <meta charset="utf-8">
@@ -47,6 +47,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
 
 </head>
 
@@ -57,6 +59,16 @@
         <!-- Navigation -->
      	<%@ include  file="navmenu.html" %>
         <div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+                </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Generar CFDI </h1>

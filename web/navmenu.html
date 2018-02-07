@@ -2,215 +2,188 @@
 <script src="js/login/login.js"></script>
 
 <script>
-                    var user = sessionStorage.getItem("usuario");
-                    console.log(user);
-                    $("#usuarioIndex").val(user); // define username variable
-                    //document.getElementById(user);
-</script>        
+    var user = sessionStorage.getItem("usuario");
+    var idUser = sessionStorage.getItem("idUsuario");
+    var rolUser = sessionStorage.getItem("idRol");
+    console.log(user);
+    console.log(idUser);
+    console.log(rolUser);
+    
+    //document.getElementById(user);
+</script>
 
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="img/unam.png" class="img-responsive" width="40" align="left">
-                <img src="img/patronatotxt.gif" class="img-responsive" align="left">
-		<a class="navbar-brand" href="inicio.jsp">Modulo de Administraci&oacute;n de Recursos CONACYT</a>
-            </div>
-            <!-- /.navbar-header -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="img/unam.png" class="img-responsive" width="40" align="left">
+            <img src="img/patronatotxt.gif" class="img-responsive" align="left">
+            <a class="navbar-brand" href="navmenu.jsp">Modulo de Administraci&oacute;n de Recursos CONACYT</a>
+        </div>
+        <!-- /.navbar-header -->
 
-            <ul class="nav navbar-top-links navbar-right">
+        <ul class="nav navbar-top-links navbar-right">
 
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><i class="fa fa-user fa-fw"><input type="text" disabled id="usuarioIndex"/></i>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
+            <!-- /.dropdown -->
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><i class="fa fa-user fa-fw"><input type="text" disabled id="usuarioIndex"/></i>
+                    </li>                            
+                    <li class="divider"></li>
+                    <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                    </li>
+                </ul>
+                <!-- /.dropdown-user -->
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        
-                        <li>
-                            <a href="carga_prov.jsp"><i class="fa fa-file-text-o fa-fw" id="carga_proy"></i> Carga de Proyectos</a>
-                        </li>    
-                        <li>
-                            <a href="inicio.jsp"><i class="fa fa-file-text-o fa-fw" id="inicio"></i> Registro de Proyectos</a>
-                        </li>
-			<li>
-                            <a href="auditoria.jsp"><i class="fa fa-table fa-fw" id="auditoria"></i> Consulta de Proyectos</a>
-                        </li>
-                        <li>
-                            <a href="depositosConcentradora.jsp"><i class="fa fa-credit-card"></i> Dep&oacute;sitos Concentradora<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="depositosConcentradora.jsp" id="depositos">B&uacute;squeda</a>
-                                </li>
-                                <li>
-                                    <a href="asignarImporte.jsp" id="asignar">Asignaci&oacute;n Importe</a>
-                                </li>
-                             </ul>
-                        </li>
-                        <li>
-                            <a href="ministraciones.jsp"><i class="fa fa-list-alt" id="ministracion"></i> Ministraciones</a>
-                        </li>
-                        <li>
-                            <a href="solicitudBancaria.jsp"><i class="fa fa-building-o fa-fw" id="solicitud"></i> Apertura Cuenta Bancaria<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="solicitudBancaria.jsp" id="solicitudBan">Solicitud</a>
-                                </li>
-                                <li>
-                                    <a href="registroBancario.jsp" id="registro">Registro</a>
-                                </li>
-                                <!-- -
-								<li>
-                                    <a href="#">Autorizacion</a>
-                                </li>--->
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="cfdi.jsp"><i class="fa fa-edit fa-fw" id="cfdi"></i> CFDI <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="cfdi.jsp" id="generar">Generar</a>
-                                </li>
-                                <li>
-                                    <a href="cfdiConsulta.jsp" id="cfdiconsulta">Consulta</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="comprobacion.jsp"><i class="fa fa-usd fa-fw" id="comprobacion"></i> Comprobacion de Gastos <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="comprobacion.jsp" id="registrocomprob">Registro</a>
-                                </li>
-                                <li>
-                                    <a href="comprobacionConsulta.jsp" id="consultacomprob">Consultas</a>
-                                </li>
-                            </ul>    
-                        </li>
-                        <li>
-                            <a href="tablero.jsp"><i class="fa fa-dashboard fa-fw" id="tablero"></i>Dashboard</a>
-                           
-                    
-                        </li>
-					<!-- <li>
-                                    <a href="login.jsp">Login</a>
-                           </li>--->
-                    <!--script>
-                        $.getJSON('http://www.vimeo.com/api/v2/video/31894179.json?callback=?', {format: "json"}, function(data) { 
-                        $("h1").html(data[0].id_usuario_rol); 
-                        $("p").html(data[0].description); 
-                        });
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                   
+                    <li id="carga_proy" style="display: none">
+                        <a href="carga_prov.jsp"><i class="fa fa-file-text-o fa-fw"></i> Carga de Proyectos</a>
+                    </li>    
+                    <li id="inicio" style="display: none">
+                        <a href="inicio.jsp"><i class="fa fa-file-text-o fa-fw" ></i> Registro de Proyectos</a>
+                    </li>
+                    <li id="auditoria" style="display: none">
+                        <a href="auditoria.jsp"><i class="fa fa-table fa-fw" ></i> Consulta de Proyectos</a>
+                    </li>
+                    <li id="deposConsen" style="display: none">
+                        <a href="depositosConcentradora.jsp"><i class="fa fa-credit-card"></i> Dep&oacute;sitos Concentradora<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="depositosConcentradora.jsp" id="depositos">B&uacute;squeda</a>
+                            </li>
+                            <li>
+                                <a href="asignarImporte.jsp" id="asignar">Asignaci&oacute;n Importe</a>
+                            </li>
+                         </ul>
+                    </li>
+                    <li id="ministracion" style="display: none">
+                        <a href="ministraciones.jsp"><i class="fa fa-list-alt"></i> Ministraciones</a>
+                    </li>
+                    <li id="solicitud" style="display: none">
+                        <a href="solicitudBancaria.jsp"><i class="fa fa-building-o fa-fw" ></i> Apertura Cuenta Bancaria<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="solicitudBancaria.jsp" id="solicitudBan">Solicitud</a>
+                            </li>
+                            <li>
+                                <a href="registroBancario.jsp" id="registro">Registro</a>
+                            </li>
+                            <!-- -
+                                                            <li>
+                                <a href="#">Autorizacion</a>
+                            </li>--->
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li id="cfdi" style="display: none">
+                        <a href="cfdi.jsp"><i class="fa fa-edit fa-fw" ></i> CFDI <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="cfdi.jsp" id="generar">Generar</a>
+                            </li>
+                            <li>
+                                <a href="cfdiConsulta.jsp" id="cfdiconsulta">Consulta</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="comprobacion" style="display: none">
+                        <a href="comprobacion.jsp"><i class="fa fa-usd fa-fw" ></i> Comprobacion de Gastos <span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="comprobacion.jsp" id="registrocomprob">Registro</a>
+                            </li>
+                            <li>
+                                <a href="comprobacionConsulta.jsp" id="consultacomprob">Consultas</a>
+                            </li>
+                        </ul>    
+                    </li>
+                    <li id="tablero" style="display: none">
+                        <a href="tablero.jsp"><i class="fa fa-dashboard fa-fw" ></i>Dashboard</a>
+
+
+                    </li>
+                                    <!-- <li>
+                                <a href="login.jsp">Login</a>
+                       </li>--->
+
+                    <script>
+                        var accesoUser = rolUser;                
+                        switch(accesoUser){
+                            case "2":
+                                
+                                $('#carga_proy').show();
+                                $('#inicio').show();
+                                $('#auditoria').show();
+                                $('#deposConsen').show();
+                                $('#ministracion').show();
+                                $('#solicitud').show();
+                                $('#cfdi').show();
+                                $('#comprobacion').show();
+                                $('#tablero').show();
                             
-                        result = recordManager.queryGetLogin(query_usuario_rol);
-                        console.log(Level.FINEST, methodStr + ">mi resultado para navmenu " + result);
-                        function (data){
-                        var obj = JSON.parse();
-                        var dato = obj['id_usuario_rol'];
-                            $(document).ready(function(){ 
-                            dato = $('id_usuario_rol').val();
-                            if (dato===2){
-                                    
-                                     $('#inicio').show();
-                                     $('#auditoria').show();
-                                     $('#solicitud').show();
-                                     $('#solicitudban').show();
-                                     $('#registro').show();
-                                     $('#cfdi').show();
-                                     $('#generar').show();
-                                     $('#cfdiconsulta').show();
-                                     $('#comprobacion').show();
-                                     $('#registrocomprob').show();
-                                     $('#consultacomprob').show();
+                            break;
+                            case "3":
+                                
+                                $('#inicio').show();
+                                $('#auditoria').show();
+                                $('#deposConsen').show();
+                                $('#cfdi').show();
+                                $('#comprobacion').show();
+                                $('#tablero').show();
+                            
+                            break;
+                            case "4":
+                               
+                                $('#auditoria').show();
+                            
+                            break;
+                            case "5":
+                            
+                                $('#carga_proy').show();
+                                $('#auditoria').show();
+                                $('#cfdi').show();
+                                $('#comprobacion').show();
 
-                            }
-                            else if (dato===3){
-                                    
-                                     $('#inicio').show();
-                                     $('#auditoria').show();
-                                     $('#solicitud').show();
-                                     $('#solicitudban').show();
-                                     $('#cfdi').show();
-                                     $('#generar').show();
-                                     $('#cfdiconsulta').show();
-                                     $('#comprobacion').show();
-                                     $('#registrocomprob').show();
-                                     $('#consultacomprob').show();
+                            break;
+                            case "6":
+                                $('#auditoria').show();
+                                $('#deposConsen').show();
+                                $('#cfdi').show();
+                            break;
+                            case "7":
+                                $('#auditoria').show();
+                                $('#comprobacion').show();
+                            break;
+                            case "8":
+                                $('#inicio').show();
+                                $('#auditoria').show();
+                                $('#cfdi').show();
+                                $('#comprobacion').show();
+                            break;
+                        default:
+                            console.log(accesoUser);
+                            alert("Rol invalido");
 
-                            }
-                            else if (dato===)4){
-                                    
-                                     $('#auditoria').show();
+                        }
 
-                            }
-                            else if (dato===5){
-                                    
-                                     $('#auditoria').show();
-                                     $('#cfdi').show();
-                                     $('#cfdiconsulta').show();
-                                     $('#comprobacion').show();
-                                     $('#consultacomprob').show();
-                                     $('#carga_proy').show();
-                            }
-                            else if (dato===6){
-                                    
-                                    $('#auditoria').show();
-                                    $('#solicitud').show();
-                                    $('#registro').show();
-                                    $('#cfdi').show();
-                                    $('#cfdiconsulta').show();
-
-                            }
-                            else if (dato===7){
-                                    
-                                     $('#divSicop').show();
-                                     $('#comprobacion').show();
-                                     $('#consultacomprob').show();
-
-                            }
-                            else if (dato===8){
-                                    
-                                     $('#inicio').show();
-                                     $('#auditoria').show();
-                                     $('#cfdi').show();
-                                     $('#cfdiconsulta').show();
-                                     $('#comprobacion').show();
-                                     $('#registrocomprob').show();
-                                     $('#consultacomprob').show();
-
-                            }
-                            else{
-                                    //document.getByElementID('divSicop').style="display:none"; 
-                                    //$('#divSicop').hide();
-                                    alert("Sin rol asignado");
-                            }
-
-                     });
-                    };</script-->   
-                    
-                    
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
+                    </script>
+                </ul>
             </div>
-            <!-- /.navbar-static-side -->
-        </nav>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>

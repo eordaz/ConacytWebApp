@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -32,7 +32,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
 </head>
 
 <body>
@@ -46,9 +48,17 @@
             <!-- /.row -->
             <!-- /.row -->
 <!------------------------------------------------------------------------------------------------------------------->
-	<form name="formCaptura" method="post" action="inicio.jsp">
-
 	<div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+            </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Ministraciones</h1>
@@ -106,7 +116,7 @@
 					    	        					  <div class="col-lg-6">
 						                                 	 <div class="form-group">
 						                                            <label>Dependencia</label>
-						                                            <input name="Input" id="cve_depSdep" class="disable form-control"  disabled="disabled" value="211.01    Coordinaci贸n y Consejo T茅cnico  de Humanidades">
+						                                            <input name="Input" id="cve_depSdep" class="disable form-control"  disabled="disabled" value="211.01    Coordinaci髇 y Consejo T閏nico  de Humanidades">
 						                                   	 </div>
 														 	</div>
 					                                      	<div class="col-lg-2 col-price">
@@ -119,7 +129,7 @@
 				                                 		 <div class="row">
 														        <div class='col-sm-4'>
 														            <div class="form-group">
-														               <label>C贸digo Presupuestal</label>
+														               <label>C骴igo Presupuestal</label>
 														                <input class="form-control" TYPE="text" name="cod_pre">
 														            </div>
 														        </div>
@@ -181,21 +191,21 @@
 			
 			                            <div class="col-lg-2" align="left">
 			                          		<div class="form-group">
-			                                <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Ministraci贸n</button>
+			                                <button type="button" class="btn btn-primary" onclick="addStage()">Agregar Nueva Ministraci髇</button>
 			                                								<script>
 			                                								function addStage() {
-																				  // Obtengo el id del 煤ltimo elemento de "etapa"
+																				  // Obtengo el id del 鷏timo elemento de "etapa"
 																				  var lastStageId = parseInt($('.panel-stage').last().attr('id').split('_')[1]);
 																				  var newId = lastStageId+1;
 																				
-																				  // Clono e inserto el 煤ltimo elemento de "etapa"
+																				  // Clono e inserto el 鷏timo elemento de "etapa"
 																				  $newClone = $('.panel-stage').last().clone(true);
 																				  $newClone.attr("id",'divStage_'+newId);
 																				
-																				  // coloco nuevo t铆tulo "etapa 1, 2, 3..."
-																				  $newClone.children('.panel-heading').html('<i class="fa fa-fw"></i> <span class="stage-title">Ministraci贸n '+newId+'</span>');
+																				  // coloco nuevo t韙ulo "etapa 1, 2, 3..."
+																				  $newClone.children('.panel-heading').html('<i class="fa fa-fw"></i> <span class="stage-title">Ministraci髇 '+newId+'</span>');
 																				
-																				  // Actualizo funci贸n "addColumnPrice" del nuevo elemento
+																				  // Actualizo funci髇 "addColumnPrice" del nuevo elemento
 																				  $newClone.find('.btn-add-price').removeAttr("onclick"); // quito onclick del elemento clonado
 																				  $newClone.find('.btn-add-price').unbind('click'); // quito onclick del elemento clonado
 																				  $newClone.find('.btn-add-price').on("click", function(){ addColumnPrice(newId); });
@@ -438,10 +448,12 @@
 							<div class="row">
 							<div class="col-lg-3" align="right">
 							<div class="form-group">
-						<button type="submit" class="btn btn-primary">Guardar</button>
-                        <button type="reset" class="btn btn-default">Limpiar</button>
-
-</div></div></div>
+						
+                                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                                            <button type="reset" class="btn btn-default">Limpiar</button>
+                                                        </div>
+                                                        </div>
+                                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -451,10 +463,6 @@
                 </div>
 				
 				<!------------------------------------------------------------------------------------------->	
-			
-	 </form>				
-         
-
     </div>
     <!-- /#wrapper -->
     

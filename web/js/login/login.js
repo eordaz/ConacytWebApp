@@ -9,7 +9,7 @@ $(function () {
  
     $("#submit_login").click(function () { // if submit button is clicked
         
-        var username = $("input#usuario").val(); // define username variable     
+        var username = $("input#usuario").val(); // define username variable
         var password = $("input#password").val(); // define username variable     
         var json_param = JSON.stringify({"usuario": username, "pass": password});
         $.ajax({// JQuery ajax function
@@ -30,12 +30,16 @@ $(function () {
 		
                  //bootbox.alert("No existe el usuario…");
                     
-               } else { 
+                } else { 
                     var usuario = content["nombre_completo"];
+                    var idUsuario = content["id_usuario"];
+                    var idRol = content["id_cat_cat_catalogos"];
                     //console.log(content["nombre_completo"]);
                     sessionStorage.usuario=usuario;// usuario en almacenamiento local
-                    alert(sessionStorage.usuario);
-                    document.location.href = 'inicio.jsp';
+                    sessionStorage.idUsuario=idUsuario;// usuario en almacenamiento local
+                    sessionStorage.idRol=idRol;// usuario en almacenamiento local
+                    //alert(sessionStorage.usuario);
+                    document.location.href = 'navmenu.jsp';
                    
                 }
             },

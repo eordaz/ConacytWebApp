@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -24,14 +25,17 @@
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    
+    
 </head>
 
 <body>
@@ -45,6 +49,16 @@
            <!------------------------------------------------------------------------------------------------->
 		   
 	<div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+                </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Consulta de Proyecto</h1>
@@ -478,6 +492,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
     <script src="js/Consulta/ConsultaProyecto.js"></script>
+    <script src="js/login/login.js"></script>
 
 </body>
 

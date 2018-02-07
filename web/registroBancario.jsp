@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -32,7 +32,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
 </head>
 
 <body>
@@ -44,6 +46,16 @@
     
 
         <div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+            </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Registro Cuenta Bancaria </h1>
@@ -88,13 +100,13 @@
                                  	<div class="form-group">
                                             <label>Banco</label>
                                          <select class="form-control" disabled="disabled">                                                
-												<<option value="1">CITIBANAMEX      BANCO NACIONAL DE M√âXICO, S.A.</option>
+												<<option value="1">CITIBANAMEX      BANCO NACIONAL DE M…XICO, S.A.</option>
 															<option value="2" selected="selected">BBVA BANCOMER      BBVA BANCOMER, S.A.</option>
 															<option value="3">SANTANDER      BANCO SANTANDER, S.A.</option>
-															<option value="4">BANJERCITO      BANCO NACIONAL DEL EJ√âRCITO, FUERZA A√âREA Y ARMADA, S.N.C.</option>
-															<option value="5">HSBC      HSBC M√âXICO, S.A.</option>
+															<option value="4">BANJERCITO      BANCO NACIONAL DEL EJ…RCITO, FUERZA A…REA Y ARMADA, S.N.C.</option>
+															<option value="5">HSBC      HSBC M…XICO, S.A.</option>
 															<option value="6">GE MONEY      GE MONEY BANK, S.A.</option>
-															<option value="7">BAJ√çO      BANCO DEL BAJ√çO, S.A.</option>
+															<option value="7">BAJÕO      BANCO DEL BAJÕO, S.A.</option>
 															<option value="8">IXE      IXE BANCO, S.A.</option>
 															<option value="9">INBURSA      BANCO INBURSA, S.A.</option>
 															<option value="10">INTERACCIONES      BANCO INTERACCIONES, S.A.</option>
@@ -105,41 +117,41 @@
 															<option value="15">BANSI      BANSI, S.A.</option>
 															<option value="16">AFIRME      BANCA AFIRME, S.A.</option>
 															<option value="17">BANORTE      BANCO MERCANTIL DEL NORTE, S.A.</option>
-															<option value="18">ABNAMRO      ABN AMRO BANK M√âXICO, S.A.</option>
-															<option value="19">AMERICAN EXPRESS      AMERICAN EXPRESS BANK (M√âXICO), S.A.</option>
-															<option value="20">BAMSA      BANK OF AMERICA M√âXICO, S.A.</option>
-															<option value="21">TOKYO      BANK OF TOKYO-MITSUBISHI UFJ (M√âXICO), S.A.</option>
+															<option value="18">ABNAMRO      ABN AMRO BANK M…XICO, S.A.</option>
+															<option value="19">AMERICAN EXPRESS      AMERICAN EXPRESS BANK (M…XICO), S.A.</option>
+															<option value="20">BAMSA      BANK OF AMERICA M…XICO, S.A.</option>
+															<option value="21">TOKYO      BANK OF TOKYO-MITSUBISHI UFJ (M…XICO), S.A.</option>
 															<option value="22">JP MORGAN      BANCO J.P. MORGAN, S.A.</option>
 															<option value="23">BMONEX      BANCO MONEX, S.A.</option>
 															<option value="24">VE POR MAS      BANCO VE POR MAS, S.A.</option>
-															<option value="25">ING      ING BANK (M√âXICO), S.A.</option>
-															<option value="26">DEUTSCHE      DEUTSCHE BANK M√âXICO, S.A.</option>
-															<option value="27">CREDIT SUISSE      BANCO CREDIT SUISSE (M√âXICO), S.A.</option>
+															<option value="25">ING      ING BANK (M…XICO), S.A.</option>
+															<option value="26">DEUTSCHE      DEUTSCHE BANK M…XICO, S.A.</option>
+															<option value="27">CREDIT SUISSE      BANCO CREDIT SUISSE (M…XICO), S.A.</option>
 															<option value="28">AZTECA      BANCO AZTECA, S.A.</option>
-															<option value="29">AUTOFIN      BANCO AUTOFIN M√âXICO, S.A.</option>
-															<option value="30">BARCLAYS      BARCLAYS BANK M√âXICO, S.A.</option>
+															<option value="29">AUTOFIN      BANCO AUTOFIN M…XICO, S.A.</option>
+															<option value="30">BARCLAYS      BARCLAYS BANK M…XICO, S.A.</option>
 															<option value="31">COMPARTAMOS      BANCO COMPARTAMOS, S.A.</option>
 															<option value="32">FAMSA      BANCO AHORRO FAMSA, S.A.</option>
 															<option value="33">BMULTIVA      BANCO MULTIVA, S.A.</option>
 															<option value="34">PRUDENTIAL      PRUDENCIAL BANK, S.A.</option>
-															<option value="35">WAL-MART      BANCO WAL MART DE M√âXICO ADELANTE, S.A.</option>
+															<option value="35">WAL-MART      BANCO WAL MART DE M…XICO ADELANTE, S.A.</option>
 															<option value="36">NAFIN      NACIONAL FINANCIERA, S.N.C.</option>
 															<option value="37">REGIONAL      BANCO REGIONAL, S.A.</option>
 															<option value="38">BANCOPPEL      BANCOPPEL, S.A.</option>
 															<option value="39">AMIGO      BANCO AMIGO, S.A.</option>
 															<option value="40">UBS BANK      UBS BANCO, S.A.</option>
-															<option value="41">F√ÅCIL      BANCO F√ÅCIL, S.A.</option>
-															<option value="42">VOLKSWAGEN      VOLKSWAGEN BANK S.A. INSTITUCI√ìN DE BANCA M√öLTIPLE</option>
-															<option value="43">CIBanco      CONSULTOR√çA INTERNACIONAL BANCO, S.A.</option>
+															<option value="41">F¡CIL      BANCO F¡CIL, S.A.</option>
+															<option value="42">VOLKSWAGEN      VOLKSWAGEN BANK S.A. INSTITUCI”N DE BANCA M⁄LTIPLE</option>
+															<option value="43">CIBanco      CONSULTORÕA INTERNACIONAL BANCO, S.A.</option>
 															<option value="44">BBASE      BANCO BASE, S.A. DE I.B.M.</option>
-															<option value="45">BANKAOOL      BANKAOOL, S.A., INSTITUCI√ìN DE BANCA M√öLTIPLE</option>
+															<option value="45">BANKAOOL      BANKAOOL, S.A., INSTITUCI”N DE BANCA M⁄LTIPLE</option>
 															<option value="46">BANSEFI      BANCO DEL AHORRO NACIONAL Y SERVICIOS FINANCIEROS, S.N.C.</option>
 															<option value="47">HIPOTECARIA FEDERAL      SOCIEDAD HIPOTECARIA FEDERAL, S.N.C.</option>
 															<option value="48">MONEXCB      MONEX CASA DE BOLSA, S.A. DE C.V.</option>
-															<option value="49">GBM      GBM GRUPO BURS√ÅTIL MEXICANO, S.A. DE C.V.</option>
+															<option value="49">GBM      GBM GRUPO BURS¡TIL MEXICANO, S.A. DE C.V.</option>
 															<option value="50">MASARI CC.      MASARI CASA DE CAMBIO, S.A. DE C.V.</option>
-															<option value="51">C.B. INBURSA      INVERSORA BURS√ÅTIL, S.A. DE C.V.</option>
-															<option value="52">VALU√â      VALU√â, S.A. DE C.V., CASA DE BOLSA</option>
+															<option value="51">C.B. INBURSA      INVERSORA BURS¡TIL, S.A. DE C.V.</option>
+															<option value="52">VALU…      VALU…, S.A. DE C.V., CASA DE BOLSA</option>
 															<option value="53">CB BASE      BASE INTERNACIONAL CASA DE BOLSA, S.A. DE C.V.</option>
 															<option value="54">TIBER      CASA DE CAMBIO TIBER, S.A. DE C.V.</option>
 															<option value="55">VECTOR      VECTOR CASA DE BOLSA, S.A. DE C.V.</option>
@@ -147,24 +159,24 @@
 															<option value="57">INTERCAM      INTERCAM CASA DE CAMBIO, S.A. DE C.V.</option>
 															<option value="58">MULTIVA      MULTIVALORES CASA DE BOLSA, S.A. DE C.V. MULTIVA GPO. FIN.</option>
 															<option value="59">ACCIVAL      ACCIONES Y VALORES BANAMEX, S.A. DE C.V., CASA DE BOLSA</option>
-															<option value="60">MERRILL LYNCH      MERRILL LYNCH M√âXICO, S.A. DE C.V., CASA DE BOLSA</option>
+															<option value="60">MERRILL LYNCH      MERRILL LYNCH M…XICO, S.A. DE C.V., CASA DE BOLSA</option>
 															<option value="61">FINAMEX      CASA DE BOLSA FINAMEX, S.A. DE C.V.</option>
 															<option value="62">VALMEX      VALORES MEXICANOS CASA DE BOLSA, S.A. DE C.V.</option>
-															<option value="63">√öNICA      √öNICA CASA DE CAMBIO, S.A. DE C.V.</option>
+															<option value="63">⁄NICA      ⁄NICA CASA DE CAMBIO, S.A. DE C.V.</option>
 															<option value="64">ASEGURADORA MAPFRE      MAPFRE TEPEYAC S.A.</option>
 															<option value="65">AFORE PROFUTURO      PROFUTURO G.N.P., S.A. DE C.V.</option>
 															<option value="66">CB ACTINBER      ACTINVER CASA DE BOLSA, S.A. DE C.V.</option>
 															<option value="67">ACTINVE SI      ACTINVER S.A. DE C.V.</option>
 															<option value="68">SKANDIA      SKANDIA VIDA S.A. DE C.V.</option>
-															<option value="69">CONSULTOR√çA      CONSULTOR√çA INTERNACIONAL CASA DE CAMBIO, S.A. DE C.V.</option>
-															<option value="70">ZURICH      ZURICH COMPA√ë√çA DE SEGUROS, S.A.</option>
-															<option value="71">ZURICHVI      ZURICH VIDA, COMPA√ë√çA DE SEGUROS, S.A.</option>
+															<option value="69">CONSULTORÕA      CONSULTORÕA INTERNACIONAL CASA DE CAMBIO, S.A. DE C.V.</option>
+															<option value="70">ZURICH      ZURICH COMPA—ÕA DE SEGUROS, S.A.</option>
+															<option value="71">ZURICHVI      ZURICH VIDA, COMPA—ÕA DE SEGUROS, S.A.</option>
 															<option value="72">HIPOTECARIA SU CASITA      HIPOTECARIA SU CASITA, S.A. DE C.V.</option>
 															<option value="73">C.B. INTERCAM      INTERCAM CASA DE BOLSA, S.A. DE C.V.</option>
 															<option value="74">C.B. VANGUARDIA      VANGUARDIA CASA DE BOLSA, S.A. DE C.V.</option>
 															<option value="75">BULLTICK C.B.      BULLTICK CASA DE BOLSA, S.A. DE C.V.</option>
 															<option value="76">STERLING      STERLING CASA DE CAMBIO, S.A. DE C.V.</option>
-															<option value="77">FINCOMUN      FINCOM√öN, SERVICIOS FINANCIEROS COMUNITARIOS, S.A. DE C.V., SOCIEDAD FINANCIERA POPULAR.</option>
+															<option value="77">FINCOMUN      FINCOM⁄N, SERVICIOS FINANCIEROS COMUNITARIOS, S.A. DE C.V., SOCIEDAD FINANCIERA POPULAR.</option>
 															<option value="78">ORDER      ORDEREXPRESS CASA DE CAMBIO , S.A. DE C.V. AAC</option>
 															<option value="79">AKALA      AKALA, S.A. DE C.V., SOCIEDAD FINANCIERA POPULAR</option>
 															<option value="80">JP MORGAN C.B.      J.P. MORGAN CASA DE BOLSA, S.A. DE C.V.</option>
@@ -242,39 +254,39 @@
                                             <label>Moneda</label>
                                             <select class="form-control" disabled="disabled">
                                                	<option value="1">AFGANI AFGANO</option>
-															<option value="2">LEK ALBAN√âS</option>
+															<option value="2">LEK ALBAN…S</option>
 															<option value="3">DRAM ARMENIO</option>
-															<option value="4">FLOR√çN ANTILLANO NEERLAND√âS</option>
-															<option value="5">KWANZA ANGOLE√ëO</option>
+															<option value="4">FLORÕN ANTILLANO NEERLAND…S</option>
+															<option value="5">KWANZA ANGOLE—O</option>
 															<option value="6">PESO ARGENTINO</option>
-															<option value="7">D√ìLAR AUSTRALIANO</option>
-															<option value="8">FLOR√çN ARUBE√ëO</option>
+															<option value="7">D”LAR AUSTRALIANO</option>
+															<option value="8">FLORÕN ARUBE—O</option>
 															<option value="9">MANAT AZERBAIYANO</option>
 															<option value="10">MARCO CONVERTIBLE DE BOSNIA-HERZEGOVINA</option>
-															<option value="11">D√ìLAR DE BARBADOS</option>
-															<option value="12">TAKA DE BANGLAD√âS</option>
-															<option value="13">LEV B√öLGARO</option>
-															<option value="14">DINAR BAHREIN√ç</option>
-															<option value="15">FRANCO BURUND√âS</option>
-															<option value="16">D√ìLAR DE BERMUDA</option>
-															<option value="17">D√ìLAR DE BRUN√âI</option>
+															<option value="11">D”LAR DE BARBADOS</option>
+															<option value="12">TAKA DE BANGLAD…S</option>
+															<option value="13">LEV B⁄LGARO</option>
+															<option value="14">DINAR BAHREINÕ</option>
+															<option value="15">FRANCO BURUND…S</option>
+															<option value="16">D”LAR DE BERMUDA</option>
+															<option value="17">D”LAR DE BRUN…I</option>
 															<option value="18">BOLIVIANO</option>
-															<option value="19">MVDOL BOLIVIANO (C√ìDIGO DE FONDOS)</option>
-															<option value="20">REAL BRASILE√ëO</option>
-															<option value="21">D√ìLAR BAHAME√ëO</option>
-															<option value="22">NGULTRUM DE BUT√ÅN</option>
+															<option value="19">MVDOL BOLIVIANO (C”DIGO DE FONDOS)</option>
+															<option value="20">REAL BRASILE—O</option>
+															<option value="21">D”LAR BAHAME—O</option>
+															<option value="22">NGULTRUM DE BUT¡N</option>
 															<option value="23">PULA DE BOTSUANA</option>
 															<option value="24">RUBLO BIELORRUSO</option>
-															<option value="25">D√ìLAR DE BELICE</option>
-															<option value="26">D√ìLAR CANADIENSE</option>
-															<option value="27">FRANCO CONGOLE√ëO, O CONGOL√âS</option>
+															<option value="25">D”LAR DE BELICE</option>
+															<option value="26">D”LAR CANADIENSE</option>
+															<option value="27">FRANCO CONGOLE—O, O CONGOL…S</option>
 															<option value="28">FRANCO SUIZO</option>
-															<option value="29">UNIDADES DE FOMENTO CHILENAS (C√ìDIGO DE FONDOS)</option>
+															<option value="29">UNIDADES DE FOMENTO CHILENAS (C”DIGO DE FONDOS)</option>
 															<option value="30">PESO CHILENO</option>
 															<option value="31">YUAN CHINO</option>
 															<option value="32">PESO COLOMBIANO</option>
-															<option value="33">UNIDAD DE VALOR REAL COLOMBIANA (A√ëADIDA AL COP)</option>
-															<option value="34">COL√ìN COSTARRICENSE</option>
+															<option value="33">UNIDAD DE VALOR REAL COLOMBIANA (A—ADIDA AL COP)</option>
+															<option value="34">COL”N COSTARRICENSE</option>
 															<option value="35">DINAR SERBIO (REEMPLAZADO POR RSD EL 25 DE OCTUBRE DE 2006)</option>
 															<option value="36">PESO CUBANO CONVERTIBLE</option>
 															<option value="37">PESO CUBANO</option>
@@ -286,50 +298,50 @@
 															<option value="43">DINAR ARGELINO</option>
 															<option value="44">LIBRA EGIPCIA</option>
 															<option value="45">NAKFA ERITREO</option>
-															<option value="46">BIRR ET√çOPE</option>
+															<option value="46">BIRR ETÕOPE</option>
 															<option value="47">EURO</option>
-															<option value="48">D√ìLAR FIYIANO</option>
+															<option value="48">D”LAR FIYIANO</option>
 															<option value="49">LIBRA MALVINENSE</option>
 															<option value="50">LIBRA ESTERLINA</option>
 															<option value="51">LARI GEORGIANO</option>
-															<option value="52">CEDI GHAN√âS</option>
+															<option value="52">CEDI GHAN…S</option>
 															<option value="53">LIBRA DE GIBRALTAR</option>
 															<option value="54">DALASI GAMBIANO</option>
 															<option value="55">FRANCO GUINEANO</option>
 															<option value="56">QUETZAL GUATEMALTECO</option>
-															<option value="57">D√ìLAR GUYAN√âS</option>
-															<option value="58">D√ìLAR DE HONG KONG</option>
-															<option value="59">LEMPIRA HONDURE√ëO</option>
+															<option value="57">D”LAR GUYAN…S</option>
+															<option value="58">D”LAR DE HONG KONG</option>
+															<option value="59">LEMPIRA HONDURE—O</option>
 															<option value="60">KUNA CROATA</option>
 															<option value="61">GOURDE HAITIANO</option>
-															<option value="62">FORINT H√öNGARO</option>
+															<option value="62">FORINT H⁄NGARO</option>
 															<option value="63">RUPIAH INDONESIA</option>
-															<option value="64">NUEVO SH√âQUEL ISRAEL√ç</option>
+															<option value="64">NUEVO SH…QUEL ISRAELÕ</option>
 															<option value="65">RUPIA INDIA</option>
-															<option value="66">DINAR IRAQU√ç</option>
-															<option value="67">RIAL IRAN√ç</option>
-															<option value="68">KR√ìNA ISLANDESA</option>
-															<option value="69">D√ìLAR JAMAICANO</option>
+															<option value="66">DINAR IRAQUÕ</option>
+															<option value="67">RIAL IRANÕ</option>
+															<option value="68">KR”NA ISLANDESA</option>
+															<option value="69">D”LAR JAMAICANO</option>
 															<option value="70">DINAR JORDANO</option>
-															<option value="71">YEN JAPON√âS</option>
-															<option value="72">CHEL√çN KENIATA</option>
-															<option value="73">SOM KIRGU√çS (DE KIRGUIST√ÅN)</option>
+															<option value="71">YEN JAPON…S</option>
+															<option value="72">CHELÕN KENIATA</option>
+															<option value="73">SOM KIRGUÕS (DE KIRGUIST¡N)</option>
 															<option value="74">RIEL CAMBOYANO</option>
 															<option value="75">FRANCO COMORIANO (DE COMORAS)</option>
 															<option value="76">WON NORCOREANO</option>
 															<option value="77">WON SURCOREANO</option>
-															<option value="78">DINAR KUWAIT√ç</option>
-															<option value="79">D√ìLAR CAIMANO (DE ISLAS CAIM√ÅN)</option>
+															<option value="78">DINAR KUWAITÕ</option>
+															<option value="79">D”LAR CAIMANO (DE ISLAS CAIM¡N)</option>
 															<option value="80">TENGE KAZAJO</option>
 															<option value="81">KIP LAO</option>
 															<option value="82">LIBRA LIBANESA</option>
 															<option value="83">RUPIA DE SRI LANKA</option>
-															<option value="84">D√ìLAR LIBERIANO</option>
+															<option value="84">D”LAR LIBERIANO</option>
 															<option value="85">LOTI LESOTENSE</option>
 															<option value="86">LITAS LITUANO</option>
-															<option value="87">LAT LET√ìN</option>
+															<option value="87">LAT LET”N</option>
 															<option value="88">DINAR LIBIO</option>
-															<option value="89">DIRHAM MARROQU√ç</option>
+															<option value="89">DIRHAM MARROQUÕ</option>
 															<option value="90">LEU MOLDAVO</option>
 															<option value="91">ARIARY MALGACHE</option>
 															<option value="92">DENAR MACEDONIO</option>
@@ -338,59 +350,59 @@
 															<option value="95">PATACA DE MACAO</option>
 															<option value="96">OUGUIYA MAURITANA</option>
 															<option value="97">RUPIA MAURICIA</option>
-															<option value="98">RUFIYAA MALDIVA C√ìDIGO MONEDA</option>
-															<option value="99">KWACHA MALAU√ç</option>
+															<option value="98">RUFIYAA MALDIVA C”DIGO MONEDA</option>
+															<option value="99">KWACHA MALAUÕ</option>
 															<option value="100" selected="selected">PESO MEXICANO</option>
-															<option value="101">UNIDAD DE INVERSI√ìN (UDI) MEXICANA (C√ìDIGO DE FONDOS)</option>
+															<option value="101">UNIDAD DE INVERSI”N (UDI) MEXICANA (C”DIGO DE FONDOS)</option>
 															<option value="102">RINGGIT MALAYO</option>
-															<option value="103">METICAL MOZAMBIQUE√ëO</option>
-															<option value="104">D√ìLAR NAMIBIO</option>
+															<option value="103">METICAL MOZAMBIQUE—O</option>
+															<option value="104">D”LAR NAMIBIO</option>
 															<option value="105">NAIRA NIGERIANA</option>
-															<option value="106">C√ìRDOBA NICARAG√úENSE</option>
+															<option value="106">C”RDOBA NICARAG‹ENSE</option>
 															<option value="107">CORONA NORUEGA</option>
 															<option value="108">RUPIA NEPALESA</option>
-															<option value="109">D√ìLAR NEOZELAND√âS</option>
-															<option value="110">RIAL OMAN√ç</option>
-															<option value="111">BALBOA PANAME√ëA</option>
+															<option value="109">D”LAR NEOZELAND…S</option>
+															<option value="110">RIAL OMANÕ</option>
+															<option value="111">BALBOA PANAME—A</option>
 															<option value="112">NUEVO SOL PERUANO</option>
-															<option value="113">KINA DE PAP√öA NUEVA GUINEA</option>
+															<option value="113">KINA DE PAP⁄A NUEVA GUINEA</option>
 															<option value="114">PESO FILIPINO</option>
-															<option value="115">RUPIA PAKISTAN√ç</option>
+															<option value="115">RUPIA PAKISTANÕ</option>
 															<option value="116">ZLOTY POLACO</option>
-															<option value="117">GUARAN√ç PARAGUAYO</option>
-															<option value="118">RIAL QATAR√ç</option>
+															<option value="117">GUARANÕ PARAGUAYO</option>
+															<option value="118">RIAL QATARÕ</option>
 															<option value="119">LEU RUMANO</option>
 															<option value="120">RUBLO RUSO</option>
-															<option value="121">FRANCO RUAND√âS</option>
-															<option value="122">RIYAL SAUD√ç</option>
-															<option value="123">D√ìLAR DE LAS ISLAS SALOM√ìN</option>
+															<option value="121">FRANCO RUAND…S</option>
+															<option value="122">RIYAL SAUDÕ</option>
+															<option value="123">D”LAR DE LAS ISLAS SALOM”N</option>
 															<option value="124">RUPIA DE SEYCHELLES</option>
-															<option value="125">DINAR SUDAN√âS</option>
+															<option value="125">DINAR SUDAN…S</option>
 															<option value="126">CORONA SUECA</option>
-															<option value="127">D√ìLAR DE SINGAPUR</option>
+															<option value="127">D”LAR DE SINGAPUR</option>
 															<option value="128">LIBRA DE SANTA HELENA</option>
 															<option value="129">LEONE DE SIERRA LEONA</option>
-															<option value="130">CHEL√çN SOMAL√ç</option>
-															<option value="131">D√ìLAR SURINAM√âS</option>
-															<option value="132">DOBRA DE SANTO TOM√â Y PR√çNCIPE</option>
+															<option value="130">CHELÕN SOMALÕ</option>
+															<option value="131">D”LAR SURINAM…S</option>
+															<option value="132">DOBRA DE SANTO TOM… Y PRÕNCIPE</option>
 															<option value="133">LIBRA SIRIA</option>
 															<option value="134">LILANGENI SUAZI</option>
-															<option value="135">BAHT TAILAND√âS</option>
-															<option value="136">SOMONI TAYIK (DE TAYIKIST√ÅN)</option>
+															<option value="135">BAHT TAILAND…S</option>
+															<option value="136">SOMONI TAYIK (DE TAYIKIST¡N)</option>
 															<option value="137">MANAT TURCOMANO</option>
 															<option value="138">DINAR TUNECINO</option>
 															<option value="139">PA'ANGA TONGANO</option>
 															<option value="140">LIRA TURCA</option>
-															<option value="141">D√ìLAR DE TRINIDAD Y TOBAGO</option>
-															<option value="142">D√ìLAR TAIWAN√âS</option>
-															<option value="143">CHEL√çN TANZANO</option>
+															<option value="141">D”LAR DE TRINIDAD Y TOBAGO</option>
+															<option value="142">D”LAR TAIWAN…S</option>
+															<option value="143">CHELÕN TANZANO</option>
 															<option value="144">GRIVNA UCRANIANA</option>
-															<option value="145">CHEL√çN UGAND√âS</option>
+															<option value="145">CHELÕN UGAND…S</option>
 															<option value="146">DOLAR AMERICANO</option>
-															<option value="147">D√ìLAR ESTADOUNIDENSE (SIGUIENTE D√çA) (C√ìDIGO DE FONDOS)</option>
-															<option value="148">D√ìLAR ESTADOUNIDENSE (MISMO D√çA) (C√ìDIGO DE FONDOS)</option>
+															<option value="147">D”LAR ESTADOUNIDENSE (SIGUIENTE DÕA) (C”DIGO DE FONDOS)</option>
+															<option value="148">D”LAR ESTADOUNIDENSE (MISMO DÕA) (C”DIGO DE FONDOS)</option>
 															<option value="149">PESO URUGUAYO</option>
-															<option value="150">CAPTACI√ìN √ÅLTAS</option>
+															<option value="150">CAPTACI”N ¡LTAS</option>
                                             </select>
                                     </div>
 								 </div>

@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,6 +36,9 @@
         <script src="js/Consulta/consultaComprobacion.js"></script>
         <script src="js/funciones.generales.js"></script>
         <script src="js/registro/registroComprobacion.js"></script>
+        <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+        <script src="js/login/login.js"></script>
+        <script src="navmenu.jsp"></script>
 
 </head>
 
@@ -47,6 +50,16 @@
         <%@ include file="navmenu.html" %>
      
             <div id="page-wrapper">
+                <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+                </script>
         	<div class="row">  
                     <br/>    
                         <br/>               
@@ -83,9 +96,9 @@
 		<div class="panel-body">
                     <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
-                            <li class="active" > <a href="#profile">Datos de Comprobaci贸n</a>					
+                            <li class="active" > <a href="#profile">Datos de Comprobaci髇</a>					
                             </li>
-                            <li><!--a href="#polizas" data-toggle="tab">P贸lizas</a-->					
+                            <li><!--a href="#polizas" data-toggle="tab">P髄izas</a-->					
                             </li>
                         </ul>
 			<!-- Tab panes -->
@@ -94,7 +107,7 @@
                                 <BR/>
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <i class="fa fa-fw"></i> Datos de Comprobaci贸n
+                                            <i class="fa fa-fw"></i> Datos de Comprobaci髇
                                         </div>
                                         <div class="panel-body">
                                             <div class="row">
@@ -171,7 +184,7 @@
                                         <div class="row">                               
                                             <div class="col-lg-3">
                                                 <div class="form-group">
-                                                    <label>Tipo de p贸liza</label>
+                                                    <label>Tipo de p髄iza</label>
                                                         <select class="form-control" id="cmbTipodoc"  name="cmbTipoPol"> 
                                                             <option selected>Seleccionar</option>
                                                             <option value="2">Gasto</option>
@@ -181,7 +194,7 @@
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="form-group">
-                                                    <label>No. de p贸liza</label>
+                                                    <label>No. de p髄iza</label>
                                                         <input class="form-control" id="nopoliza"  name="nopoliza" disabled="disabled" value= "0000001"/> 
 						</div>	
                                             </div>

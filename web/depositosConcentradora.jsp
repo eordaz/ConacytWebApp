@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -36,7 +37,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
 
 </head>
 
@@ -46,78 +49,91 @@
 
         <!-- Navigation -->
        		<!--   jsp:include page="navmenu.html" -->
-                <%@include file="navmenu.html" %>   
+            <%@include file="navmenu.html" %>   
         
        
             <!-- /.row -->
             <!-- /.row -->
 <!------------------------------------------------------------------------------------------------------------------->
-	<form name="formCaptura" method="post" action="inicio.jsp">
 
 	<div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+            </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dep&oacute;sitos a cuenta concentradora</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-                                                    
-                            <div class="tab-content">
-                                <div class="tab-pane fade in active" id="inicio">
-                                    <div class="panel-body">
-                    						    <div class="row">
-                            							<div class="col-lg-3">
-                            							<div class="form-group">
-                                                                        <label>Fecha Inicio</label>
-                                                                        <input class="form-control" TYPE="date" name="fecha_inicio">
-                                                                    </div>
-                            							</div>
-                            							<div class="col-lg-3">
-                            							     <div class="form-group">
-                                                                        <label>Fecha Fin</label>
-                                                                        <input class="form-control" type="date" name="fecha_fin">
-                            							     </div>
-                            						    </div>
-                        						</div>
-												
-									<div class="row">
-									<div class="col-lg-6" align="right">
-									<div class="form-group">
-									<button type="submit" class="btn btn-primary">Buscar</button>
-            			            <button type="reset" class="btn btn-default">Limpiar</button>
-            			            
-            			            </div></div></div>
-            			            
-            			            <div class="row">
-                            							<div class="col-lg-6">
-                            							<div class="form-group">
-            			            <table class="table table-bordered table-hover table-striped">
-							                                 			<thread>
-							                                 				<tr>
-							                                 					<th>#</th>
-							                                 					<th>Fecha</th>
-							                                 					<th>Importe</th>
-							                                 					<th>Seleccionar</th>
-							                                 				</tr>
-							                                 				<tr>
-							                                 					<td>1</td>
-							                                 					<td>15/11/2017</td>
-							                                 					<td>3000000</td>
-							                                 					<td><a href="asignarImporte.jsp" type="button">aplicar</a></td>
-							                                 				</tr>
-							                                 				<tr>
-							                                 					<td>2</td>
-							                                 					<td>30/11/2017</td>
-							                                 					<td>580000</td>
-							                                 					<td><a href="asignarImporte.jsp" type="button">aplicar</a></td>
-							                                 				</tr>
-							                                 				
-							                                 			</thread>
-									</table>
-									</div></div></div>
-										</div></div></div>
-                            
- <!-- jQuery -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="inicio">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Fecha Inicio</label>
+                                        <input class="form-control" TYPE="date" name="fecha_inicio"/>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>Fecha Fin</label>
+                                        <input class="form-control" type="date" name="fecha_fin"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6" align="right">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                    <button type="reset" class="btn btn-default">Limpiar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thread>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Fecha</th>
+                                                <th>Importe</th>
+                                                <th>Seleccionar</th>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>15/11/2017</td>
+                                                <td>3000000</td>
+                                                <td><a href="asignarImporte.jsp" type="button">aplicar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>30/11/2017</td>
+                                                <td>580000</td>
+                                                <td><a href="asignarImporte.jsp" type="button">aplicar</a></td>
+                                            </tr>
+
+                                        </thread>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

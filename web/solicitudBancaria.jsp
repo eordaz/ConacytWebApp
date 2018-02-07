@@ -1,4 +1,5 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+<%@page language="java" import="java.util.*" %>
+<%@page errorPage="error.jsp" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -34,6 +35,9 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
     <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/catalogos/catalogos.js"></script>
+    <script src="vendor/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/login/login.js"></script>
+    <script src="navmenu.jsp"></script>
 </head>
 
 <body>
@@ -47,6 +51,16 @@
 <!-- --------------------------------------termina navegacion menu -->
 
         <div id="page-wrapper">
+            <script>
+                    var user = sessionStorage.getItem("usuario");
+                    var idUser = sessionStorage.getItem("idUsuario");
+                    var rolUser = sessionStorage.getItem("idRol");
+                    console.log(user);
+                    console.log(idUser);
+                    console.log(rolUser);
+                    $("#usuarioIndex").val(user); // define username variable
+                    //document.getElementById(user);
+            </script>
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Solicitud Cuenta Bancaria </h1>
