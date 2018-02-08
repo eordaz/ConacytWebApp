@@ -77,9 +77,9 @@
     var user = sessionStorage.getItem("usuario");
     var idUser = sessionStorage.getItem("idUsuario");
     var rolUser = sessionStorage.getItem("idRol");
-    console.log(user);
-    console.log(idUser);
-    console.log(rolUser);
+    //console.log(user);
+    //console.log(idUser);
+    //console.log(rolUser);
     
     //document.getElementById(user);
 </script>
@@ -242,9 +242,9 @@
                     var user = sessionStorage.getItem("usuario");
                     var idUser = sessionStorage.getItem("idUsuario");
                     var rolUser = sessionStorage.getItem("idRol");
-                    console.log(user);
-                    console.log(idUser);
-                    console.log(rolUser);
+                    //console.log(user);
+                    //console.log(idUser);
+                    //console.log(rolUser);
                     $("#usuarioIndex").val(user); // define username variable
                     //document.getElementById(user);
                 </script>
