@@ -67,7 +67,7 @@
             </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dep&oacute;sito Cuenta HSBC</h1>
+                    <h3 class="page-header" style="color:#1e5a8e;">Dep&oacute;sito Cuenta HSBC</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

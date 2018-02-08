@@ -72,7 +72,7 @@
                 </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Generar CFDI </h1>
+                    <h3 class="page-header" style="color:#1e5a8e;">Generar CFDI </h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

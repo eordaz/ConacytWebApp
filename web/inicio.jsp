@@ -88,7 +88,7 @@
             
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Datos del Proyecto</h1>
+                    <h3 class="page-header" style="color:#1e5a8e;">Datos del Proyecto</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

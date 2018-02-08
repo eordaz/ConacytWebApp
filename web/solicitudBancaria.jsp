@@ -63,7 +63,7 @@
             </script>
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Solicitud Cuenta Bancaria </h1>
+                    <h3 class="page-header" style="color:#1e5a8e;">Solicitud Cuenta Bancaria </h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
