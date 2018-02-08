@@ -228,7 +228,7 @@
 				
                                         <div class="panel panel-primary panel-stage" id="divStage_1">
                                             <div class="panel-heading">
-                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 1</span>
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Ministracion 1</span>
                                                 <input type="hidden" readonly id="id_etapa1"  name="id_etapa1" value="1"></input>
 				            </div>
                                         <div class="panel-body panel-medio" id="cuerpo_1">
@@ -316,7 +316,7 @@
 			
 			            <div class="col-lg-4" align="left">
 			                            <div class="form-group">
-                                                        <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
+                                                        <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Ministracion</button>
                                                         <button type="button" name="btn2" id="btn2"  class="btn btn-primary">Siguiente</button>
                                                         <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
                                                     </div>
@@ -330,7 +330,7 @@
 				
                                         <div class="panel panel-primary panel-stage" id="divStage_1">
                                             <div class="panel-heading">
-                                                <i class="fa fa-fw"></i> <span class="stage-title">Etapa 2</span>
+                                                <i class="fa fa-fw"></i> <span class="stage-title">Ministracion 2</span>
                                                  <input type="hidden" readonly id="id_etapa2"  name="id_etapa2" value="2"></input>
 				            </div>
                                         <div class="panel-body panel-medio" id="cuerpo_1">

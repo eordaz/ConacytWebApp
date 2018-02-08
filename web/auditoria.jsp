@@ -181,7 +181,7 @@
                                         <div class="panel panel-primary panel-stage" id="divStage_1">
                                             <div class="panel-heading">
                                                 <i class="fa fa-fw"></i> 
-                                                    <span class="stage-title">Etapa 1</span>
+                                                    <span class="stage-title">Ministracion 1</span>
                                             </div>
                                             <div class="panel-body panel-medio" id="cuerpo_1">
                                                 <div class="row" id="row_1">
