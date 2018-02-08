@@ -3,7 +3,7 @@
     <img id="logo-patronato-unam" src="img/unam.png" width="90" height="90" >
     <img id="logo-patronato-unam" src="img/patronatotxt.gif">
     <div id="title">
-        <a href="navmenu.jsp"><h3 style="color:gray;">Modulo de Administraci&oacute;n de Recursos CONACYT</h3></a>
+        <a href="navmenu.jsp"><h3 style="color:#1e5a8e;">M&oacute;dulo de Administraci&oacute;n de Recursos CONACYT</h3></a>
     </div>
   <ul class="nav navbar-top-links navbar-right">
 

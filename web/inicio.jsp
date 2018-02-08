@@ -316,7 +316,7 @@
 			
 			            <div class="col-lg-4" align="left">
 			                            <div class="form-group">
-                                                        <button type="button"  disabled class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
+                                                        <button type="button" class="btn btn-primary" onclick="agrega_etapa()">Agregar Nueva Etapa</button>
                                                         <button type="button" name="btn2" id="btn2"  class="btn btn-primary">Siguiente</button>
                                                         <input type="text" class="" name="num" id="num" value="1" readonly="readonly" hidden="hidden" />
                                                     </div>
