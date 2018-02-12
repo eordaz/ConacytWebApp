@@ -4,16 +4,18 @@
     <img id="logo-patronato-unam" src="img/patronatotxt.gif">
     <div id="title">
         <a href="navmenu.jsp"><h3 style="color:#1e5a8e;">M&oacute;dulo de Administraci&oacute;n de Recursos CONACYT</h3></a>
+        
     </div>
+    
   <ul class="nav navbar-top-links navbar-right">
-
+            <input type="text" disabled id="usuarioIndex"/>
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-home fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><i class="fa fa-user fa-fw"><input type="text" disabled id="usuarioIndex"/></i>
+                    <li>
                     </li>                            
                     <li class="divider"></li>
                     <li><a href="index.jsp"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
