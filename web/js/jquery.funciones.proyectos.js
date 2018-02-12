@@ -26,7 +26,7 @@ $(document).ready(function () {
 
         $.ajax({// JQuery ajax function
                 type: "POST", // Submitting Method
-                url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/insertarOactualizarProyecto',
+                url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/proyectos/insertarOactualizarProyecto',
                 data: 'json=' + json, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
                 dataType: "json", // type of returned data
                 success: function (data) {

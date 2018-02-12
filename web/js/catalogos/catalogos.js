@@ -9,7 +9,7 @@ $(function () {
         var json_param = JSON.stringify({"tabla": 'cat_fondos'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
@@ -46,7 +46,7 @@ $(function () {
         var json_param = JSON.stringify({"tabla": 'cat_moneda'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
@@ -98,7 +98,7 @@ $(function () {
         var json_param = JSON.stringify({"tabla": 'cat_tipo_gasto'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
@@ -154,7 +154,7 @@ $(function () {
         var json_param = JSON.stringify({"tabla": 'cat_documentos'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
@@ -206,7 +206,7 @@ $(function () {
         var json_param = JSON.stringify({"tabla": 'cat_dependencias'});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getCatalogo',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success
@@ -275,7 +275,7 @@ $(function () {
         var json_param = JSON.stringify({"id_cat_catalogo": x});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/catalogos/getSubdependencias',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/catalogos/getSubdependencias',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) { // if ajax function results success

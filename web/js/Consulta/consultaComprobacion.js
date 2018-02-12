@@ -12,7 +12,7 @@ $(function () {
     var json_param = JSON.stringify({"id_recurso": '189', "clave_proyecto": NoProyecto});
     $.ajax({// JQuery ajax function
         type: "POST", // Submitting Method
-        url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
+        url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
         data: 'json=' + json_param, //'{\"id_proyecto\":\"' 4 '\"}',      
         dataType: "json", // type of returned data
         success: function (data) {
@@ -55,7 +55,7 @@ $(function () {
     var json_param = JSON.stringify({"id_recurso": '189', "clave_proyecto": NoProyecto});
     $.ajax({// JQuery ajax function
         type: "POST", // Submitting Method
-        url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
+        url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/proyectos/obtenerComprobacionesProyecto',
         data: 'json=' + json_param, //'{\"id_proyecto\":\"' 4 '\"}',      
         dataType: "json", // type of returned data
         success: function (data) {
