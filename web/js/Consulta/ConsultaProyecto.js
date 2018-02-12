@@ -13,7 +13,7 @@ $(function () {
         var json_param = JSON.stringify({"id_recurso": '189', "clave_proyecto": NoProyecto});
         $.ajax({// JQuery ajax function
             type: "POST", // Submitting Method
-            url: 'http://localhost:8080/conacyt-war/resources/conacyt/proyectos/obtenerProyectosPorClave',
+            url: 'http://192.168.29.80:8080/conacyt-war/resources/conacyt/proyectos/obtenerProyectosPorClave',
             data: 'json=' + json_param, //'{\"usuario\":\"'+ username + '\",\"pass\":\"' + password+'\"}',      
             dataType: "json", // type of returned data
             success: function (data) {
